@@ -13,11 +13,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - uses: actions/setup-python@v2
-      with:
-        python-version: '3.7.x' # Version range or exact version of a Python version to use, using SemVer's version range syntax
-        architecture: 'x64' # optional x64 or x86. Defaults to x64 if not specified
-
+      
     - name: Package Windows
       uses: JackMcKew/pyinstaller-action-windows@main
       with:
@@ -27,6 +23,11 @@ jobs:
       with:
         name: Windows Build
         path: src/dist/windows
+  
+    - uses: actions/setup-python@v2
+      with:
+        python-version: '3.7.x' # Version range or exact version of a Python version to use, using SemVer's version range syntax
+        architecture: 'x64' # optional x64 or x86. Defaults to x64 if not specified
   
     - name: Package Linux
       uses: JackMcKew/pyinstaller-action-linux@main
