@@ -38,7 +38,7 @@ jobs:
     - uses: actions/upload-artifact@v2
       with:
         name: Linux Build
-        path: src/dist/linux
+        path: src/dist
   build_mac:
     runs-on: macos-latest
     steps:
@@ -58,4 +58,4 @@ jobs:
     - uses: actions/upload-artifact@v2
       with:
         name: Mac Build
-        path: src/dist/
+        path: src/dist
