@@ -3,7 +3,7 @@
 block_cipher = None
 
 
-a = Analysis(['src\\main.py'],
+a = Analysis(['main.py'],
              pathex=['D:\\Programming\\midi-gen-py'],
              binaries=[],
              datas=[],
