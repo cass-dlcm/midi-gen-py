@@ -3,16 +3,16 @@ from mido import MidiFile, MidiTrack
 import mido
 from drum_gen import drum
 
-root = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']
+root = ('C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B')
 cVal = 48
-chords = [   'M',            'm',            '5',            '7',            'M7',           'm7',           'mM7',          '6',            'm6',           'add9',         'madd9',        '7b5',          '7#5',          'm7b5',         'm7#5']
-chordVals = [[0, 4, 7, 12],  [0, 3, 7, 12],  [0, 7, 12, 19], [0, 4, 7, 10],  [0, 4, 7, 11],  [0, 3, 7, 10],  [0, 3, 7, 11],  [0, 4, 7, 9],   [0, 3, 7, 9],   [0, 2, 4, 7],   [0, 2, 3, 7],   [0, 4, 6, 10],  [0, 4, 8, 10],  [0, 3, 6, 10],  [0, 3, 8, 10]]
+chords =    ('M',            'm',            '5',            '7',            'M7',           'm7',           'mM7',          '6',            'm6',           'add9',         'madd9',        '7b5',          '7#5',          'm7b5',         'm7#5')
+chordVals = ((0, 4, 7, 12),  (0, 3, 7, 12),  (0, 7, 12, 19), (0, 4, 7, 10),  (0, 4, 7, 11),  (0, 3, 7, 10),  (0, 3, 7, 11),  (0, 4, 7, 9),   (0, 3, 7, 9),   (0, 2, 4, 7),   (0, 2, 3, 7),   (0, 4, 6, 10),  (0, 4, 8, 10),  (0, 3, 6, 10),  (0, 3, 8, 10))
 chosenRootsStr = []
 rootVals = []
 chosenChordsStr = []
 chosenChordVals = []
 outStr = ''
-progressionLength = random.choice([4, 8])
+progressionLength = random.choice((4, 8))
 sequencesStr = ''
 
 for i in range(0, progressionLength):
@@ -179,7 +179,7 @@ guitarTrack.append(mido.MetaMessage('end_of_track'))
 drumTrack = MidiTrack()
 mid.tracks.append(drumTrack)
 
-for a in range(0, 8*progressionLength):
+for a in range(0, 8 * progressionLength):
     drum(drumTrack)
 
 drumTrack.append(mido.MetaMessage('end_of_track'))
