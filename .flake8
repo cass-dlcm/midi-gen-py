@@ -1,3 +1,0 @@
-[flake8]
-# the long lines in drum_gen.py are a feature, not a design issue
-ignore = E241, E501
