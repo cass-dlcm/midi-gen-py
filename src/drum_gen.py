@@ -558,12 +558,21 @@ def drum(drumTrack):
     pattern = random.choice(drumPatterns)
     for i in pattern:
         if (i[0] == 0x99):
-            drumTrack.append(mido.Message('note_on', note=i[1], channel=9,
-                                          time=i[2]))
+            drumTrack.append(mido.Message(
+                'note_on',
+                note=i[1],
+                channel=9,
+                time=i[2]))
         elif (i[0] == 0x89):
-            drumTrack.append(mido.Message('note_off', note=i[1], channel=9,
-                                          time=i[2]))
+            drumTrack.append(mido.Message(
+                'note_off',
+                note=i[1],
+                channel=9,
+                time=i[2]))
         elif (i[0] == 0xff01):
-            drumTrack.append(mido.MetaMessage('text', text="", time=i[1]))
+            drumTrack.append(mido.MetaMessage(
+                'text',
+                text="",
+                time=i[1]))
         else:
             print("whoops")
