@@ -1,4 +1,6 @@
 import random
+import time
+import os
 from mido import MidiFile, MidiTrack
 import mido
 from drum_gen import drum
@@ -328,5 +330,11 @@ for a in range(0, 8 * progressionLength):
 
 drumTrack.append(mido.MetaMessage('end_of_track'))
 
-mid.save('out.mid')
+timestamp = time.strftime("%Y-%m-%d %H %M %S", time.gmtime())
+try:
+    os.mkdir("output")
+    print("Created output directory.")
+except FileExistsError:
+    print("Output directory already exists.")
+mid.save("output/" + timestamp + '.mid')
 quit()
