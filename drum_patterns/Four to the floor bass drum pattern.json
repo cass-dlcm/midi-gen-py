@@ -1,0 +1,20 @@
+{
+  "name": "Four to the floor bass drum pattern",
+  "pattern": [
+    {
+      "repeat_count": 4,
+      "subpattern": [
+        {
+          "noteEvent": "on",
+          "drumType": "Bass Drum 1",
+          "time": 0
+        },
+        {
+          "noteEvent": "off",
+          "drumType": "Bass Drum 1",
+          "time": 480
+        }
+      ]
+    }
+  ]
+}
