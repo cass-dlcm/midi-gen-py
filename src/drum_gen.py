@@ -7,6 +7,7 @@ import mido
 # "Claves" is Claves
 
 drumTypes = {
+    "Acoustic Bass Drum": 0x23,
     "Bass Drum 1": 0x24,
     "Side Stick": 0x25,
     "Acoustic Snare": 0x26,
@@ -17,26 +18,11 @@ drumTypes = {
     "Claves": 0x4b
 }
 
-with open('drum_patterns/D-beat drum pattern 2b.json') as json_file:
+with open('drum_patterns/Eighth-note ride pattern with triplet swing.json') as json_file:
     data = json.load(json_file)
 
 # Format: (note event, drum type, time (in 1/480 of a quarter note))
 drumPatterns = (
-    # D-beat drum pattern 3
-    (("on", "Bass Drum 1", 0), ("on", "Closed Hi Hat", 0), ("off", "Closed Hi Hat", 240), ("off", "Bass Drum 1", 0), ("on", "Acoustic Snare", 0), ("on", "Closed Hi Hat", 0), ("off", "Closed Hi Hat", 240), ("on", "Closed Hi Hat", 0), ("off", "Acoustic Snare", 120), ("on", "Bass Drum 1", 0), ("off", "Closed Hi Hat", 120), ("off", "Bass Drum 1", 0), ("on", "Closed Hi Hat", 0), ("on", "Acoustic Snare", 0), ("off", "Closed Hi Hat", 240), ("off", "Acoustic Snare", 0), ("on", "Closed Hi Hat", 0), ("on", "Bass Drum 1", 0), ("off", "Closed Hi Hat", 240), ("off", "Bass Drum 1", 0), ("on", "Closed Hi Hat", 0), ("on", "Acoustic Snare", 0), ("off", "Acoustic Snare", 120), ("on", "Bass Drum 1", 0), ("off", "Closed Hi Hat", 120), ("on", "Closed Hi Hat", 0), ("off", "Bass Drum 1", 120), ("on", "Bass Drum 1", 0), ("off", "Closed Hi Hat", 120), ("off", "Bass Drum 1", 0), ("on", "Acoustic Snare", 0), ("on", "Closed Hi Hat", 0), ("off", "Closed Hi Hat", 240), ("off", "Acoustic Snare", 0)),
-
-    # Delayed backbeat
-    (("on", "Bass Drum 1", 0), ("on", "Closed Hi Hat", 0), ("off", "Closed Hi Hat", 120), ("off", "Bass Drum 1", 0), ("on", "Closed Hi Hat", 0), ("on", "Acoustic Snare", 0), ("off", "Closed Hi Hat", 120), ("on", "Closed Hi Hat", 0), ("off", "Acoustic Snare", 60), ("on", "Bass Drum 1", 0), ("off", "Closed Hi Hat", 60), ("off", "Bass Drum 1", 0), ("on", "Acoustic Snare", 0), ("on", "Closed Hi Hat", 0), ("off", "Closed Hi Hat", 120), ("off", "Acoustic Snare", 0), ("on", "Bass Drum 1", 0), ("on", "Closed Hi Hat", 0), ("off", "Closed Hi Hat", 120), ("off", "Bass Drum 1", 0), ("on", "Closed Hi Hat", 0), ("on", "Acoustic Snare", 0), ("off", "Acoustic Snare", 60), ("on", "Bass Drum 1", 0), ("off", "Closed Hi Hat", 60), ("on", "Closed Hi Hat", 0), ("off", "Bass Drum 1", 60), ("on", "Bass Drum 1", 0), ("off", "Closed Hi Hat", 60), ("off", "Bass Drum 1", 0), ("on", "Acoustic Snare", 0), ("on", "Closed Hi Hat", 0), ("off", "Closed Hi Hat", 120), ("off", "Acoustic Snare", 0), ("on", "Bass Drum 1", 0), ("on", "Closed Hi Hat", 0), ("off", "Closed Hi Hat", 120), ("off", "Bass Drum 1", 0), ("on", "Closed Hi Hat", 0), ("on", "Acoustic Snare", 0), ("off", "Closed Hi Hat", 120), ("on", "Closed Hi Hat", 0), ("off", "Acoustic Snare", 60), ("on", "Bass Drum 1", 0), ("off", "Closed Hi Hat", 60), ("off", "Bass Drum 1", 0), ("on", "Acoustic Snare", 0), ("on", "Closed Hi Hat", 0), ("off", "Closed Hi Hat", 120), ("off", "Acoustic Snare", 0), ("on", "Bass Drum 1", 0), ("on", "Closed Hi Hat", 0), ("off", "Closed Hi Hat", 120), ("off", "Bass Drum 1", 0), ("on", "Closed Hi Hat", 0), ("on", "Acoustic Snare", 0), ("off", "Acoustic Snare", 60), ("on", "Bass Drum 1", 0), ("off", "Closed Hi Hat", 60), ("on", "Closed Hi Hat", 0), ("off", "Bass Drum 1", 60), ("on", "Bass Drum 1", 0), ("off", "Closed Hi Hat", 60), ("off", "Bass Drum 1", 0), ("on", "Acoustic Snare", 0), ("on", "Closed Hi Hat", 0), ("off", "Closed Hi Hat", 120), ("off", "Acoustic Snare", 0)),
-
-    # Double bass drum beat
-    (("on", "Closed Hi Hat", 0), ("on", "Bass Drum 1", 0), ("off", "Bass Drum 1", 120), ("on", 0x23, 0), ("off", "Closed Hi Hat", 120), ("off", 0x23, 0), ("on", "Closed Hi Hat", 0), ("on", "Bass Drum 1", 0), ("off", "Bass Drum 1", 120), ("on", 0x23, 0), ("off", "Closed Hi Hat", 120), ("off", 0x23, 0), ("on", "Acoustic Snare", 0), ("on", "Closed Hi Hat", 0), ("on", "Bass Drum 1", 0), ("off", "Bass Drum 1", 120), ("on", 0x23, 0), ("off", "Acoustic Snare", 120), ("off", "Closed Hi Hat", 0), ("off", 0x23, 0), ("on", "Closed Hi Hat", 0), ("on", "Bass Drum 1", 0), ("off", "Bass Drum 1", 120), ("on", 0x23, 0), ("off", "Closed Hi Hat", 120), ("off", 0x23, 0), ("on", "Closed Hi Hat", 0), ("on", "Bass Drum 1", 0), ("off", "Bass Drum 1", 120), ("on", 0x23, 0), ("off", "Closed Hi Hat", 120), ("off", 0x23, 0), ("on", "Closed Hi Hat", 0), ("on", "Bass Drum 1", 0), ("off", "Bass Drum 1", 120), ("on", 0x23, 0), ("off", "Closed Hi Hat", 120), ("off", 0x23, 0), ("on", "Acoustic Snare", 0), ("on", "Closed Hi Hat", 0), ("on", "Bass Drum 1", 0), ("off", "Bass Drum 1", 120), ("on", 0x23, 0), ("off", "Acoustic Snare", 120), ("off", "Closed Hi Hat", 0), ("off", 0x23, 0)),
-
-    # Double-time rock pattern
-    (("on", "Closed Hi Hat", 0), ("on", "Bass Drum 1", 0), ("off", "Closed Hi Hat", 120), ("on", "Closed Hi Hat", 0), ("off", "Bass Drum 1", 120), ("off", "Closed Hi Hat", 0), ("on", "Closed Hi Hat", 0), ("on", "Acoustic Snare", 0), ("off", "Closed Hi Hat", 120), ("on", "Closed Hi Hat", 0), ("off", "Acoustic Snare", 120), ("off", "Closed Hi Hat", 0), ("on", "Closed Hi Hat", 0), ("on", "Bass Drum 1", 0), ("off", "Closed Hi Hat", 120), ("on", "Closed Hi Hat", 0), ("off", "Bass Drum 1", 120), ("off", "Closed Hi Hat", 0), ("on", "Closed Hi Hat", 0), ("on", "Acoustic Snare", 0), ("off", "Closed Hi Hat", 120), ("on", "Closed Hi Hat", 0), ("off", "Acoustic Snare", 120), ("off", "Closed Hi Hat", 0), ("on", "Closed Hi Hat", 0), ("on", "Bass Drum 1", 0), ("off", "Closed Hi Hat", 120), ("on", "Closed Hi Hat", 0), ("off", "Bass Drum 1", 120), ("off", "Closed Hi Hat", 0), ("on", "Closed Hi Hat", 0), ("on", "Acoustic Snare", 0), ("off", "Closed Hi Hat", 120), ("on", "Closed Hi Hat", 0), ("off", "Acoustic Snare", 120), ("off", "Closed Hi Hat", 0), ("on", "Closed Hi Hat", 0), ("on", "Bass Drum 1", 0), ("off", "Closed Hi Hat", 120), ("on", "Closed Hi Hat", 0), ("off", "Bass Drum 1", 120), ("off", "Closed Hi Hat", 0), ("on", "Closed Hi Hat", 0), ("on", "Acoustic Snare", 0), ("off", "Closed Hi Hat", 120), ("on", "Closed Hi Hat", 0), ("off", "Acoustic Snare", 120), ("off", "Closed Hi Hat", 0)),
-
-    # Eighth-note ride pattern with triplet swing
-    (("on", "Ride Cymbal 1", 0), ("off", "Ride Cymbal 1", 320), ("on", "Ride Cymbal 1", 0), ("off", "Ride Cymbal 1", 160), ("on", "Ride Cymbal 1", 0), ("off", "Ride Cymbal 1", 320), ("on", "Ride Cymbal 1", 0), ("off", "Ride Cymbal 1", 160), ("on", "Ride Cymbal 1", 0), ("off", "Ride Cymbal 1", 320), ("on", "Ride Cymbal 1", 0), ("off", "Ride Cymbal 1", 160), ("on", "Ride Cymbal 1", 0), ("off", "Ride Cymbal 1", 320), ("on", "Ride Cymbal 1", 0), ("off", "Ride Cymbal 1", 160)),
-
     # Fill with groove number 2 and crash
     (("on", "Closed Hi Hat", 0), ("on", "Bass Drum 1", 0), ("off", "Closed Hi Hat", 120), ("on", "Closed Hi Hat", 0),
         ("off", "Bass Drum 1", 120), ("off", "Closed Hi Hat", 0), ("on", "Closed Hi Hat", 0), ("on", "Acoustic Snare", 0),

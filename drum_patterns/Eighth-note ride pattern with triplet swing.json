@@ -1,0 +1,30 @@
+{
+  "name": "Eighth-note ride pattern with triplet swing",
+  "pattern": [
+    {
+      "repeat_count": 4,
+      "subpattern": [
+        {
+          "noteEvent": "on",
+          "drumType": "Ride Cymbal 1",
+          "time": 0
+        },
+        {
+          "noteEvent": "off",
+          "drumType": "Ride Cymbal 1",
+          "time": 320
+        },
+        {
+          "noteEvent": "on",
+          "drumType": "Ride Cymbal 1",
+          "time": 0
+        },
+        {
+          "noteEvent": "off",
+          "drumType": "Ride Cymbal 1",
+          "time": 160
+        }
+      ]
+    }
+  ]
+}
