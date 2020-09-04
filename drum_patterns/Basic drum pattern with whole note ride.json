@@ -1,0 +1,40 @@
+{
+  "name": "Basic drum pattern with whole note ride",
+  "pattern": [
+    {
+      "noteEvent": "on",
+      "drumType": "Ride Cymbal 1",
+      "time": 0
+    },
+    {
+      "repeat_count": 2,
+      "subpattern": [
+        {
+          "noteEvent": "on",
+          "drumType": "Bass Drum 1",
+          "time": 0
+        },
+        {
+          "noteEvent": "off",
+          "drumType": "Bass Drum 1",
+          "time": 480
+        },
+        {
+          "noteEvent": "on",
+          "drumType": "Acoustic Snare",
+          "time": 0
+        },
+        {
+          "noteEvent": "off",
+          "drumType": "Acoustic Snare",
+          "time": 480
+        }
+      ]
+    },
+    {
+      "noteEvent": "off",
+      "drumType": "Ride Cymbal 1",
+      "time": 0
+    }
+  ]
+}
