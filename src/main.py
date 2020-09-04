@@ -3,11 +3,9 @@ import time
 import os
 from mido import MidiFile, MidiTrack
 import mido
-from midi2audio import FluidSynth
+# from midi2audio import FluidSynth
 import json
 from drum_gen import drum
-
-# configFile = open('config.txt', 'r')
 
 root = ('C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B')
 cVal = 48
@@ -387,8 +385,8 @@ mid.save("output\\" + timestamp + '.mid')
 ardFile = open('output\\' + timestamp + '\\' + timestamp + '.ino', 'w')
 ardFile.write(arduinoStr)
 ardFile.close()
-print(os.system('"C:\\Program Files (x86)\\Arduino\\arduino.exe" --upload --board SparkFun:avr:RedBoard --port COM3 -v output\\' + timestamp + "\\" + timestamp + '.ino'))
-time.sleep(11)
-FluidSynth().play_midi("output\\" + timestamp + '.mid')
+# print(os.system('"C:\\Program Files (x86)\\Arduino\\arduino.exe" --upload --board SparkFun:avr:RedBoard --port COM3 -v output\\' + timestamp + "\\" + timestamp + '.ino'))
+# time.sleep(11)
+# FluidSynth().play_midi("output\\" + timestamp + '.mid')
 
 quit()

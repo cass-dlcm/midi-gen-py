@@ -1,0 +1,35 @@
+{
+  "name": "Backbeat pattern snare drum",
+  "pattern": [
+    {
+      "noteEvent": "on",
+      "drumType": "Acoustic Snare",
+      "time": 480
+    },
+    {
+      "noteEvent": "off",
+      "drumType": "Acoustic Snare",
+      "time": 240
+    },
+    {
+      "noteEvent": "on",
+      "drumType": "Acoustic Snare",
+      "time": 0
+    },
+    {
+      "noteEvent": "off",
+      "drumType": "Acoustic Snare",
+      "time": 240
+    },
+    {
+      "noteEvent": "on",
+      "drumType": "Acoustic Snare",
+      "time": 480
+    },
+    {
+      "noteEvent": "off",
+      "drumType": "Acoustic Snare",
+      "time": 480
+    }
+  ]
+}

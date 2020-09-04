@@ -1,0 +1,60 @@
+{
+  "name": "3-2 rumba clave",
+  "pattern": [
+    {
+      "noteEvent": "on",
+      "drumType": "Claves",
+      "time": 0
+    },
+    {
+      "noteEvent": "off",
+      "drumType": "Claves",
+      "time": 240
+    },
+    {
+      "noteEvent": "on",
+      "drumType": "Claves",
+      "time": 120
+    },
+    {
+      "noteEvent": "off",
+      "drumType": "Claves",
+      "time": 120
+    },
+    {
+      "noteEvent": "on",
+      "drumType": "Claves",
+      "time": 360
+    },
+    {
+      "noteEvent": "off",
+      "drumType": "Claves",
+      "time": 120
+    },
+    {
+      "noteEvent": "on",
+      "drumType": "Claves",
+      "time": 240
+    },
+    {
+      "noteEvent": "off",
+      "drumType": "Claves",
+      "time": 240
+    },
+    {
+      "noteEvent": "on",
+      "drumType": "Claves",
+      "time": 0
+    },
+    {
+      "noteEvent": "off",
+      "drumType": "Claves",
+      "time": 240
+    },
+    {
+      "noteEvent": "off",
+      "drumType": "Claves",
+      "time": 240
+    }
+  ]
+}

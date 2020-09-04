@@ -1,0 +1,55 @@
+{
+  "name": "6-8 clave",
+  "pattern": [
+    {
+      "noteEvent": "on",
+      "drumType": "Claves",
+      "time": 0
+    },
+    {
+      "noteEvent": "off",
+      "drumType": "Claves",
+      "time": 320
+    },
+    {
+      "noteEvent": "on",
+      "drumType": "Claves",
+      "time": 0
+    },
+    {
+      "noteEvent": "off",
+      "drumType": "Claves",
+      "time": 160
+    },
+    {
+      "noteEvent": "on",
+      "drumType": "Claves",
+      "time": 320
+    },
+    {
+      "noteEvent": "off",
+      "drumType": "Claves",
+      "time": 160
+    },
+    {
+      "noteEvent": "on",
+      "drumType": "Claves",
+      "time": 160
+    },
+    {
+      "noteEvent": "off",
+      "drumType": "Claves",
+      "time": 320
+    },
+    {
+      "noteEvent": "on",
+      "drumType": "Claves",
+      "time": 0
+    },
+    {
+      "noteEvent": "off",
+      "drumType": "Claves",
+      "time": 480
+    }
+  ]
+}
