@@ -1,0 +1,20 @@
+{
+  "name": "Characteristic rock hi-hat pattern",
+  "pattern": [
+    {
+      "repeat_count": 8,
+      "subpattern": [
+        {
+          "noteEvent": "on",
+          "drumType": "Pedal Hi Hat",
+          "time": 0
+        },
+        {
+          "noteEvent": "off",
+          "drumType": "Pedal Hi Hat",
+          "time": 240
+        }
+      ]
+    }
+  ]
+}

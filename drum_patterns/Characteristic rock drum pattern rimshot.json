@@ -1,0 +1,135 @@
+{
+  "name": "Characteristic rock drum pattern rimshot",
+  "pattern": [
+    {
+      "noteEvent": "on",
+      "drumType": "Closed Hi Hat",
+      "time": 0
+    },
+    {
+      "noteEvent": "on",
+      "drumType": "Bass Drum 1",
+      "time": 0
+    },
+    {
+      "noteEvent": "on",
+      "drumType": "Closed Hi Hat",
+      "time": 232
+    },
+    {
+      "noteEvent": "off",
+      "drumType": "Closed Hi Hat",
+      "time": 8
+    },
+    {
+      "noteEvent": "on",
+      "drumType": "Closed Hi Hat",
+      "time": 225
+    },
+    {
+      "noteEvent": "on",
+      "drumType": "Side Stick",
+      "time": 0
+    },
+    {
+      "noteEvent": "off",
+      "drumType": "Bass Drum 1",
+      "time": 15
+    },
+    {
+      "noteEvent": "off",
+      "drumType": "Closed Hi Hat",
+      "time": 0
+    },
+    {
+      "noteEvent": "off",
+      "drumType": "Closed Hi Hat",
+      "time": 240
+    },
+    {
+      "noteEvent": "on",
+      "drumType": "Closed Hi Hat",
+      "time": 0
+    },
+    {
+      "noteEvent": "off",
+      "drumType": "Side Stick",
+      "time": 240
+    },
+    {
+      "noteEvent": "off",
+      "drumType": "Closed Hi Hat",
+      "time": 0
+    },
+    {
+      "noteEvent": "on",
+      "drumType": "Closed Hi Hat",
+      "time": 0
+    },
+    {
+      "noteEvent": "on",
+      "drumType": "Bass Drum 1",
+      "time": 0
+    },
+    {
+      "noteEvent": "on",
+      "drumType": "Closed Hi Hat",
+      "time": 232
+    },
+    {
+      "noteEvent": "on",
+      "drumType": "Bass Drum 1",
+      "time": 0
+    },
+    {
+      "noteEvent": "off",
+      "drumType": "Closed Hi Hat",
+      "time": 8
+    },
+    {
+      "noteEvent": "off",
+      "drumType": "Bass Drum 1",
+      "time": 0
+    },
+    {
+      "noteEvent": "on",
+      "drumType": "Closed Hi Hat",
+      "time": 225
+    },
+    {
+      "noteEvent": "on",
+      "drumType": "Side Stick",
+      "time": 0
+    },
+    {
+      "noteEvent": "off",
+      "drumType": "Bass Drum 1",
+      "time": 15
+    },
+    {
+      "noteEvent": "off",
+      "drumType": "Closed Hi Hat",
+      "time": 0
+    },
+    {
+      "noteEvent": "off",
+      "drumType": "Closed Hi Hat",
+      "time": 240
+    },
+    {
+      "noteEvent": "on",
+      "drumType": "Closed Hi Hat",
+      "time": 0
+    },
+    {
+      "noteEvent": "off",
+      "drumType": "Side Stick",
+      "time": 240
+    },
+    {
+      "noteEvent": "off",
+      "drumType": "Closed Hi Hat",
+      "time": 0
+    }
+  ]
+}
