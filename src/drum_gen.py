@@ -1,6 +1,7 @@
 import json
 import mido
-# import random
+import glob
+import random
 
 # "Crash Cymbal 1" is Crash Cymbal 1
 # "Ride Cymbal 1" is Ride Cymbal 1
@@ -19,8 +20,11 @@ drumTypes = {
     "Claves": 0x4b
 }
 
-with open('drum_patterns/Half time shuffle.json') as json_file:
-    data = json.load(json_file)
+file_list = glob.glob("./drum_patterns/*.json")
+data = []
+for file_path in file_list:
+    with open(file_path) as json_file:
+        data.append(json.load(json_file))
 
 # Format: (note event, drum type, time (in 1/480 of a quarter note))
 drumPatterns = (
@@ -42,8 +46,7 @@ def drum_pattern_repeat_recursion(level, drumTrack):
 
 
 def drum(drumTrack):
-    # pattern = random.choice(data)["pattern"]
-    pattern = data["pattern"]
+    pattern = random.choice(data)["pattern"]
     for i in pattern:
         drum_pattern_repeat_recursion(i, drumTrack)
 
