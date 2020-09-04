@@ -17,51 +17,54 @@ chordVals = ((0, 4, 7, 12),  (0, 3, 7, 12),  (0, 7, 12, 19), (0, 4, 7, 10),
              (0, 4, 7, 11),  (0, 3, 7, 10),  (0, 3, 7, 11),  (0, 4, 7, 9),
              (0, 3, 7, 9),   (0, 2, 4, 7),   (0, 2, 3, 7),   (0, 4, 6, 10),
              (0, 4, 8, 10),  (0, 3, 6, 10),  (0, 3, 8, 10))
-chosenRootsStr = []
-rootVals = []
-chosenChordsStr = []
-chosenChordVals = []
+
+with open('chords.json') as json_file:
+    chordDict = json.load(json_file)
+
+with open('config.json') as json_file:
+    config = json.load(json_file)
+
+assembledChords = []
 outStr = ''
 progressionLength = 4
 sequencesStr = ''
-with open('config.json') as json_file:
-    data = json.load(json_file)
 arduinoStr = '#include <Adafruit_NeoPixel.h>\n#define LED_PIN    '
-arduinoStr += str(data['LED_PIN'])
+arduinoStr += str(config['LED_PIN'])
 arduinoStr += '\n#define LED_COUNT '
-arduinoStr += str(data['LED_COUNT'])
+arduinoStr += str(config['LED_COUNT'])
 arduinoStr += '\nAdafruit_NeoPixel strip(LED_COUNT, LED_PIN, NEO_GRB + NEO_KHZ800);\nint a = 0;\nint b = 0;\nconst int hues[] = {'
 
 for i in range(0, progressionLength):
-    chosenRootsStr.append(random.choice(root))
-    rootVals.append(root.index(chosenRootsStr[i]))
-
-for i in range(0, progressionLength):
-    chosenChordsStr.append(random.choice(chords))
-    chosenChordValsSub = []
-    for j in range(0, 4):
-        chosenChordValsSub.append(rootVals[i] + cVal + chordVals[chords.index(
-            chosenChordsStr[i])][j])
-    chosenChordVals.append(chosenChordValsSub)
-    outStr = outStr + chosenRootsStr[i] + chosenChordsStr[i] + " "
+    b = {
+        'root': {},
+        'chord': {}
+    }
+    a = {
+        'name': random.choice(root),
+    }
+    a['value'] = root.index(a['name'])
+    b['root'] = a
+    b['chord'] = random.choice(chordDict)
+    outStr += b['root']['name'] + b['chord']['name'] + ' '
+    assembledChords.append(b)
 
 sequences = []
 for i in range(0, 8):
     temp = []
     tempStrs = []
     for j in range(0, progressionLength):
-        temp.append(chosenChordVals[j])
-        tempStrs.append(chosenRootsStr[j] + chosenChordsStr[j])
+        temp.append(assembledChords[j]['chord']['values'])
+        tempStrs.append(assembledChords[j]['root']['name'] + assembledChords[j]['chord']['name'])
     segment = []
     for j in range(0, progressionLength):
         k = random.randint(j, progressionLength - 1) - j
         segment.append(temp.pop(k))
-        sequencesStr = sequencesStr + tempStrs.pop(k) + " "
+        sequencesStr = sequencesStr + tempStrs.pop(k) + ' '
     sequences.append(segment)
 
 bpm = random.randint(90, 180)
 
-d = 800000 / 24 / data['LED_COUNT'] / (bpm / 60) * .9
+d = 800000 / 24 / config['LED_COUNT'] / (bpm / 60) * .9
 
 print(outStr)
 print(bpm)
