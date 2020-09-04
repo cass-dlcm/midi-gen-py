@@ -1,6 +1,10 @@
 import random
+import time
+import os
 from mido import MidiFile, MidiTrack
 import mido
+# from midi2audio import FluidSynth
+import json
 from drum_gen import drum
 
 root = ('C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B')
@@ -18,8 +22,15 @@ rootVals = []
 chosenChordsStr = []
 chosenChordVals = []
 outStr = ''
-progressionLength = random.choice((4, 8))
+progressionLength = 4
 sequencesStr = ''
+with open('config.json') as json_file:
+    data = json.load(json_file)
+arduinoStr = '#include <Adafruit_NeoPixel.h>\n#define LED_PIN    '
+arduinoStr += str(data['LED_PIN'])
+arduinoStr += '\n#define LED_COUNT '
+arduinoStr += str(data['LED_COUNT'])
+arduinoStr += '\nAdafruit_NeoPixel strip(LED_COUNT, LED_PIN, NEO_GRB + NEO_KHZ800);\nint a = 0;\nint b = 0;\nconst int hues[] = {'
 
 for i in range(0, progressionLength):
     chosenRootsStr.append(random.choice(root))
@@ -49,6 +60,8 @@ for i in range(0, 8):
     sequences.append(segment)
 
 bpm = random.randint(90, 180)
+
+d = 800000 / 24 / data['LED_COUNT'] / (bpm / 60) * .9
 
 print(outStr)
 print(bpm)
@@ -171,6 +184,12 @@ for a in range(0, 8):
                 'note_off',
                 channel=1,
                 note=sequences[a][b][2]))
+            arduinoStr = arduinoStr + str(sequences[a][b][0] - 48) + ", "
+            arduinoStr = arduinoStr + str(sequences[a][b][3] - 48) + ", "
+            arduinoStr = arduinoStr + str(sequences[a][b][1] - 48) + ", "
+            arduinoStr = arduinoStr + str(sequences[a][b][2] - 48)
+            if (not(a == 7 and b == progressionLength - 1)):
+                arduinoStr += ", "
     if (pickPattern == 1):
         for b in range(0, progressionLength):
             guitarTrack.append(mido.Message(
@@ -245,6 +264,12 @@ for a in range(0, 8):
                 'note_off',
                 note=sequences[a][b][3],
                 channel=1))
+            arduinoStr = arduinoStr + str(sequences[a][b][0] - 48) + ", "
+            arduinoStr = arduinoStr + str(sequences[a][b][2] - 48) + ", "
+            arduinoStr = arduinoStr + str(sequences[a][b][1] - 48) + ", "
+            arduinoStr = arduinoStr + str(sequences[a][b][3] - 48)
+            if (not(a == 7 and b == progressionLength - 1)):
+                arduinoStr += ", "
     if (pickPattern == 2):
         for b in range(0, progressionLength):
             guitarTrack.append(mido.Message(
@@ -318,7 +343,25 @@ for a in range(0, 8):
                 'note_off',
                 note=sequences[a][b][2],
                 channel=1))
+            arduinoStr = arduinoStr + str(sequences[a][b][0] - 48) + ", "
+            arduinoStr = arduinoStr + str(sequences[a][b][3] - 48) + ", "
+            arduinoStr = arduinoStr + str(sequences[a][b][1] - 48) + ", "
+            arduinoStr = arduinoStr + str(sequences[a][b][2] - 48)
+            if (not(a == 7 and b == progressionLength - 1)):
+                arduinoStr += ", "
 guitarTrack.append(mido.MetaMessage('end_of_track'))
+
+arduinoStr += '};\nvoid setup() {\n  strip.begin();\n  strip.show();\n}\nint getColor() {\n  return (int)(65536.0 * ((hues[a] * ('
+arduinoStr += str(int(d))
+arduinoStr += ' - b)) * '
+arduinoStr += str(float.hex(1 / int(d)))
+arduinoStr += ' + (hues[a + 1] * b) * '
+arduinoStr += str(float.hex(1 / int(d)))
+arduinoStr += ') * 0.0833333333333333);\n}\nvoid loop() {\n  if (a < '
+arduinoStr += str(progressionLength * 8 * 4)
+arduinoStr += ') {\n    strip.fill(strip.ColorHSV(getColor()));\n  }\n  b++;\n  strip.show();\n  if (b == '
+arduinoStr += str(int(d))
+arduinoStr += ') {\n    a++;\n    b = 0;\n  }\n}'
 
 drumTrack = MidiTrack()
 mid.tracks.append(drumTrack)
@@ -328,5 +371,22 @@ for a in range(0, 8 * progressionLength):
 
 drumTrack.append(mido.MetaMessage('end_of_track'))
 
-mid.save('out.mid')
+timestamp = time.strftime('%Y-%m-%d_%H_%M_%S', time.gmtime())
+try:
+    os.mkdir("output")
+    print("Created output directory.")
+except FileExistsError:
+    print()
+try:
+    os.mkdir('output\\' + timestamp)
+except FileExistsError:
+    print()
+mid.save("output\\" + timestamp + '.mid')
+ardFile = open('output\\' + timestamp + '\\' + timestamp + '.ino', 'w')
+ardFile.write(arduinoStr)
+ardFile.close()
+# print(os.system('"C:\\Program Files (x86)\\Arduino\\arduino.exe" --upload --board SparkFun:avr:RedBoard --port COM3 -v output\\' + timestamp + "\\" + timestamp + '.ino'))
+# time.sleep(11)
+# FluidSynth().play_midi("output\\" + timestamp + '.mid')
+
 quit()

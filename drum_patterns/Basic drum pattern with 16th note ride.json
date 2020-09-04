@@ -1,0 +1,105 @@
+{
+  "name": "Basic drum pattern with 16th note ride",
+  "pattern": [
+    {
+      "noteEvent": "on",
+      "drumType": "Bass Drum 1",
+      "time": 0
+    },
+    {
+      "repeat_count": 4,
+      "subpattern": [
+        {
+          "noteEvent": "on",
+          "drumType": "Ride Cymbal 1",
+          "time": 0
+        },
+        {
+          "noteEvent": "off",
+          "drumType": "Ride Cymbal 1",
+          "time": 120
+        }
+      ]
+    },
+    {
+      "noteEvent": "off",
+      "drumType": "Bass Drum 1",
+      "time": 0
+    },
+    {
+      "noteEvent": "on",
+      "drumType": "Acoustic Snare",
+      "time": 0
+    },
+    {
+      "repeat_count": 4,
+      "subpattern": [
+        {
+          "noteEvent": "on",
+          "drumType": "Ride Cymbal 1",
+          "time": 0
+        },
+        {
+          "noteEvent": "off",
+          "drumType": "Ride Cymbal 1",
+          "time": 120
+        }
+      ]
+    },
+    {
+      "noteEvent": "off",
+      "drumType": "Acoustic Snare",
+      "time": 0
+    },
+    {
+      "noteEvent": "on",
+      "drumType": "Bass Drum 1",
+      "time": 0
+    },
+    {
+      "repeat_count": 4,
+      "subpattern": [
+        {
+          "noteEvent": "on",
+          "drumType": "Ride Cymbal 1",
+          "time": 0
+        },
+        {
+          "noteEvent": "off",
+          "drumType": "Ride Cymbal 1",
+          "time": 120
+        }
+      ]
+    },
+    {
+      "noteEvent": "off",
+      "drumType": "Bass Drum 1",
+      "time": 0
+    },
+    {
+      "noteEvent": "on",
+      "drumType": "Acoustic Snare",
+      "time": 0
+    },
+    {
+      "repeat_count": 4,
+      "subpattern": [
+        {
+          "noteEvent": "on",
+          "drumType": "Ride Cymbal 1",
+          "time": 0
+        },
+        {
+          "noteEvent": "off",
+          "drumType": "Ride Cymbal 1",
+          "time": 120
+        }
+      ]
+    },
+    {
+      "noteEvent": "off",
+      "drumType": "Acoustic Snare",
+      "time": 0
+    }
+  ]
+}

@@ -1,0 +1,2907 @@
+[
+  {
+    "name": "",
+    "pattern": [
+      {
+        "noteEvent": "on",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Acoustic Snare",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Bass Drum 1",
+        "time": 240
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Acoustic Snare",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Acoustic Snare",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Bass Drum 1",
+        "time": 240
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Acoustic Snare",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Acoustic Snare",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Bass Drum 1",
+        "time": 240
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Acoustic Snare",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Acoustic Snare",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Bass Drum 1",
+        "time": 240
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Acoustic Snare",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Acoustic Snare",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Bass Drum 1",
+        "time": 240
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Acoustic Snare",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Acoustic Snare",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Bass Drum 1",
+        "time": 240
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Acoustic Snare",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Acoustic Snare",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Bass Drum 1",
+        "time": 240
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Acoustic Snare",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Acoustic Snare",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Bass Drum 1",
+        "time": 240
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Acoustic Snare",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      }
+    ]
+  },
+  {
+    "name": "",
+    "pattern": [
+      {
+        "noteEvent": "on",
+        "drumType": "Ride Cymbal 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Ride Cymbal 1",
+        "time": 120
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Ride Cymbal 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Ride Cymbal 1",
+        "time": 120
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Ride Cymbal 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Ride Cymbal 1",
+        "time": 120
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Ride Cymbal 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Bass Drum 1",
+        "time": 120
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Ride Cymbal 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Ride Cymbal 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Acoustic Snare",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Ride Cymbal 1",
+        "time": 120
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Ride Cymbal 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Ride Cymbal 1",
+        "time": 120
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Ride Cymbal 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Ride Cymbal 1",
+        "time": 120
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Ride Cymbal 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Bass Drum 1",
+        "time": 120
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Ride Cymbal 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Acoustic Snare",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Ride Cymbal 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Ride Cymbal 1",
+        "time": 120
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Ride Cymbal 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Ride Cymbal 1",
+        "time": 120
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Ride Cymbal 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Ride Cymbal 1",
+        "time": 120
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Ride Cymbal 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Bass Drum 1",
+        "time": 120
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Ride Cymbal 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Ride Cymbal 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Acoustic Snare",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Ride Cymbal 1",
+        "time": 120
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Ride Cymbal 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Ride Cymbal 1",
+        "time": 120
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Ride Cymbal 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Ride Cymbal 1",
+        "time": 120
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Ride Cymbal 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Bass Drum 1",
+        "time": 120
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Ride Cymbal 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Acoustic Snare",
+        "time": 0
+      }
+    ]
+  },
+  {
+    "name": "",
+    "pattern": [
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 232
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 8
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 225
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Side Stick",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Bass Drum 1",
+        "time": 15
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 240
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Side Stick",
+        "time": 240
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 232
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 8
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 225
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Side Stick",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Bass Drum 1",
+        "time": 15
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 240
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Side Stick",
+        "time": 240
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      }
+    ]
+  },
+  {
+    "name": "",
+    "pattern": [
+      {
+        "noteEvent": "on",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 240
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 240
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Acoustic Snare",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 240
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 240
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Acoustic Snare",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 240
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 240
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Acoustic Snare",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 240
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 240
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Acoustic Snare",
+        "time": 0
+      }
+    ]
+  },
+  {
+    "name": "",
+    "pattern": [
+      {
+        "noteEvent": "on",
+        "drumType": "Pedal Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Pedal Hi Hat",
+        "time": 240
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Pedal Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Pedal Hi Hat",
+        "time": 240
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Pedal Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Pedal Hi Hat",
+        "time": 240
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Pedal Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Pedal Hi Hat",
+        "time": 240
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Pedal Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Pedal Hi Hat",
+        "time": 240
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Pedal Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Pedal Hi Hat",
+        "time": 240
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Pedal Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Pedal Hi Hat",
+        "time": 240
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Pedal Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Pedal Hi Hat",
+        "time": 240
+      }
+    ]
+  },
+  {
+    "name": "",
+    "pattern": [
+      {
+        "noteEvent": "on",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 320
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 320
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 320
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Acoustic Snare",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 320
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 320
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Acoustic Snare",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 320
+      }
+    ]
+  },
+  {
+    "name": "",
+    "pattern": [
+      {
+        "noteEvent": "on",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 160
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 160
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 160
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Acoustic Snare",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 160
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 160
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Acoustic Snare",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 160
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 160
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 160
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 160
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Acoustic Snare",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 160
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 160
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Acoustic Snare",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 160
+      }
+    ]
+  },
+  {
+    "name": "",
+    "pattern": [
+      {
+        "noteEvent": "on",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 214
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 213
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 213
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Acoustic Snare",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 214
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 213
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 213
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Acoustic Snare",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Acoustic Snare",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 214
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 213
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 213
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Acoustic Snare",
+        "time": 0
+      }
+    ]
+  },
+  {
+    "name": "",
+    "pattern": [
+      {
+        "noteEvent": "on",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Bass Drum 1",
+        "time": 549
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Acoustic Snare",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Bass Drum 1",
+        "time": 137
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Acoustic Snare",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 274
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Bass Drum 1",
+        "time": 137
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 274
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Acoustic Snare",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Acoustic Snare",
+        "time": 549
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      }
+    ]
+  },
+  {
+    "name": "",
+    "pattern": [
+      {
+        "noteEvent": "on",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Crash Cymbal 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Bass Drum 1",
+        "time": 240
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Acoustic Snare",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Crash Cymbal 1",
+        "time": 120
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Acoustic Snare",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Crash Cymbal 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Bass Drum 1",
+        "time": 120
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Crash Cymbal 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Crash Cymbal 1",
+        "time": 120
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Bass Drum 1",
+        "time": 120
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Acoustic Snare",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Acoustic Snare",
+        "time": 240
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Crash Cymbal 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Crash Cymbal 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Bass Drum 1",
+        "time": 240
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Acoustic Snare",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Crash Cymbal 1",
+        "time": 120
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Acoustic Snare",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Crash Cymbal 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Bass Drum 1",
+        "time": 120
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Crash Cymbal 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Crash Cymbal 1",
+        "time": 120
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Bass Drum 1",
+        "time": 120
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Acoustic Snare",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Acoustic Snare",
+        "time": 240
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Crash Cymbal 1",
+        "time": 0
+      }
+    ]
+  },
+  {
+    "name": "",
+    "pattern": [
+      {
+        "noteEvent": "on",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 240
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Acoustic Snare",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Acoustic Snare",
+        "time": 120
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 120
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Bass Drum 1",
+        "time": 120
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Bass Drum 1",
+        "time": 120
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Acoustic Snare",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Acoustic Snare",
+        "time": 240
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 240
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Acoustic Snare",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Acoustic Snare",
+        "time": 120
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 120
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Bass Drum 1",
+        "time": 120
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Bass Drum 1",
+        "time": 120
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Acoustic Snare",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Acoustic Snare",
+        "time": 240
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      }
+    ]
+  },
+  {
+    "name": "",
+    "pattern": [
+      {
+        "noteEvent": "on",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Crash Cymbal 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Crash Cymbal 1",
+        "time": 240
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Acoustic Snare",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Crash Cymbal 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Acoustic Snare",
+        "time": 120
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Crash Cymbal 1",
+        "time": 120
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Crash Cymbal 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Bass Drum 1",
+        "time": 120
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Bass Drum 1",
+        "time": 120
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Crash Cymbal 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Acoustic Snare",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Crash Cymbal 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Acoustic Snare",
+        "time": 240
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Crash Cymbal 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Crash Cymbal 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Crash Cymbal 1",
+        "time": 240
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Acoustic Snare",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Crash Cymbal 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Acoustic Snare",
+        "time": 120
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Crash Cymbal 1",
+        "time": 120
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Crash Cymbal 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Bass Drum 1",
+        "time": 120
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Bass Drum 1",
+        "time": 120
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Crash Cymbal 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Acoustic Snare",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Crash Cymbal 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Acoustic Snare",
+        "time": 240
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Crash Cymbal 1",
+        "time": 0
+      }
+    ]
+  },
+  {
+    "name": "",
+    "pattern": [
+      {
+        "noteEvent": "on",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 240
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Acoustic Snare",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 240
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Acoustic Snare",
+        "time": 120
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 120
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Acoustic Snare",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 240
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Acoustic Snare",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 240
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Acoustic Snare",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Acoustic Snare",
+        "time": 120
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 120
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Bass Drum 1",
+        "time": 120
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 120
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Acoustic Snare",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 240
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Acoustic Snare",
+        "time": 0
+      }
+    ]
+  },
+  {
+    "name": "",
+    "pattern": [
+      {
+        "noteEvent": "on",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 120
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Acoustic Snare",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 120
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Acoustic Snare",
+        "time": 60
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 60
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Acoustic Snare",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 120
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Acoustic Snare",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 120
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Acoustic Snare",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Acoustic Snare",
+        "time": 60
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 60
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Bass Drum 1",
+        "time": 60
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 60
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Acoustic Snare",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 120
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Acoustic Snare",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 120
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Acoustic Snare",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 120
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Acoustic Snare",
+        "time": 60
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 60
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Acoustic Snare",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 120
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Acoustic Snare",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 120
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Acoustic Snare",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Acoustic Snare",
+        "time": 60
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 60
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Bass Drum 1",
+        "time": 60
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 60
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Acoustic Snare",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 120
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Acoustic Snare",
+        "time": 0
+      }
+    ]
+  },
+  {
+    "name": "",
+    "pattern": [
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Bass Drum 1",
+        "time": 120
+      },
+      {
+        "noteEvent": "on",
+        "drumType": 35,
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 120
+      },
+      {
+        "noteEvent": "off",
+        "drumType": 35,
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Bass Drum 1",
+        "time": 120
+      },
+      {
+        "noteEvent": "on",
+        "drumType": 35,
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 120
+      },
+      {
+        "noteEvent": "off",
+        "drumType": 35,
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Acoustic Snare",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Bass Drum 1",
+        "time": 120
+      },
+      {
+        "noteEvent": "on",
+        "drumType": 35,
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Acoustic Snare",
+        "time": 120
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": 35,
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Bass Drum 1",
+        "time": 120
+      },
+      {
+        "noteEvent": "on",
+        "drumType": 35,
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 120
+      },
+      {
+        "noteEvent": "off",
+        "drumType": 35,
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Bass Drum 1",
+        "time": 120
+      },
+      {
+        "noteEvent": "on",
+        "drumType": 35,
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 120
+      },
+      {
+        "noteEvent": "off",
+        "drumType": 35,
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Bass Drum 1",
+        "time": 120
+      },
+      {
+        "noteEvent": "on",
+        "drumType": 35,
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 120
+      },
+      {
+        "noteEvent": "off",
+        "drumType": 35,
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Acoustic Snare",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Bass Drum 1",
+        "time": 120
+      },
+      {
+        "noteEvent": "on",
+        "drumType": 35,
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Acoustic Snare",
+        "time": 120
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": 35,
+        "time": 0
+      }
+    ]
+  },
+  {
+    "name": "",
+    "pattern": [
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 120
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Bass Drum 1",
+        "time": 120
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Acoustic Snare",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 120
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Acoustic Snare",
+        "time": 120
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 120
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Bass Drum 1",
+        "time": 120
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Acoustic Snare",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 120
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Acoustic Snare",
+        "time": 120
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 120
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Bass Drum 1",
+        "time": 120
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Acoustic Snare",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 120
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Acoustic Snare",
+        "time": 120
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Bass Drum 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 120
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Bass Drum 1",
+        "time": 120
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Acoustic Snare",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 120
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Acoustic Snare",
+        "time": 120
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Closed Hi Hat",
+        "time": 0
+      }
+    ]
+  },
+  {
+    "name": "",
+    "pattern": [
+      {
+        "noteEvent": "on",
+        "drumType": "Ride Cymbal 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Ride Cymbal 1",
+        "time": 320
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Ride Cymbal 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Ride Cymbal 1",
+        "time": 160
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Ride Cymbal 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Ride Cymbal 1",
+        "time": 320
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Ride Cymbal 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Ride Cymbal 1",
+        "time": 160
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Ride Cymbal 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Ride Cymbal 1",
+        "time": 320
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Ride Cymbal 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Ride Cymbal 1",
+        "time": 160
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Ride Cymbal 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Ride Cymbal 1",
+        "time": 320
+      },
+      {
+        "noteEvent": "on",
+        "drumType": "Ride Cymbal 1",
+        "time": 0
+      },
+      {
+        "noteEvent": "off",
+        "drumType": "Ride Cymbal 1",
+        "time": 160
+      }
+    ]
+  }
+]
