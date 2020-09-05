@@ -123,7 +123,7 @@ def write_file():
         print("Created output directory.")
     except FileExistsError:
         print()
-    mid.save("output\\" + timestamp + '.mid')
+    mid.save("output/" + timestamp + '.mid')
 
 
 def main():
@@ -139,7 +139,7 @@ def main():
     if config['lights_enabled'] and __name__ == "__main__":
         writeToFile(timestamp, bpm, progression_length)
     if config['sound_enabled'] and __name__ == "__main__":
-        FluidSynth().play_midi("output\\" + timestamp + '.mid')
+        FluidSynth().play_midi("output/" + timestamp + '.mid')
 
 
 if __name__ == '__main__':

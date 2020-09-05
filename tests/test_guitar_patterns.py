@@ -22,8 +22,8 @@ def test_guitar():
         guitar(guitar_track, progression_length, get_sequence(), 1)
         guitar_track.append(MetaMessage('end_of_track'))
         mid.tracks.append(guitar_track)
-        mid.save('tests\\output\\guitar\\' + get_guitar_patterns()[0]['name'] + '.mid')
-        assert cmp('tests\\output\\guitar\\' + get_guitar_patterns()[0]['name'] + '.mid', 'tests\\data\\guitar\\' + get_guitar_patterns()[0]['name'] + '.mid', shallow=False)
+        mid.save('tests/output/guitar/' + get_guitar_patterns()[0]['name'] + '.mid')
+        assert cmp('tests/output/guitar/' + get_guitar_patterns()[0]['name'] + '.mid', 'tests/data/guitar/' + get_guitar_patterns()[0]['name'] + '.mid', shallow=False)
 
 
 test_guitar()

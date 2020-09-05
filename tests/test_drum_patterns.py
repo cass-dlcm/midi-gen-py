@@ -14,8 +14,8 @@ def test_drums():
         drum(drumTrack)
         drumTrack.append(MetaMessage('end_of_track'))
         mid.tracks.append(drumTrack)
-        mid.save('tests\\output\\drums\\' + getDrumPatterns()[0]['name'] + '.mid')
-        assert cmp('tests\\output\\drums\\' + getDrumPatterns()[0]['name'] + '.mid', 'tests\\data\\drums\\' + getDrumPatterns()[0]['name'] + '.mid', shallow=False)
+        mid.save('tests/output/drums/' + getDrumPatterns()[0]['name'] + '.mid')
+        assert cmp('tests/output/drums/' + getDrumPatterns()[0]['name'] + '.mid', 'tests/data/drums/' + getDrumPatterns()[0]['name'] + '.mid', shallow=False)
 
 
 test_drums()
