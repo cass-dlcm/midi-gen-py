@@ -3,10 +3,10 @@
 block_cipher = None
 
 
-a = Analysis(['main.py'],
-             pathex=['D:\\Programming\\midi-gen-py'],
+a = Analysis(['src\\main.py'],
+             pathex=['.\\src'],
              binaries=[],
-             datas=[],
+             datas=[('.\\data\\*.json', 'data\\'), ('.\\data\\drum_patterns\\*.json', 'data\\drum_patterns'), ('.\\data\\guitar_patterns\\*.json', 'data\\guitar_patterns'), ('.\\*.json', '.')],
              hiddenimports=[],
              hookspath=[],
              runtime_hooks=[],

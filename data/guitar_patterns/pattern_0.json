@@ -1,0 +1,85 @@
+{
+  "name": "pattern_0",
+  "pattern": [
+    {
+      "noteEvent": "note_on",
+      "pitchIndex": 0,
+      "time": 0
+    },
+    {
+      "noteEvent": "note_on",
+      "pitchIndex": 3,
+      "time": 240
+    },
+    {
+      "noteEvent": "note_off",
+      "pitchIndex": 0,
+      "time": 240
+    },
+    {
+      "noteEvent": "note_on",
+      "pitchIndex": 1,
+      "time": 0
+    },
+    {
+      "noteEvent": "note_off",
+      "pitchIndex": 3,
+      "time": 240
+    },
+    {
+      "noteEvent": "note_on",
+      "pitchIndex": 2,
+      "time": 0
+    },
+    {
+      "noteEvent": "note_off",
+      "pitchIndex": 1,
+      "time": 240
+    },
+    {
+      "noteEvent": "note_on",
+      "pitchIndex": 0,
+      "time": 0
+    },
+    {
+      "noteEvent": "note_off",
+      "pitchIndex": 2,
+      "time": 240
+    },
+    {
+      "noteEvent": "note_on",
+      "pitchIndex": 3,
+      "time": 0
+    },
+    {
+      "noteEvent": "note_off",
+      "pitchIndex": 0,
+      "time": 240
+    },
+    {
+      "noteEvent": "note_on",
+      "pitchIndex": 1,
+      "time": 0
+    },
+    {
+      "noteEvent": "note_off",
+      "pitchIndex": 3,
+      "time": 240
+    },
+    {
+      "noteEvent": "note_on",
+      "pitchIndex": 2,
+      "time": 0
+    },
+    {
+      "noteEvent": "note_off",
+      "pitchIndex": 1,
+      "time": 240
+    },
+    {
+      "noteEvent": "note_off",
+      "pitchIndex": 2,
+      "time": 0
+    }
+  ]
+}

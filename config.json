@@ -1,4 +1,4 @@
 {
-  "LED_PIN":13,
-  "LED_COUNT":150
+  "lights_enabled": true,
+  "sound_enabled": false
 }

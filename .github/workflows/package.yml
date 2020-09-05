@@ -21,7 +21,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install pyinstaller
         pip install -r src\requirements.txt
-        pyinstaller --onefile src\main.py
+        pyinstaller --onefile main.spec
 
     - uses: actions/upload-artifact@v2
       with:
@@ -41,7 +41,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install pyinstaller
         pip install -r src/requirements.txt
-        pyinstaller --onefile src/main.py
+        pyinstaller --onefile main.spec
 
     - uses: actions/upload-artifact@v2
       with:
@@ -61,7 +61,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install pyinstaller
         pip install -r src/requirements.txt
-        pyinstaller --onefile src/main.py
+        pyinstaller --onefile main.spec
 
     - uses: actions/upload-artifact@v2
       with:
