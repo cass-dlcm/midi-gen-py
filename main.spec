@@ -3,10 +3,10 @@
 block_cipher = None
 
 
-a = Analysis(['src\\main.py'],
-             pathex=['.\\src'],
+a = Analysis(['src/main.py'],
+             pathex=['./src'],
              binaries=[],
-             datas=[('.\\data\\*.json', 'data\\'), ('.\\data\\drum_patterns\\*.json', 'data\\drum_patterns'), ('.\\data\\guitar_patterns\\*.json', 'data\\guitar_patterns'), ('.\\*.json', '.')],
+             datas=[('./data/*.json', 'data'), ('./data/drum_patterns/*.json', 'data/drum_patterns'), ('./data/guitar_patterns/*.json', 'data/guitar_patterns'), ('./*.json', '.')],
              hiddenimports=[],
              hookspath=[],
              runtime_hooks=[],
