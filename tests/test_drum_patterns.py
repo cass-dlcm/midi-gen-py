@@ -21,7 +21,7 @@ def test_drums():
         except FileExistsError:
             print()
         try:
-            mkdir("tests/output/guitar")
+            mkdir("tests/output/drums")
             print("Created output directory.")
         except FileExistsError:
             print()
