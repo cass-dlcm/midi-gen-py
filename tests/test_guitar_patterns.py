@@ -3,6 +3,7 @@ from src.guitar_gen import read_guitar_patterns, filter_guitar_patterns, guitar,
 from mido import MidiTrack, MetaMessage, MidiFile, Message
 from filecmp import cmp
 from src.main import simple_pick_chords, simple_chord_order, progression_length, get_sequence
+from os import mkdir
 
 
 def test_guitar():
@@ -22,5 +23,15 @@ def test_guitar():
         guitar(guitar_track, progression_length, get_sequence(), 1)
         guitar_track.append(MetaMessage('end_of_track'))
         mid.tracks.append(guitar_track)
+        try:
+            mkdir("tests/output")
+            print("Created output directory.")
+        except FileExistsError:
+            print()
+        try:
+            mkdir("tests/output/guitar")
+            print("Created output directory.")
+        except FileExistsError:
+            print()
         mid.save('tests/output/guitar/' + get_guitar_patterns()[0]['name'] + '.mid')
         assert cmp('tests/output/guitar/' + get_guitar_patterns()[0]['name'] + '.mid', 'tests/data/guitar/' + get_guitar_patterns()[0]['name'] + '.mid', shallow=False)
