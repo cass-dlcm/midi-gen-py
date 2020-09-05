@@ -136,7 +136,7 @@ def main():
     create_guitar_track(mid, progression_length, sequences, 8)
     create_drum_track(mid, progression_length)
     write_file()
-    if config['lights_enabled'] and __name__ == "__main__":
+    if config['lights_enabled']:
         writeToFile(timestamp, bpm, progression_length)
     if config['sound_enabled'] and __name__ == "__main__":
         FluidSynth().play_midi("output/" + timestamp + '.mid')

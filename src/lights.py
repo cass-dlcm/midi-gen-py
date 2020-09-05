@@ -40,6 +40,6 @@ def writeToFile(timestamp, bpm, progressionLength):
     ardFile = open('output\\' + timestamp + '\\' + timestamp + '.ino', 'w')
     ardFile.write(arduinoStr)
     ardFile.close()
-    if config['execute']:
+    if config['execute'] and __name__ == "lights":
         system(config['path_to_ide'] + ' --upload --board ' + config['board'] + ' --port ' + config['port'] + ' -v output\\' + timestamp + "\\" + timestamp + '.ino')
         sleep(11)

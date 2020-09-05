@@ -24,6 +24,3 @@ def test_guitar():
         mid.tracks.append(guitar_track)
         mid.save('tests/output/guitar/' + get_guitar_patterns()[0]['name'] + '.mid')
         assert cmp('tests/output/guitar/' + get_guitar_patterns()[0]['name'] + '.mid', 'tests/data/guitar/' + get_guitar_patterns()[0]['name'] + '.mid', shallow=False)
-
-
-test_guitar()
