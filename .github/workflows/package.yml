@@ -23,6 +23,11 @@ jobs:
         pip install -r src\requirements.txt
         pyinstaller --onefile main.spec
 
+    - name: Test build
+      run: |
+        dist\main\main.exe
+        dir output
+
     - uses: actions/upload-artifact@v2
       with:
         name: Windows Build
@@ -43,6 +48,10 @@ jobs:
         pip install -r src/requirements.txt
         pyinstaller --onefile main.spec
 
+    - name: Test build
+      run: |
+        dist/main/main && [ -d dist/main/output ] && echo "output exists"
+
     - uses: actions/upload-artifact@v2
       with:
         name: Linux Build
@@ -62,6 +71,10 @@ jobs:
         pip install pyinstaller
         pip install -r src/requirements.txt
         pyinstaller --onefile main.spec
+
+    - name: Test build
+      run: |
+        dist/main/main && [ -d dist/main/output ] && echo "output exists"
 
     - uses: actions/upload-artifact@v2
       with:
