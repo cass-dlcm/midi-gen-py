@@ -13,6 +13,7 @@ def test_guitar():
         read_guitar_patterns()
         filter_guitar_patterns([i])
         guitar_track = MidiTrack()
+        guitar_track.append(MetaMessage('instrument_name', name='Guitar'))
         simple_pick_chords()
         simple_chord_order()
         guitar_track.append(Message(
@@ -27,11 +28,11 @@ def test_guitar():
             mkdir("tests/output")
             print("Created output directory.")
         except FileExistsError:
-            print()
+            pass
         try:
             mkdir("tests/output/guitar")
             print("Created output directory.")
         except FileExistsError:
-            print()
+            pass
         mid.save('tests/output/guitar/' + get_guitar_patterns()[0]['name'] + '.mid')
         assert cmp('tests/output/guitar/' + get_guitar_patterns()[0]['name'] + '.mid', 'tests/data/guitar/' + get_guitar_patterns()[0]['name'] + '.mid', shallow=False)

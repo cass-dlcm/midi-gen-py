@@ -30,8 +30,9 @@ def filter_guitar_patterns(chosen):
 
 def guitar(guitar_track, progression_length, sequences, segments):
     for a in range(0, segments):
-        pickPattern = choice(guitar_patterns)
         for b in range(0, progression_length):
+            pickPattern = choice(guitar_patterns)
+            guitar_track.append(MetaMessage('text', text=pickPattern['name']))
             for c in pickPattern['pattern']:
                 guitar_track.append(Message(
                     c['noteEvent'],
@@ -43,6 +44,7 @@ def guitar(guitar_track, progression_length, sequences, segments):
 def create_guitar_track(mid, progression_length, sequences, segments):
     read_guitar_patterns()
     guitar_track = MidiTrack()
+    guitar_track.append(MetaMessage('instrument_name', name='Guitar'))
     mid.tracks.append(guitar_track)
     guitar_track.append(Message(
         'program_change',

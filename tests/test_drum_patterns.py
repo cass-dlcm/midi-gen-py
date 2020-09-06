@@ -12,6 +12,7 @@ def test_drums():
         readDrumPatterns()
         filterDrumPatterns([i])
         drumTrack = MidiTrack()
+        drumTrack.append(MetaMessage('instrument_name', name='Drum set'))
         drum(drumTrack)
         drumTrack.append(MetaMessage('end_of_track'))
         mid.tracks.append(drumTrack)
@@ -19,11 +20,11 @@ def test_drums():
             mkdir("tests/output")
             print("Created output directory.")
         except FileExistsError:
-            print()
+            pass
         try:
             mkdir("tests/output/drums")
             print("Created output directory.")
         except FileExistsError:
-            print()
+            pass
         mid.save('tests/output/drums/' + getDrumPatterns()[0]['name'] + '.mid')
         assert cmp('tests/output/drums/' + getDrumPatterns()[0]['name'] + '.mid', 'tests/data/drums/' + getDrumPatterns()[0]['name'] + '.mid', shallow=False)

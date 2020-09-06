@@ -71,8 +71,9 @@ def drum_pattern_repeat_recursion(level, drumTrack):
 
 
 def drum(drumTrack):
-    pattern = choice(drumPatterns)["pattern"]
-    for i in pattern:
+    pattern = choice(drumPatterns)
+    drumTrack.append(MetaMessage('text', text=pattern['name']))
+    for i in pattern['pattern']:
         drum_pattern_repeat_recursion(i, drumTrack)
 
 
@@ -84,6 +85,7 @@ def create_drum_track(mid, progressionLength):
         a.append(i)
     filterDrumPatterns(a)
     drumTrack = MidiTrack()
+    drumTrack.append(MetaMessage('instrument_name', name='Drum set'))
     mid.tracks.append(drumTrack)
     for _ in range(0, 8 * progressionLength):
         drum(drumTrack)

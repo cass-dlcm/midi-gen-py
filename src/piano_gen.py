@@ -10,6 +10,7 @@ c_val = 48
 def create_piano_track(mid, progressionLength, sequences):
     chordTrack = MidiTrack()
     mid.tracks.append(chordTrack)
+    chordTrack.append(MetaMessage('instrument_name', name='Piano'))
     chordTrack.append(Message(
         'program_change',
         program=0,

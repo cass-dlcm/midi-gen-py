@@ -122,7 +122,7 @@ def write_file():
         mkdir("output")
         print("Created output directory.")
     except FileExistsError:
-        print()
+        pass
     mid.save("output/" + timestamp + '.mid')
 
 

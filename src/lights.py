@@ -36,7 +36,7 @@ def writeToFile(timestamp, bpm, progressionLength):
     try:
         mkdir('output\\' + timestamp)
     except FileExistsError:
-        print()
+        pass
     ardFile = open('output\\' + timestamp + '\\' + timestamp + '.ino', 'w')
     ardFile.write(arduinoStr)
     ardFile.close()
