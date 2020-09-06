@@ -20,7 +20,7 @@ c_val = 48
 timestamp = ""
 assembledChords = []
 progression_length = 4
-sequencesStr = ''
+sequencesStr = []
 bpm = 0
 sequences = []
 
@@ -94,15 +94,22 @@ def randomize_chord_order():
             tempStrs.append(assembledChords[j]['root']['name'] + assembledChords[j]['chord']['name'])
         segment = []
         for j in range(0, progression_length):
-            global sequencesStr
             k = randint(0, progression_length - j - 1)
             segment.append(temp.pop(k))
-            sequencesStr += tempStrs.pop(k) + ' '
+            sequencesStr.append(tempStrs.pop(k))
         sequences.append(segment)
 
 
 mid = MidiFile()
 mid.ticksPerBeat = 480
+
+
+def create_simple_meta_track(midi_file):
+    metaTrack = MidiTrack()
+    metaTrack.append(MetaMessage(
+        'set_tempo',
+        tempo=bpm2tempo(120)))
+    midi_file.tracks.append(metaTrack)
 
 
 def create_meta_track():
@@ -132,7 +139,7 @@ def main():
     create_meta_track()
     # print(bpm)
     # print(sequencesStr)
-    create_piano_track(mid, progression_length, sequences)
+    create_piano_track(mid, progression_length, sequences, sequencesStr)
     create_guitar_track(mid, progression_length, sequences, 8)
     create_drum_track(mid, progression_length)
     write_file()

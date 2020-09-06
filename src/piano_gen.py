@@ -7,7 +7,7 @@ else:
 c_val = 48
 
 
-def create_piano_track(mid, progressionLength, sequences):
+def create_piano_track(mid, progressionLength, sequences, sequencesStr):
     chordTrack = MidiTrack()
     mid.tracks.append(chordTrack)
     chordTrack.append(MetaMessage('instrument_name', name='Piano'))
@@ -18,6 +18,8 @@ def create_piano_track(mid, progressionLength, sequences):
     for a in range(0, 8):
         for b in range(0, progressionLength):
             addValueToHues(sequences[a][b][0])
+            chordTrack.append(MetaMessage(
+                'text', text=sequencesStr[a * progressionLength + b]))
             for c in range(0, 4):
                 chordTrack.append(Message(
                     'note_on',

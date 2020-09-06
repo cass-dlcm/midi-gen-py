@@ -14,17 +14,17 @@
     {
       "noteEvent": "off",
       "drumType": "Closed Hi Hat",
-      "time": 180
+      "time": 160
     },
     {
       "noteEvent": "on",
       "drumType": "Closed Hi Hat",
-      "time": 180
+      "time": 160
     },
     {
       "noteEvent": "off",
       "drumType": "Bass Drum 1",
-      "time": 180
+      "time": 160
     },
     {
       "noteEvent": "off",
@@ -39,17 +39,17 @@
     {
       "noteEvent": "off",
       "drumType": "Closed Hi Hat",
-      "time": 180
+      "time": 160
     },
     {
       "noteEvent": "on",
       "drumType": "Closed Hi Hat",
-      "time": 180
+      "time": 160
     },
     {
       "noteEvent": "off",
       "drumType": "Closed Hi Hat",
-      "time": 180
+      "time": 160
     },
     {
       "noteEvent": "on",
@@ -64,17 +64,17 @@
     {
       "noteEvent": "off",
       "drumType": "Closed Hi Hat",
-      "time": 180
+      "time": 160
     },
     {
       "noteEvent": "on",
       "drumType": "Closed Hi Hat",
-      "time": 180
+      "time": 160
     },
     {
       "noteEvent": "off",
       "drumType": "Acoustic Snare",
-      "time": 180
+      "time": 160
     },
     {
       "noteEvent": "off",
@@ -89,17 +89,17 @@
     {
       "noteEvent": "off",
       "drumType": "Closed Hi Hat",
-      "time": 180
+      "time": 160
     },
     {
       "noteEvent": "on",
       "drumType": "Closed Hi Hat",
-      "time": 180
+      "time": 160
     },
     {
       "noteEvent": "off",
       "drumType": "Closed Hi Hat",
-      "time": 180
+      "time": 160
     }
   ]
 }

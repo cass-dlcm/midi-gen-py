@@ -2,7 +2,7 @@ import glob
 from src.guitar_gen import read_guitar_patterns, filter_guitar_patterns, guitar, get_guitar_patterns
 from mido import MidiTrack, MetaMessage, MidiFile, Message
 from filecmp import cmp
-from src.main import simple_pick_chords, simple_chord_order, progression_length, get_sequence
+from src.main import simple_pick_chords, simple_chord_order, progression_length, get_sequence, create_simple_meta_track
 from os import mkdir
 
 
@@ -10,6 +10,7 @@ def test_guitar():
     file_list = glob.glob("data/guitar_patterns/*.json")
     for i in range(0, len(file_list)):
         mid = MidiFile()
+        create_simple_meta_track(mid)
         read_guitar_patterns()
         filter_guitar_patterns([i])
         guitar_track = MidiTrack()
@@ -35,4 +36,6 @@ def test_guitar():
         except FileExistsError:
             pass
         mid.save('tests/output/guitar/' + get_guitar_patterns()[0]['name'] + '.mid')
+        print(get_guitar_patterns()[0]['name'])
+        assert abs(mid.length - 8) < .001
         assert cmp('tests/output/guitar/' + get_guitar_patterns()[0]['name'] + '.mid', 'tests/data/guitar/' + get_guitar_patterns()[0]['name'] + '.mid', shallow=False)

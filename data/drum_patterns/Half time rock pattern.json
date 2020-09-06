@@ -110,6 +110,11 @@
       "noteEvent": "off",
       "drumType": "Closed Hi Hat",
       "time": 120
+    },
+    {
+      "noteEvent": "off",
+      "drumType": "Closed Hi Hat",
+      "time": 120
     }
   ]
 }
