@@ -22,4 +22,8 @@ jobs:
           pip install -r src/requirements.txt
       - name: Test with pytest
         run: |
-          pytest --cov=src tests
+          pytest --cov-report html --cov=src tests
+      - name: Upload coverage results
+        run: |
+          bash <(curl -s https://codecov.io/bash)
+
