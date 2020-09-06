@@ -30,6 +30,16 @@ file_list = glob("data/drum_patterns/*.json")
 #             "noteEvent": either "on" or "off",
 #             "drumType": any drum type listed in drum_gen.drumTypes,
 #             "time": measured in 1/480 of a quarter note
+#         },
+#         {
+#             "repeat_count": a number of times to repeat the subpattern,
+#             "subpattern": {
+#                 {
+#                     "noteEvent": either "on" or "off",
+#                     "drumType": any drum type listed in drum_gen.drumTypes,
+#                     "time": measured in 1/480 of a quarter note
+#                 }
+#             }
 #         }
 #     ]
 # }
