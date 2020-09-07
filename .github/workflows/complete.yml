@@ -34,5 +34,5 @@ jobs:
         mypy src --ignore-missing-imports
     - name: Test with pytest-cov
       run: |
-        pytest -cov=src tests
+        pytest --cov=src tests
         bash <(curl -s https://codecov.io/bash)
