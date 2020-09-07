@@ -38,10 +38,10 @@ def writeToFile(timestamp: str, bpm: int, progressionLength: int):
     arduinoStr += str(int(d))
     arduinoStr += ') {\n    a++;\n    b = 0;\n  }\n}'
     try:
-        mkdir('output\\' + timestamp)
+        mkdir('output/' + timestamp)
     except FileExistsError:
         pass
-    file_name: str = 'output\\' + timestamp + '\\' + timestamp + '.ino'
+    file_name: str = 'output/' + timestamp + '/' + timestamp + '.ino'
     ardFile: TextIO = open(file_name, 'w')
     ardFile.write(arduinoStr)
     ardFile.close()
