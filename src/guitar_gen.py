@@ -1,10 +1,10 @@
 from json import load
-from mido import MetaMessage, MidiTrack, Message
+from mido import MetaMessage, MidiTrack, Message, MidiFile
 from glob import glob
 from random import choice
 
-c_val = 48
-guitar_patterns = []
+C_VAL: int = 48
+guitar_patterns: list = []
 file_list = glob("data/guitar_patterns/*.json")
 
 # Format as json:
@@ -38,39 +38,39 @@ def read_guitar_patterns():
             guitar_patterns.append(load(json_file))
 
 
-def get_guitar_patterns():
+def get_guitar_patterns() -> list:
     return guitar_patterns
 
 
-def filter_guitar_patterns(chosen):
+def filter_guitar_patterns(chosen: list):
     global guitar_patterns
-    temp = []
+    temp: list = []
     for i in chosen:
         temp.append(guitar_patterns[i])
     guitar_patterns = temp
 
 
-def guitar_pattern_repeat_recursion(level, guitar_track, sequences, a, b):
+def guitar_pattern_repeat_recursion(level: dict, guitar_track: MidiTrack, sequences: list, a: int, b: int):
     if "repeat_count" in level:
         for a in range(0, level["repeat_count"]):
-            for b in level["subpattern"]:
-                guitar_pattern_repeat_recursion(b, guitar_track)
+            for c in level["subpattern"]:
+                guitar_pattern_repeat_recursion(c, guitar_track, sequences, a, b)
     else:
-        guitar_track.append(Message(level['noteEvent'], note=sequences[a][b][level["pitchIndex"]] + c_val, channel=1, time=level["time"]))
+        guitar_track.append(Message(level['noteEvent'], note=sequences[a][b][level["pitchIndex"]] + C_VAL, channel=1, time=level["time"]))
 
 
-def guitar(guitar_track, progression_length, sequences, segments):
+def guitar(guitar_track: MidiTrack, progression_length: int, sequences: list, segments: int):
     for a in range(0, segments):
         for b in range(0, progression_length):
-            pickPattern = choice(guitar_patterns)
+            pickPattern: dict = choice(guitar_patterns)
             guitar_track.append(MetaMessage('text', text=pickPattern['name']))
             for c in pickPattern['pattern']:
                 guitar_pattern_repeat_recursion(c, guitar_track, sequences, a, b)
 
 
-def create_guitar_track(mid, progression_length, sequences, segments):
+def create_guitar_track(mid: MidiFile, progression_length: int, sequences: list, segments: int):
     read_guitar_patterns()
-    guitar_track = MidiTrack()
+    guitar_track: MidiTrack = MidiTrack()
     guitar_track.append(MetaMessage('instrument_name', name='Guitar'))
     mid.tracks.append(guitar_track)
     guitar_track.append(Message(

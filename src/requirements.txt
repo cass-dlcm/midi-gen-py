@@ -1,5 +1,8 @@
 coverage==5.2.1
+flake8==3.8.3
 midi2audio==0.1.1
 mido==1.2.9
+mypy==0.782
 numpy==1.17.3
+pytest==6.0.1
 pytest-cov==2.10.1

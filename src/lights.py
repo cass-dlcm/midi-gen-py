@@ -1,20 +1,21 @@
 from json import load
 from os import system, mkdir
 from time import sleep
+from typing import TextIO
 
 with open('arduino_config.json') as json_file:
     config = load(json_file)
 
-hues = []
+hues: list = []
 
 
-def addValueToHues(value):
+def addValueToHues(value: int):
     hues.append(value)
 
 
-def writeToFile(timestamp, bpm, progressionLength):
+def writeToFile(timestamp: str, bpm: int, progressionLength: int):
     d = 800000 / 24 / config['LED_COUNT'] / (bpm / 240) * .9
-    arduinoStr = '#include <Adafruit_NeoPixel.h>\n#define LED_PIN    '
+    arduinoStr: str = '#include <Adafruit_NeoPixel.h>\n#define LED_PIN    '
     arduinoStr += str(config['LED_PIN'])
     arduinoStr += '\n#define LED_COUNT '
     arduinoStr += str(config['LED_COUNT'])
@@ -37,7 +38,7 @@ def writeToFile(timestamp, bpm, progressionLength):
         mkdir('output\\' + timestamp)
     except FileExistsError:
         pass
-    ardFile = open('output\\' + timestamp + '\\' + timestamp + '.ino', 'w')
+    ardFile: TextIO = open('output\\' + timestamp + '\\' + timestamp + '.ino', 'w')
     ardFile.write(arduinoStr)
     ardFile.close()
     if config['execute'] and __name__ == "lights":

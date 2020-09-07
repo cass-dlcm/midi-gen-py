@@ -1,10 +1,11 @@
 name: Package Application with Pyinstaller
 
 on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+  workflow_run:
+    workflows: ["Lint, Type Check, Test"]
+    branches: [main]
+    types:
+      - completed
 
 jobs:
   build_win:

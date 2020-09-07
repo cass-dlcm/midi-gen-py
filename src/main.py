@@ -15,31 +15,21 @@ else:
     from src.piano_gen import create_piano_track
     from src.lights import writeToFile
 
-root = ('C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B')
-c_val = 48
-timestamp = ""
-assembledChords = []
-progression_length = 4
-sequencesStr = []
-bpm = 0
-sequences = []
+root: tuple = ('C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B')
+c_val: int = 48
+bpm: int = 0
 
 with open('data/chords.json') as json_file:
-    chordDict = load(json_file)
+    chordDict: list = load(json_file)
 
 with open('config.json') as json_file:
-    config = load(json_file)
+    config: dict = load(json_file)
 
 
-def get_sequence():
-    return sequences.copy()
-
-
-def simple_pick_chords():
-    global assembledChords
-    assembledChords = []
+def simple_pick_chords(progression_length: int) -> list:
+    assembledChords: list = []
     for a in range(0, progression_length):
-        b = {
+        b: dict = {
             'root': {
                 'name': root[a],
             },
@@ -47,102 +37,108 @@ def simple_pick_chords():
         }
         b['root']['value'] = root.index(b['root']['name'])
         assembledChords.append(b)
+    return assembledChords
 
 
-def pick_chords():
-    global assembledChords
-    assembledChords = []
+def pick_chords(progression_length: int) -> list:
+    assembledChords: list = []
     for _ in range(0, progression_length):
         global outStr
-        b = {
+        b: dict = {
             'root': {},
             'chord': {}
         }
-        a = {
+        a: dict = {
             'name': choice(root),
         }
         a['value'] = root.index(a['name'])
         b['root'] = a
         b['chord'] = choice(chordDict)
         assembledChords.append(b)
+    return assembledChords
 
 
-def simple_chord_order():
-    print(assembledChords)
-    global sequences
-    sequences = []
-    temp = []
-    for a in range(0, progression_length):
-        temp.append(assembledChords[a]['chord']['values'].copy())
+def simple_chord_order(assembledChords: list) -> dict:
+    sequencesVals: list = []
+    sequencesStr: list = []
+    sequences: dict = {
+        'values': sequencesVals,
+        'strings': sequencesStr
+    }
+    temp: list = []
+    for a in assembledChords:
+        temp.append(a['chord']['values'].copy())
     for b in range(0, len(temp)):
         for c in range(0, len(temp[b])):
             temp[b][c] += assembledChords[b]['root']['value']
-    sequences.append(temp)
+    sequencesVals.append(temp)
+    return sequences
 
 
-def randomize_chord_order():
-    global sequences
-    sequences = []
+def randomize_chord_order(assembledChords: list) -> dict:
+    sequencesVals: list = []
+    sequencesStr: list = []
+    sequences: dict = {
+        'values': sequencesVals,
+        'strings': sequencesStr
+    }
     for _ in range(0, 8):
-        temp = []
-        tempStrs = []
-        for j in range(0, progression_length):
-            temp.append(assembledChords[j]['chord']['values'].copy())
+        temp: list = []
+        tempStrs: list = []
+        for j in assembledChords:
+            temp.append(j['chord']['values'].copy())
             for a in temp:
                 for b in range(0, len(a)):
-                    a[b] += assembledChords[j]['root']['value']
-            tempStrs.append(assembledChords[j]['root']['name'] + assembledChords[j]['chord']['name'])
+                    a[b] += j['root']['value']
+            tempStrs.append(j['root']['name'] + j['chord']['name'])
         segment = []
-        for j in range(0, progression_length):
-            k = randint(0, progression_length - j - 1)
+        for j in range(0, len(assembledChords)):
+            k: int = randint(0, len(assembledChords) - j - 1)
             segment.append(temp.pop(k))
             sequencesStr.append(tempStrs.pop(k))
-        sequences.append(segment)
+        sequencesVals.append(segment)
+    return sequences
 
 
-mid = MidiFile()
-mid.ticksPerBeat = 480
-
-
-def create_simple_meta_track(midi_file):
-    metaTrack = MidiTrack()
+def create_simple_meta_track(midi_file: MidiFile):
+    metaTrack: MidiTrack = MidiTrack()
     metaTrack.append(MetaMessage(
         'set_tempo',
         tempo=bpm2tempo(120)))
     midi_file.tracks.append(metaTrack)
 
 
-def create_meta_track():
+def create_meta_track(mid: MidiFile):
     global bpm
     bpm = randint(90, 180)
-    metaTrack = MidiTrack()
+    metaTrack: MidiTrack = MidiTrack()
     metaTrack.append(MetaMessage(
         'set_tempo',
         tempo=bpm2tempo(bpm)))
     mid.tracks.append(metaTrack)
 
 
-def write_file():
-    global timestamp
-    timestamp = strftime('%Y-%m-%d_%H_%M_%S', gmtime())
+def write_file(mid: MidiFile) -> str:
+    timestamp: str = strftime('%Y-%m-%d_%H_%M_%S', gmtime())
     try:
         mkdir("output")
         print("Created output directory.")
     except FileExistsError:
         pass
     mid.save("output/" + timestamp + '.mid')
+    return timestamp
 
 
 def main():
-    pick_chords()
-    randomize_chord_order()
-    create_meta_track()
-    # print(bpm)
-    # print(sequencesStr)
-    create_piano_track(mid, progression_length, sequences, sequencesStr)
-    create_guitar_track(mid, progression_length, sequences, 8)
+    progression_length: int = 4
+    sequences: dict = randomize_chord_order(pick_chords(progression_length))
+    mid: MidiFile = MidiFile()
+    mid.ticksPerBeat = 480
+    create_meta_track(mid)
+    create_piano_track(mid, progression_length, sequences)
+    create_guitar_track(mid, progression_length, sequences['values'], 8)
     create_drum_track(mid, progression_length)
-    write_file()
+    timestamp: str = write_file(mid)
     if config['lights_enabled']:
         writeToFile(timestamp, bpm, progression_length)
     if config['sound_enabled'] and __name__ == "__main__":

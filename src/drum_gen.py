@@ -1,5 +1,5 @@
 import json
-from mido import MetaMessage, MidiTrack, Message
+from mido import MetaMessage, MidiTrack, Message, MidiFile
 from glob import glob
 from random import choice
 
@@ -7,7 +7,7 @@ from random import choice
 # "Ride Cymbal 1" is Ride Cymbal 1
 # "Claves" is Claves
 
-drumTypes = {
+drumTypes: dict = {
     "Acoustic Bass Drum": 0x23,
     "Bass Drum 1": 0x24,
     "Side Stick": 0x25,
@@ -20,7 +20,7 @@ drumTypes = {
     "Claves": 0x4b
 }
 
-file_list = glob("data/drum_patterns/*.json")
+file_list: list = glob("data/drum_patterns/*.json")
 
 # Format as json:
 # {
@@ -43,7 +43,7 @@ file_list = glob("data/drum_patterns/*.json")
 #         }
 #     ]
 # }
-drumPatterns = []
+drumPatterns: list = []
 
 
 def readDrumPatterns():
@@ -54,19 +54,19 @@ def readDrumPatterns():
             drumPatterns.append(json.load(json_file))
 
 
-def getDrumPatterns():
+def getDrumPatterns() -> list:
     return drumPatterns
 
 
-def filterDrumPatterns(chosen):
+def filterDrumPatterns(chosen: list):
     global drumPatterns
-    temp = []
+    temp: list = []
     for i in chosen:
         temp.append(drumPatterns[i])
     drumPatterns = temp
 
 
-def drum_pattern_repeat_recursion(level, drumTrack):
+def drum_pattern_repeat_recursion(level: dict, drumTrack: MidiTrack):
     if "repeat_count" in level:
         for a in range(0, level["repeat_count"]):
             for b in level["subpattern"]:
@@ -80,21 +80,21 @@ def drum_pattern_repeat_recursion(level, drumTrack):
             print("whoops")
 
 
-def drum(drumTrack):
-    pattern = choice(drumPatterns)
+def drum(drumTrack: MidiTrack):
+    pattern: dict = choice(drumPatterns)
     drumTrack.append(MetaMessage('text', text=pattern['name']))
     for i in pattern['pattern']:
         drum_pattern_repeat_recursion(i, drumTrack)
 
 
-def create_drum_track(mid, progressionLength):
+def create_drum_track(mid: MidiFile, progressionLength: int):
     readDrumPatterns()
-    totalPatterns = len(getDrumPatterns())
-    a = []
+    totalPatterns: int = len(getDrumPatterns())
+    a: list = []
     for i in range(0, totalPatterns):
         a.append(i)
     filterDrumPatterns(a)
-    drumTrack = MidiTrack()
+    drumTrack: MidiTrack = MidiTrack()
     drumTrack.append(MetaMessage('instrument_name', name='Drum set'))
     mid.tracks.append(drumTrack)
     for _ in range(0, 8 * progressionLength):

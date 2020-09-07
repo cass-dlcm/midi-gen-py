@@ -1,14 +1,14 @@
-from mido import MidiTrack, Message, MetaMessage
+from mido import MidiTrack, Message, MetaMessage, MidiFile
 if __name__ == "piano_gen":
     from lights import addValueToHues
 else:
     from src.lights import addValueToHues
 
-c_val = 48
+C_VAL: int = 48
 
 
-def create_piano_track(mid, progressionLength, sequences, sequencesStr):
-    chordTrack = MidiTrack()
+def create_piano_track(mid: MidiFile, progressionLength: int, sequences: dict):
+    chordTrack: MidiTrack = MidiTrack()
     mid.tracks.append(chordTrack)
     chordTrack.append(MetaMessage('instrument_name', name='Piano'))
     chordTrack.append(Message(
@@ -17,13 +17,13 @@ def create_piano_track(mid, progressionLength, sequences, sequencesStr):
         time=0))
     for a in range(0, 8):
         for b in range(0, progressionLength):
-            addValueToHues(sequences[a][b][0])
+            addValueToHues(sequences['values'][a][b][0])
             chordTrack.append(MetaMessage(
-                'text', text=sequencesStr[a * progressionLength + b]))
+                'text', text=sequences['strings'][a * progressionLength + b]))
             for c in range(0, 4):
                 chordTrack.append(Message(
                     'note_on',
-                    note=sequences[a][b][c] + c_val,
+                    note=sequences['values'][a][b][c] + C_VAL,
                     channel=0))
             chordTrack.append(Message(
                 'note_on',
@@ -34,6 +34,6 @@ def create_piano_track(mid, progressionLength, sequences, sequencesStr):
             for c in range(0, 4):
                 chordTrack.append(Message(
                     'note_off',
-                    note=sequences[a][b][c] + c_val,
+                    note=sequences['values'][a][b][c] + C_VAL,
                     channel=0))
     chordTrack.append(MetaMessage('end_of_track'))

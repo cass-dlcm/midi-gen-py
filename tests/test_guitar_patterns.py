@@ -2,27 +2,27 @@ import glob
 from src.guitar_gen import read_guitar_patterns, filter_guitar_patterns, guitar, get_guitar_patterns
 from mido import MidiTrack, MetaMessage, MidiFile, Message
 from filecmp import cmp
-from src.main import simple_pick_chords, simple_chord_order, progression_length, get_sequence, create_simple_meta_track
+from src.main import simple_pick_chords, simple_chord_order, create_simple_meta_track
 from os import mkdir
 
 
 def test_guitar():
     file_list = glob.glob("data/guitar_patterns/*.json")
     for i in range(0, len(file_list)):
+        progression_length = 4
         mid = MidiFile()
         create_simple_meta_track(mid)
         read_guitar_patterns()
         filter_guitar_patterns([i])
         guitar_track = MidiTrack()
         guitar_track.append(MetaMessage('instrument_name', name='Guitar'))
-        simple_pick_chords()
-        simple_chord_order()
+        sequences = simple_chord_order(simple_pick_chords(progression_length))
         guitar_track.append(Message(
             'program_change',
             program=25,
             channel=1,
             time=0))
-        guitar(guitar_track, progression_length, get_sequence(), 1)
+        guitar(guitar_track, progression_length, sequences['values'], 1)
         guitar_track.append(MetaMessage('end_of_track'))
         mid.tracks.append(guitar_track)
         try:
