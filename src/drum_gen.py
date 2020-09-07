@@ -2,6 +2,7 @@ import json
 from mido import MetaMessage, MidiTrack, Message, MidiFile
 from glob import glob
 from random import choice
+from typing import List, Dict
 
 # "Crash Cymbal 1" is Crash Cymbal 1
 # "Ride Cymbal 1" is Ride Cymbal 1
@@ -20,7 +21,7 @@ drumTypes: dict = {
     "Claves": 0x4b
 }
 
-file_list: list = glob("data/drum_patterns/*.json")
+file_list: List[str] = glob("data/drum_patterns/*.json")
 
 # Format as json:
 # {
@@ -43,10 +44,11 @@ file_list: list = glob("data/drum_patterns/*.json")
 #         }
 #     ]
 # }
-drumPatterns: list = []
+drumPatterns: List[Dict[str, List[dict]]] = []
 
 
-def readDrumPatterns():
+def read_patterns():
+    """Reads the drum patterns in from a file."""
     global drumPatterns
     drumPatterns = []
     for file_path in file_list:
@@ -54,13 +56,14 @@ def readDrumPatterns():
             drumPatterns.append(json.load(json_file))
 
 
-def getDrumPatterns() -> list:
-    return drumPatterns
+def get_patterns() -> List[Dict[str, List[dict]]]:
+    """Gets a copy of the list of drum patterns."""
+    return drumPatterns.copy()
 
 
-def filterDrumPatterns(chosen: list):
+def filterDrumPatterns(chosen: List[int]):
     global drumPatterns
-    temp: list = []
+    temp: List[Dict[str, List[dict]]] = []
     for i in chosen:
         temp.append(drumPatterns[i])
     drumPatterns = temp
@@ -73,24 +76,28 @@ def drum_pattern_repeat_recursion(level: dict, drumTrack: MidiTrack):
                 drum_pattern_repeat_recursion(b, drumTrack)
     else:
         if (level["noteEvent"] == "on"):
-            drumTrack.append(Message('note_on', note=drumTypes[level["drumType"]], channel=9, time=level["time"]))
+            drumTrack.append(Message('note_on',
+                                     note=drumTypes[level["drumType"]],
+                                     channel=9, time=level["time"]))
         elif (level["noteEvent"] == "off"):
-            drumTrack.append(Message('note_off', note=drumTypes[level["drumType"]], channel=9, time=level["time"]))
+            drumTrack.append(Message('note_off',
+                                     note=drumTypes[level["drumType"]],
+                                     channel=9, time=level["time"]))
         else:
             print("whoops")
 
 
 def drum(drumTrack: MidiTrack):
-    pattern: dict = choice(drumPatterns)
+    pattern: Dict[str, List[dict]] = choice(drumPatterns)
     drumTrack.append(MetaMessage('text', text=pattern['name']))
     for i in pattern['pattern']:
         drum_pattern_repeat_recursion(i, drumTrack)
 
 
 def create_drum_track(mid: MidiFile, progressionLength: int):
-    readDrumPatterns()
-    totalPatterns: int = len(getDrumPatterns())
-    a: list = []
+    read_patterns()
+    totalPatterns: int = len(get_patterns())
+    a: List[int] = []
     for i in range(0, totalPatterns):
         a.append(i)
     filterDrumPatterns(a)

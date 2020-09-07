@@ -4,6 +4,7 @@ from os import mkdir
 from mido import MidiFile, MidiTrack, MetaMessage, bpm2tempo
 from midi2audio import FluidSynth
 from json import load
+from typing import Tuple, List, Dict, Any
 if __name__ == "__main__":
     from drum_gen import create_drum_track
     from guitar_gen import create_guitar_track
@@ -15,7 +16,8 @@ else:
     from src.piano_gen import create_piano_track
     from src.lights import writeToFile
 
-root: tuple = ('C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B')
+root: Tuple[str, str, str, str, str, str, str, str, str, str, str, str] = (
+    'C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B')
 c_val: int = 48
 bpm: int = 0
 
@@ -26,46 +28,49 @@ with open('config.json') as json_file:
     config: dict = load(json_file)
 
 
-def simple_pick_chords(progression_length: int) -> list:
-    assembledChords: list = []
+def simple_pick_chords(progression_length: int
+                       ) -> List[Dict[str, Dict[str, Any]]]:
+    assembledChords: List[Dict[str, Dict[str, Any]]] = []
     for a in range(0, progression_length):
-        b: dict = {
+        b: Dict[str, Dict[str, Any]] = {
             'root': {
                 'name': root[a],
+                'value': a
             },
-            'chord': chordDict[a]
+            'chord': {
+                'name': chordDict[a]['name'],
+                'values': chordDict[a]['values'].copy()
+            }
         }
-        b['root']['value'] = root.index(b['root']['name'])
         assembledChords.append(b)
     return assembledChords
 
 
-def pick_chords(progression_length: int) -> list:
-    assembledChords: list = []
+def pick_chords(progression_length: int) -> List[Dict[str, Dict[str, Any]]]:
+    assembledChords: List[Dict[str, Dict[str, Any]]] = []
     for _ in range(0, progression_length):
-        global outStr
-        b: dict = {
-            'root': {},
-            'chord': {}
-        }
         a: dict = {
             'name': choice(root),
+            'value': 0
         }
         a['value'] = root.index(a['name'])
-        b['root'] = a
-        b['chord'] = choice(chordDict)
+        b: dict = {
+            'root': a,
+            'chord': choice(chordDict).copy()
+        }
         assembledChords.append(b)
     return assembledChords
 
 
-def simple_chord_order(assembledChords: list) -> dict:
-    sequencesVals: list = []
-    sequencesStr: list = []
-    sequences: dict = {
+def simple_chord_order(assembledChords: List[Dict[str, Dict[str, Any]]]
+                       ) -> Dict[str, list]:
+    sequencesVals: List[List[List[int]]] = []
+    sequencesStr: List[str] = []
+    sequences: Dict[str, list] = {
         'values': sequencesVals,
         'strings': sequencesStr
     }
-    temp: list = []
+    temp: List[List[int]] = []
     for a in assembledChords:
         temp.append(a['chord']['values'].copy())
     for b in range(0, len(temp)):
@@ -75,23 +80,24 @@ def simple_chord_order(assembledChords: list) -> dict:
     return sequences
 
 
-def randomize_chord_order(assembledChords: list) -> dict:
-    sequencesVals: list = []
-    sequencesStr: list = []
-    sequences: dict = {
+def randomize_chord_order(assembledChords: List[Dict[str, Dict[str, Any]]]
+                          ) -> Dict[str, list]:
+    sequencesVals: List[List[List[int]]] = []
+    sequencesStr: List[str] = []
+    sequences: Dict[str, list] = {
         'values': sequencesVals,
         'strings': sequencesStr
     }
     for _ in range(0, 8):
-        temp: list = []
-        tempStrs: list = []
-        for j in assembledChords:
-            temp.append(j['chord']['values'].copy())
-            for a in temp:
-                for b in range(0, len(a)):
-                    a[b] += j['root']['value']
-            tempStrs.append(j['root']['name'] + j['chord']['name'])
-        segment = []
+        temp: List[List[int]] = []
+        tempStrs: List[str] = []
+        for j in range(0, len(assembledChords)):
+            temp.append(assembledChords[j]['chord']['values'].copy())
+            tempStrs.append(assembledChords[j]['root']['name'] +
+                            assembledChords[j]['chord']['name'])
+            for b in range(0, len(temp[j])):
+                temp[j][b] += assembledChords[j]['root']['value']
+        segment: List[List[int]] = []
         for j in range(0, len(assembledChords)):
             k: int = randint(0, len(assembledChords) - j - 1)
             segment.append(temp.pop(k))
@@ -131,7 +137,8 @@ def write_file(mid: MidiFile) -> str:
 
 def main():
     progression_length: int = 4
-    sequences: dict = randomize_chord_order(pick_chords(progression_length))
+    sequences: Dict[str, list] = randomize_chord_order(
+        pick_chords(progression_length))
     mid: MidiFile = MidiFile()
     mid.ticksPerBeat = 480
     create_meta_track(mid)

@@ -1,4 +1,5 @@
 from mido import MidiTrack, Message, MetaMessage, MidiFile
+from typing import Dict
 if __name__ == "piano_gen":
     from lights import addValueToHues
 else:
@@ -7,7 +8,8 @@ else:
 C_VAL: int = 48
 
 
-def create_piano_track(mid: MidiFile, progressionLength: int, sequences: dict):
+def create_piano_track(mid: MidiFile, progressionLength: int,
+                       sequences: Dict[str, list]):
     chordTrack: MidiTrack = MidiTrack()
     mid.tracks.append(chordTrack)
     chordTrack.append(MetaMessage('instrument_name', name='Piano'))
