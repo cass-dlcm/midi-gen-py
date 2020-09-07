@@ -4,7 +4,7 @@ from os import mkdir
 from mido import MidiFile, MidiTrack, MetaMessage, bpm2tempo
 from midi2audio import FluidSynth
 from json import load
-from typing import Tuple, List, Dict, Any, Union
+from typing import Tuple, List, Dict, Any, Union, cast
 if __name__ == "__main__":
     from drum_gen import create_drum_track
     from guitar_gen import create_guitar_track
@@ -18,11 +18,10 @@ else:
 
 root: Tuple[str, str, str, str, str, str, str, str, str, str, str, str] = (
     'C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B')
-c_val: int = 48
 bpm: int = 0
 
 with open('data/chords.json') as json_file:
-    chordDict: list = load(json_file)
+    chordDict: List[Dict[str, Union[str, List[int]]]] = load(json_file)
 
 with open('config.json') as json_file:
     config: dict = load(json_file)
@@ -36,10 +35,7 @@ def simple_pick_chords(progression_length: int) -> List[Dict[str, Dict[str, Unio
                 'name': root[a],
                 'value': a
             },
-            'chord': {
-                'name': chordDict[a]['name'],
-                'values': chordDict[a]['values'].copy()
-            }
+            'chord': cast(Dict[str, Union[str, int, List[int]]], chordDict[a].copy())
         }
         assembledChords.append(b)
     return assembledChords
@@ -54,11 +50,8 @@ def pick_chords(progression_length: int) -> List[Dict[str, Dict[str, Union[str, 
         }
         a['value'] = root.index(a['name'])
         b: Dict[str, Dict[str, Union[str, int, List[int]]]] = {
-            'root': {
-                'name': a['name'],
-                'value': a['value']
-            },
-            'chord': choice(chordDict).copy()
+            'root': cast(Dict[str, Union[str, int, List[int]]], a),
+            'chord': cast(Dict[str, Union[str, int, List[int]]], choice(chordDict)).copy()
         }
         assembledChords.append(b)
     return assembledChords
@@ -136,8 +129,7 @@ def write_file(mid: MidiFile) -> str:
 
 def main():
     progression_length: int = 4
-    sequences: Dict[str, list] = randomize_chord_order(
-        pick_chords(progression_length))
+    sequences: Dict[str, Union[List[List[List[int]]], List[str]]] = randomize_chord_order(pick_chords(progression_length))
     mid: MidiFile = MidiFile()
     mid.ticksPerBeat = 480
     create_meta_track(mid)

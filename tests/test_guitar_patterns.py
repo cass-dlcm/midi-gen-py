@@ -19,20 +19,29 @@ def test_guitar():
         guitar_track.append(MetaMessage('instrument_name', name='Guitar'))
         sequences: Dict[str, Union[List[List[List[int]]], List[str]]] = simple_chord_order(simple_pick_chords(progression_length))
         guitar_track.append(Message('program_change', program=25, channel=1, time=0))
-        assert isinstance(get_patterns()[0], dict)
-        assert isinstance(get_patterns()[0]['name'], str)
-        assert isinstance(get_patterns()[0]['pattern'], list)
+        pattern = get_patterns()[0]
+        assert isinstance(pattern, dict)
+        assert 'name' in pattern
+        assert isinstance(pattern['name'], str)
+        assert 'pattern' in pattern
+        assert isinstance(pattern['pattern'], list)
         assert isinstance(sequences, dict)
+        assert 'values' in sequences
         assert isinstance(sequences['values'], list)
         for a in sequences['values']:
             assert isinstance(a, list)
+            assert len(a) >= 1
             for b in a:
                 assert isinstance(b, list)
+                assert len(b) >= 1
                 for c in b:
                     assert isinstance(c, int)
+                    assert c >= 0
+        assert 'strings' in sequences
         assert isinstance(sequences['strings'], list)
         for a in sequences['strings']:
             assert isinstance(a, str)
+            assert len(a) > 0
         guitar(guitar_track, progression_length, sequences['values'], 1)
         guitar_track.append(MetaMessage('end_of_track'))
         mid.tracks.append(guitar_track)
@@ -46,7 +55,7 @@ def test_guitar():
             print("Created tests/output/guitar directory.")
         except FileExistsError:
             pass
-        file_name: str = get_patterns()[0]['name'] + '.mid'
+        file_name: str = pattern['name'] + '.mid'
         mid.save('tests/output/guitar/' + file_name)
         assert abs(mid.length - 8) < .001
         assert cmp('tests/output/guitar/' + file_name, 'tests/data/guitar/' + file_name, shallow=False)
@@ -77,8 +86,12 @@ def test_guitar_patterns_types():
         filter_patterns([i])
         pattern: Dict[str, Union[str, List[Dict[str, Union[str, Dict[str, Union[str, list]], int]]]]] = get_patterns()[0]
         assert isinstance(pattern, dict)
+        assert 'name' in pattern
         assert isinstance(pattern['name'], str)
+        assert len(pattern['name']) > 0
+        assert 'pattern' in pattern
         assert isinstance(pattern['pattern'], list)
         assert len(pattern['pattern']) > 0
         for event in pattern['pattern']:
+            assert isinstance(event, dict)
             recursive_parse_patterns(event)

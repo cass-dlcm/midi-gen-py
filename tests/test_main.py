@@ -20,6 +20,7 @@ def test_individuality():
 def test_type_sequences():
     sequences: Dict[str, Union[List[List[List[int]]], List[str]]] = randomize_chord_order(pick_chords(4))
     assert isinstance(sequences, dict)
+    assert 'values' in sequences
     assert isinstance(sequences['values'], list)
     for a in sequences['values']:
         assert isinstance(a, list)
@@ -27,6 +28,9 @@ def test_type_sequences():
             assert isinstance(b, list)
             for c in b:
                 assert isinstance(c, int)
+                assert c >= 0
+    assert 'strings' in sequences
     assert isinstance(sequences['strings'], list)
     for a in sequences['strings']:
         assert isinstance(a, str)
+        assert len(a) > 0

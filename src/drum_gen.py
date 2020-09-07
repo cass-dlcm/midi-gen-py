@@ -68,7 +68,7 @@ def get_patterns() -> List[Dict[str, Union[str, List[Dict[str, Union[str, Dict[s
     return drumPatterns.copy()
 
 
-def filterDrumPatterns(chosen: List[int]):
+def filter_patterns(chosen: List[int]):
     global drumPatterns
     temp: List[Dict[str, Union[str, List[Dict[str, Union[str, Dict[str, Union[str, list]], int]]]]]] = []
     for i in chosen:
@@ -103,7 +103,7 @@ def create_drum_track(mid: MidiFile, progressionLength: int):
     a: List[int] = []
     for i in range(0, totalPatterns):
         a.append(i)
-    filterDrumPatterns(a)
+    filter_patterns(a)
     drumTrack: MidiTrack = MidiTrack()
     drumTrack.append(MetaMessage('instrument_name', name='Drum set'))
     mid.tracks.append(drumTrack)

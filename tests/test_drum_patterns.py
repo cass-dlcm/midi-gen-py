@@ -1,5 +1,5 @@
 import glob
-from src.drum_gen import read_patterns, filterDrumPatterns, drum, get_drum_types
+from src.drum_gen import read_patterns, filter_patterns, drum, get_drum_types
 from src.drum_gen import get_patterns
 from src.main import create_simple_meta_track
 from mido import MidiTrack, MetaMessage, MidiFile
@@ -14,7 +14,7 @@ def test_drums():
         mid: MidiFile = MidiFile()
         create_simple_meta_track(mid)
         read_patterns()
-        filterDrumPatterns([i])
+        filter_patterns([i])
         drumTrack: MidiTrack = MidiTrack()
         drumTrack.append(MetaMessage('instrument_name', name='Drum set'))
         drum(drumTrack)
@@ -41,17 +41,22 @@ def recursive_parse_patterns(pattern: Dict[str, Union[str, Dict[str, Union[str, 
     if "repeat_count" in pattern:
         assert isinstance(pattern['repeat_count'], int)
         assert pattern['repeat_count'] > 1
+        assert 'subpattern' in pattern
         assert isinstance(pattern['subpattern'], list)
         assert len(pattern['subpattern']) > 1
         for a in range(0, cast(int, pattern["repeat_count"])):
             for b in cast(List[Dict[str, Union[str, Dict[str, Union[str, list]], int]]], pattern["subpattern"]):
+                assert isinstance(b, dict)
                 recursive_parse_patterns(cast(Dict[str, Union[str, Dict[str, Union[str, list]], int]], b))
     else:
+        assert 'noteEvent' in pattern
         assert isinstance(pattern['noteEvent'], str)
         assert pattern['noteEvent'] == 'on' or pattern['noteEvent'] == 'off'
+        assert 'drumType' in pattern
         assert isinstance(pattern['drumType'], str)
         assert isinstance(get_drum_types()[pattern['drumType']], int)
         assert get_drum_types()[pattern['drumType']] != 0
+        assert 'time' in pattern
         assert isinstance(pattern['time'], int)
         assert pattern['time'] >= 0
 
@@ -60,11 +65,15 @@ def test_drum_patterns_types():
     file_list: List[str] = glob.glob("data/drum_patterns/*.json")
     for i in range(0, len(file_list)):
         read_patterns()
-        filterDrumPatterns([i])
+        filter_patterns([i])
         pattern: Dict[str, Union[str, List[Dict[str, Union[str, Dict[str, Union[str, list]], int]]]]] = get_patterns()[0]
         assert isinstance(pattern, dict)
+        assert 'name' in pattern
         assert isinstance(pattern['name'], str)
+        assert len(pattern['name']) > 0
+        assert 'pattern' in pattern
         assert isinstance(pattern['pattern'], list)
         assert len(pattern['pattern']) > 0
         for event in pattern['pattern']:
+            assert isinstance(event, dict)
             recursive_parse_patterns(event)
