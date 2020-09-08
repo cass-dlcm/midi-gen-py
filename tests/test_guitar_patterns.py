@@ -1,6 +1,7 @@
 import glob
-from src.guitar_gen import read_patterns, filter_patterns, guitar, get_patterns
-from mido import MidiTrack, MetaMessage, MidiFile, Message
+from src.guitar_gen import read_patterns, filter_patterns, create_track, get_patterns
+from tests.test_main import type_sequences
+from mido import MidiFile
 from filecmp import cmp
 from src.main import simple_pick_chords, simple_chord_order, create_simple_meta_track
 from os import mkdir
@@ -12,46 +13,14 @@ def test_guitar():
     for i in range(0, len(file_list)):
         progression_length: int = 4
         mid: MidiFile = MidiFile()
-        create_simple_meta_track(mid)
+        mid.tracks.append(create_simple_meta_track()[0])
         read_patterns()
         filter_patterns([i])
-        guitar_track: MidiTrack = MidiTrack()
-        guitar_track.append(MetaMessage('instrument_name', name='Guitar'))
         sequences: Dict[str, Union[List[List[List[int]]], List[str]]] = simple_chord_order(simple_pick_chords(progression_length))
-        guitar_track.append(Message('program_change', program=25, channel=1, time=0))
         pattern = get_patterns()[0]
-        assert isinstance(pattern, dict)
-        assert 'name' in pattern
-        assert isinstance(pattern['name'], str)
-        assert len(pattern['name']) > 0
-        assert 'ticksPerMeasure' in pattern
-        assert isinstance(pattern['ticksPerMeasure'], int)
-        assert pattern['ticksPerMeasure'] > 0
-        assert 'measures' in pattern
-        assert isinstance(pattern['measures'], int)
-        assert pattern['measures'] > 0
-        assert 'pattern' in pattern
-        assert isinstance(pattern['pattern'], list)
-        assert isinstance(sequences, dict)
-        assert 'values' in sequences
-        assert isinstance(sequences['values'], list)
-        for a in sequences['values']:
-            assert isinstance(a, list)
-            assert len(a) >= 1
-            for b in a:
-                assert isinstance(b, list)
-                assert len(b) >= 1
-                for c in b:
-                    assert isinstance(c, int)
-                    assert c >= 0
-        assert 'strings' in sequences
-        assert isinstance(sequences['strings'], list)
-        for a in sequences['strings']:
-            assert isinstance(a, str)
-            assert len(a) > 0
-        guitar(guitar_track, progression_length, sequences['values'], 1)
-        guitar_track.append(MetaMessage('end_of_track'))
-        mid.tracks.append(guitar_track)
+        guitar_patterns_types(pattern)
+        type_sequences(sequences)
+        mid.tracks.append(create_track(progression_length, sequences['values'], 1))
         try:
             mkdir("tests/output")
             print("Created tests/output directory.")
@@ -86,25 +55,20 @@ def recursive_parse_patterns(pattern: Dict[str, Union[str, Dict[str, Union[str, 
         assert pattern['time'] >= 0
 
 
-def test_guitar_patterns_types():
-    file_list: List[str] = glob.glob("data/guitar_patterns/*.json")
-    for i in range(0, len(file_list)):
-        read_patterns()
-        filter_patterns([i])
-        pattern: Dict[str, Union[str, List[Dict[str, Union[str, int, Dict[str, Union[str, list]]]]]]] = get_patterns()[0]
-        assert isinstance(pattern, dict)
-        assert 'name' in pattern
-        assert isinstance(pattern['name'], str)
-        assert len(pattern['name']) > 0
-        assert 'ticksPerMeasure' in pattern
-        assert isinstance(pattern['ticksPerMeasure'], int)
-        assert pattern['ticksPerMeasure'] > 0
-        assert 'measures' in pattern
-        assert isinstance(pattern['measures'], int)
-        assert pattern['measures'] > 0
-        assert 'pattern' in pattern
-        assert isinstance(pattern['pattern'], list)
-        assert len(pattern['pattern']) > 0
-        for event in pattern['pattern']:
-            assert isinstance(event, dict)
-            recursive_parse_patterns(event)
+def guitar_patterns_types(pattern: Dict[str, Union[str, List[Dict[str, Union[str, int, Dict[str, Union[str, list]]]]]]]):
+    assert isinstance(pattern, dict)
+    assert 'name' in pattern
+    assert isinstance(pattern['name'], str)
+    assert len(pattern['name']) > 0
+    assert 'ticksPerMeasure' in pattern
+    assert isinstance(pattern['ticksPerMeasure'], int)
+    assert pattern['ticksPerMeasure'] > 0
+    assert 'measures' in pattern
+    assert isinstance(pattern['measures'], int)
+    assert pattern['measures'] > 0
+    assert 'pattern' in pattern
+    assert isinstance(pattern['pattern'], list)
+    assert len(pattern['pattern']) > 0
+    for event in pattern['pattern']:
+        assert isinstance(event, dict)
+        recursive_parse_patterns(event)

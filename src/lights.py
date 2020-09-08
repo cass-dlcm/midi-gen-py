@@ -10,10 +10,26 @@ hues: List[int] = []
 
 
 def addValueToHues(value: int):
+    """Adds values passed in to the array of hues emitted
+
+    :param value: The hue value to add
+    :type value: int
+    """
     hues.append(value)
 
 
-def writeToFile(timestamp: str, bpm: int, progressionLength: int):
+def writeToFile(timestamp: str, bpm: int, progressionLength: int, segments: int):
+    """Writes Ardiuno program to file and optionally executes it
+
+    :param timestamp: A timestamp, formatted as '%Y-%m-%d_%H_%M_%S'
+    :type timestamp: str
+    :param bpm: The beats per minute of the song
+    :type bpm: int
+    :param progression_length: The number of chords in a single sequence
+    :type progression_length: int
+    :param segments: The number of sequences
+    :type segments: int
+    """
     d = 800000 / 24 / config['LED_COUNT'] / (bpm / 240) * .9
     arduinoStr: str = '#include <Adafruit_NeoPixel.h>\n#define LED_PIN    '
     arduinoStr += str(config['LED_PIN'])
@@ -32,7 +48,7 @@ def writeToFile(timestamp: str, bpm: int, progressionLength: int):
     arduinoStr += ' + (hues[a + 1] * b) * '
     arduinoStr += str(float.hex(1 / int(d)))
     arduinoStr += ') * 0.0833333333333333);\n}\nvoid loop() {\n  if (a < '
-    arduinoStr += str(progressionLength * 8)
+    arduinoStr += str(progressionLength * segments)
     arduinoStr += ') {\n    strip.fill(strip.ColorHSV(getColor()));\n  }\n  b+'
     arduinoStr += '+;\n  strip.show();\n  if (b == '
     arduinoStr += str(int(d))

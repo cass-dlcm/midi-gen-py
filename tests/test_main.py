@@ -17,8 +17,7 @@ def test_individuality():
     assert not(cmp(file_a, file_b, shallow=False))
 
 
-def test_type_sequences():
-    sequences: Dict[str, Union[List[List[List[int]]], List[str]]] = randomize_chord_order(pick_chords(4))
+def type_sequences(sequences: Dict[str, Union[List[List[List[int]]], List[str]]]):
     assert isinstance(sequences, dict)
     assert 'values' in sequences
     assert isinstance(sequences['values'], list)
@@ -34,3 +33,9 @@ def test_type_sequences():
     for a in sequences['strings']:
         assert isinstance(a, str)
         assert len(a) > 0
+
+
+def test_type_random_sequences():
+    for _ in range(0, 100):
+        sequences: Dict[str, Union[List[List[List[int]]], List[str]]] = randomize_chord_order(pick_chords(4))
+        type_sequences(sequences)
