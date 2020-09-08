@@ -37,7 +37,7 @@ jobs:
         pytest --cov=src tests
         bash <(curl -s https://codecov.io/bash)
     - name: Build documentation with Sphinx
-    - uses: xu-cheng/texlive-action/full@v1
+      uses: xu-cheng/texlive-action/full@v1
     - run: |
         apk add make
         make latexpdf
