@@ -1,4 +1,4 @@
-name: Lint, Type Check, Test, Build Docs
+name: Lint, Type Check, Test
 on:
   push:
     branches: [ master, pull_request ]
