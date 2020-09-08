@@ -57,7 +57,7 @@ def pick_chords(progression_length: int) -> List[Dict[str, Dict[str, Union[str, 
     return assembledChords
 
 
-def simple_chord_order(assembledChords: List[Dict[str, Dict[str, Any]]]) -> Dict[str, Union[List[List[List[int]]], List[str]]]:
+def simple_chord_order(assembledChords: List[Dict[str, Dict[str, Any]]]) -> Dict[str, Union[List[str], List[List[List[int]]]]]:
     sequencesVals: List[List[List[int]]] = []
     sequencesStr: List[str] = []
     sequences: Dict[str, Union[List[List[List[int]]], List[str]]] = {
@@ -74,10 +74,10 @@ def simple_chord_order(assembledChords: List[Dict[str, Dict[str, Any]]]) -> Dict
     return sequences
 
 
-def randomize_chord_order(assembledChords: List[Dict[str, Dict[str, Any]]]) -> Dict[str, Union[List[List[List[int]]], List[str]]]:
+def randomize_chord_order(assembledChords: List[Dict[str, Dict[str, Any]]]) -> Dict[str, Union[List[str], List[List[List[int]]]]]:
     sequencesVals: List[List[List[int]]] = []
     sequencesStr: List[str] = []
-    sequences: Dict[str, Union[List[List[List[int]]], List[str]]] = {
+    sequences: Dict[str, Union[List[str], List[List[List[int]]]]] = {
         'values': sequencesVals,
         'strings': sequencesStr
     }
@@ -129,7 +129,7 @@ def write_file(mid: MidiFile) -> str:
 
 def main():
     progression_length: int = 4
-    sequences: Dict[str, Union[List[List[List[int]]], List[str]]] = randomize_chord_order(pick_chords(progression_length))
+    sequences: Dict[str, Union[List[str], List[List[List[int]]]]] = randomize_chord_order(pick_chords(progression_length))
     mid: MidiFile = MidiFile()
     mid.ticksPerBeat = 480
     create_meta_track(mid)

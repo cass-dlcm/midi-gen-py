@@ -5,7 +5,7 @@ from random import choice
 from typing import List, Dict, Union, cast
 
 C_VAL: int = 48
-guitar_patterns: List[Dict[str, Union[str, int, List[Dict[str, Union[str, Dict[str, Union[str, list]], int]]]]]] = []
+guitar_patterns: List[Dict[str, Union[str, int, List[Dict[str, Union[str, int, Dict[str, Union[str, list]]]]]]]] = []
 file_list = glob("data/guitar_patterns/*.json")
 
 # Format as json:
