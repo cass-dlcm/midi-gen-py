@@ -96,6 +96,12 @@ def test_guitar_patterns_types():
         assert 'name' in pattern
         assert isinstance(pattern['name'], str)
         assert len(pattern['name']) > 0
+        assert 'ticksPerMeasure' in pattern
+        assert isinstance(pattern['ticksPerMeasure'], int)
+        assert pattern['ticksPerMeasure'] > 0
+        assert 'measures' in pattern
+        assert isinstance(pattern['measures'], int)
+        assert pattern['measures'] > 0
         assert 'pattern' in pattern
         assert isinstance(pattern['pattern'], list)
         assert len(pattern['pattern']) > 0
