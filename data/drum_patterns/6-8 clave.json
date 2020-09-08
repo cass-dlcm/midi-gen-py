@@ -1,5 +1,7 @@
 {
   "name": "6-8 clave",
+  "ticksPerMeasure": 1920,
+  "measures": 1,
   "pattern": [
     {
       "noteEvent": "on",

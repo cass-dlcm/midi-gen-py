@@ -1,5 +1,7 @@
 {
   "name": "D-beat drum pattern 0",
+  "ticksPerMeasure": 1920,
+  "measures": 1,
   "pattern": [
     {
       "noteEvent": "on",

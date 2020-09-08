@@ -1,5 +1,7 @@
 {
   "name": "pattern_0",
+  "ticksPerMeasure": 1920,
+  "measures": 1,
   "pattern": [
     {
       "noteEvent": "note_on",

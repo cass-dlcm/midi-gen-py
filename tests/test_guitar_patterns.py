@@ -23,6 +23,13 @@ def test_guitar():
         assert isinstance(pattern, dict)
         assert 'name' in pattern
         assert isinstance(pattern['name'], str)
+        assert len(pattern['name']) > 0
+        assert 'ticksPerMeasure' in pattern
+        assert isinstance(pattern['ticksPerMeasure'], int)
+        assert pattern['ticksPerMeasure'] > 0
+        assert 'measures' in pattern
+        assert isinstance(pattern['measures'], int)
+        assert pattern['measures'] > 0
         assert 'pattern' in pattern
         assert isinstance(pattern['pattern'], list)
         assert isinstance(sequences, dict)
@@ -84,7 +91,7 @@ def test_guitar_patterns_types():
     for i in range(0, len(file_list)):
         read_patterns()
         filter_patterns([i])
-        pattern: Dict[str, Union[str, List[Dict[str, Union[str, Dict[str, Union[str, list]], int]]]]] = get_patterns()[0]
+        pattern: Dict[str, Union[str, List[Dict[str, Union[str, int, Dict[str, Union[str, list]]]]]]] = get_patterns()[0]
         assert isinstance(pattern, dict)
         assert 'name' in pattern
         assert isinstance(pattern['name'], str)

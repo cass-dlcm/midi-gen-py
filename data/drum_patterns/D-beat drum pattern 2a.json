@@ -1,5 +1,7 @@
 {
   "name": "D-beat drum pattern 2a",
+  "ticksPerMeasure": 1920,
+  "measures": 1,
   "pattern": [
     {
       "repeat_count": 2,

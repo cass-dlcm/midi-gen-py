@@ -1,5 +1,7 @@
 {
   "name": "3 4 popular music rhythm",
+  "ticksPerMeasure": 1920,
+  "measures": 1,
   "pattern": [
     {
       "noteEvent": "on",

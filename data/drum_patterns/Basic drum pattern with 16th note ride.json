@@ -1,5 +1,7 @@
 {
   "name": "Basic drum pattern with 16th note ride",
+  "ticksPerMeasure": 1920,
+  "measures": 1,
   "pattern": [
     {
       "noteEvent": "on",

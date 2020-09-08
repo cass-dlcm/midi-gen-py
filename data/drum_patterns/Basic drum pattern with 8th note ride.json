@@ -1,5 +1,7 @@
 {
   "name": "Basic drum pattern with 8th note ride",
+  "ticksPerMeasure": 1920,
+  "measures": 1,
   "pattern": [
     {
       "repeat_count": 2,

@@ -1,5 +1,7 @@
 {
   "name": "Characteristic rock drum pattern",
+  "ticksPerMeasure": 1920,
+  "measures": 1,
   "pattern": [
     {
       "repeat_count": 2,

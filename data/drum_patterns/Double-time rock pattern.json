@@ -1,5 +1,7 @@
 {
   "name": "Double-time rock pattern",
+  "ticksPerMeasure": 1920,
+  "measures": 1,
   "pattern": [
     {
       "repeat_count": 4,

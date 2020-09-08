@@ -1,5 +1,7 @@
 {
   "name": "Blast beat drum pattern 2",
+  "ticksPerMeasure": 1920,
+  "measures": 1,
   "pattern": [
     {
       "repeat_count": 8,

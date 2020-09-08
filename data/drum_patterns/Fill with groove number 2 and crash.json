@@ -1,5 +1,7 @@
 {
   "name": "Fill with groove number 2 and crash",
+  "ticksPerMeasure": 1920,
+  "measures": 1,
   "pattern": [
     {
       "noteEvent": "on",

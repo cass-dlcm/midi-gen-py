@@ -47,7 +47,7 @@ file_list: List[str] = glob("data/drum_patterns/*.json")
 #         }
 #     ]
 # }
-drumPatterns: List[Dict[str, Union[str, List[Dict[str, Union[str, Dict[str, Union[str, list]], int]]]]]] = []
+drumPatterns: List[Dict[str, Union[str, int, List[Dict[str, Union[str, int, Dict[str, Union[str, list]]]]]]]] = []
 
 
 def get_drum_types() -> Dict[str, int]:
@@ -63,14 +63,14 @@ def read_patterns():
             drumPatterns.append(json.load(json_file))
 
 
-def get_patterns() -> List[Dict[str, Union[str, List[Dict[str, Union[str, Dict[str, Union[str, list]], int]]]]]]:
+def get_patterns() -> List[Dict[str, Union[str, int, List[Dict[str, Union[str, Dict[str, Union[str, list]], int]]]]]]:
     """Gets a copy of the list of drum patterns."""
     return drumPatterns.copy()
 
 
 def filter_patterns(chosen: List[int]):
     global drumPatterns
-    temp: List[Dict[str, Union[str, List[Dict[str, Union[str, Dict[str, Union[str, list]], int]]]]]] = []
+    temp: List[Dict[str, Union[str, int, List[Dict[str, Union[str, int, Dict[str, Union[str, list]]]]]]]] = []
     for i in chosen:
         temp.append(drumPatterns[i])
     drumPatterns = temp
@@ -91,7 +91,7 @@ def drum_pattern_repeat_recursion(level: Dict[str, Union[str, Dict[str, Union[st
 
 
 def drum(drumTrack: MidiTrack):
-    pattern: Dict[str, Union[str, List[Dict[str, Union[str, Dict[str, Union[str, list]], int]]]]] = choice(drumPatterns)
+    pattern: Dict[str, Union[str, int, List[Dict[str, Union[str, int, Dict[str, Union[str, list]]]]]]] = choice(drumPatterns)
     drumTrack.append(MetaMessage('text', text=cast(str, pattern['name'])))
     for i in cast(List[Dict[str, Union[str, Dict[str, Union[str, list]], int]]], pattern['pattern']):
         drum_pattern_repeat_recursion(i, drumTrack)

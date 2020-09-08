@@ -1,5 +1,7 @@
 {
   "name": "Backbeat pattern snare drum",
+  "ticksPerMeasure": 1920,
+  "measures": 1,
   "pattern": [
     {
       "noteEvent": "on",
