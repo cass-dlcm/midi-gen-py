@@ -90,7 +90,7 @@ def filter_patterns(chosen: List[int]):
     drumPatterns = temp
 
 
-def drum_pattern_repeat_recursion(level: Dict[str, Union[str, Dict[str, Union[str, list]], int]], drum_track: MidiTrack):
+def drum_pattern_repeat_recursion(level: Dict[str, Union[str, Dict[str, Union[str, list]], int]], drum_track: MidiTrack, ticks_per_measure: int):
     """Parses, recurisvely, a drum pattern and adds note_events
 
     :param level: The current level of the nested pattern
@@ -101,12 +101,12 @@ def drum_pattern_repeat_recursion(level: Dict[str, Union[str, Dict[str, Union[st
     if "repeat_count" in level:
         for a in range(0, cast(int, level["repeat_count"])):
             for b in cast(List[Dict[str, Union[str, Dict[str, Union[str, list]], int]]], level["subpattern"]):
-                drum_pattern_repeat_recursion(cast(Dict[str, Union[str, Dict[str, Union[str, list]], int]], b), drum_track)
+                drum_pattern_repeat_recursion(cast(Dict[str, Union[str, Dict[str, Union[str, list]], int]], b), drum_track, ticks_per_measure)
     else:
         if (level["noteEvent"] == "on"):
-            drum_track.append(Message('note_on', note=drum_types[level["drumType"]], channel=9, time=level["time"]))
+            drum_track.append(Message('note_on', note=drum_types[level["drumType"]], channel=9, time=int(cast(int, level["time"]) * 1920 / ticks_per_measure)))
         elif (level["noteEvent"] == "off"):
-            drum_track.append(Message('note_off', note=drum_types[level["drumType"]], channel=9, time=level["time"]))
+            drum_track.append(Message('note_off', note=drum_types[level["drumType"]], channel=9, time=int(cast(int, level["time"]) * 1920 / ticks_per_measure)))
         else:
             print("whoops")
 
@@ -120,10 +120,10 @@ def drum(track: MidiTrack):
     pattern: Dict[str, Union[str, int, List[Dict[str, Union[str, int, Dict[str, Union[str, list]]]]]]] = choice(drumPatterns)
     track.append(MetaMessage('text', text=cast(str, pattern['name'])))
     for i in cast(List[Dict[str, Union[str, Dict[str, Union[str, list]], int]]], pattern['pattern']):
-        drum_pattern_repeat_recursion(i, track)
+        drum_pattern_repeat_recursion(i, track, cast(int, pattern['ticksPerMeasure']))
 
 
-def create_drum_track(measures: int) -> MidiTrack:
+def create_track(measures: int) -> MidiTrack:
     """Creates a drum track given a specific length
 
     :param measures: The total number of measures for the track

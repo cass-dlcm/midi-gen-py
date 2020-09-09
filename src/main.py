@@ -6,14 +6,12 @@ from midi2audio import FluidSynth
 from json import load
 from typing import Tuple, List, Dict, Union, cast
 if __name__ == "__main__":
-    from drum_gen import create_drum_track
     import drum_gen
     import guitar_gen
     from piano_gen import create_piano_track
     from lights import writeToFile
 else:
     from src import guitar_gen, drum_gen
-    from src.drum_gen import create_drum_track
     from src.piano_gen import create_piano_track
     from src.lights import writeToFile
 
@@ -185,7 +183,7 @@ def main():
     guitar_gen.setup_patterns()
     mid.tracks.append(guitar_gen.create_track(progression_length, sequences['values'], segments))
     drum_gen.setup_patterns()
-    mid.tracks.append(create_drum_track(progression_length * segments))
+    mid.tracks.append(drum_gen.create_track(progression_length * segments))
     timestamp: str = write_file(mid)
     if config['lights_enabled']:
         writeToFile(timestamp, bpm, progression_length, segments)

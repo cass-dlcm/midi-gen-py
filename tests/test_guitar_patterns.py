@@ -33,6 +33,7 @@ def test_guitar():
             pass
         file_name: str = pattern['name'] + '.mid'
         mid.save('tests/output/guitar/' + file_name)
+        print(pattern['name'])
         assert abs(mid.length - 8) < .001
         assert cmp('tests/output/guitar/' + file_name, 'tests/data/guitar/' + file_name, shallow=False)
 
@@ -47,8 +48,8 @@ def recursive_parse_patterns(pattern: Dict[str, Union[str, Dict[str, Union[str, 
             for b in cast(List[Dict[str, Union[str, Dict[str, Union[str, list]], int]]], pattern["subpattern"]):
                 recursive_parse_patterns(cast(Dict[str, Union[str, Dict[str, Union[str, list]], int]], b))
     else:
-        assert isinstance(pattern['noteEvent'], str)
-        assert pattern['noteEvent'] == 'note_on' or pattern['noteEvent'] == 'note_off'
+        assert isinstance(pattern['note_event'], str)
+        assert pattern['note_event'] == 'note_on' or pattern['note_event'] == 'note_off'
         assert isinstance(pattern['pitchIndex'], int)
         assert pattern['pitchIndex'] >= 0 and pattern['pitchIndex'] <= 3
         assert isinstance(pattern['time'], int)

@@ -1,85 +1,85 @@
 {
   "name": "pattern_1",
-  "ticksPerMeasure": 1920,
+  "ticksPerMeasure": 8,
   "measures": 1,
   "pattern": [
     {
-      "noteEvent": "note_on",
+      "note_event": "note_on",
       "pitchIndex": 0,
       "time": 0
     },
     {
-      "noteEvent": "note_on",
+      "note_event": "note_on",
       "pitchIndex": 2,
-      "time": 240
+      "time": 1
     },
     {
-      "noteEvent": "note_off",
+      "note_event": "note_off",
       "pitchIndex": 0,
-      "time": 240
+      "time": 1
     },
     {
-      "noteEvent": "note_on",
+      "note_event": "note_on",
       "pitchIndex": 1,
       "time": 0
     },
     {
-      "noteEvent": "note_off",
+      "note_event": "note_off",
       "pitchIndex": 2,
-      "time": 240
+      "time": 1
     },
     {
-      "noteEvent": "note_on",
+      "note_event": "note_on",
       "pitchIndex": 3,
       "time": 0
     },
     {
-      "noteEvent": "note_off",
+      "note_event": "note_off",
       "pitchIndex": 1,
-      "time": 240
+      "time": 1
     },
     {
-      "noteEvent": "note_on",
+      "note_event": "note_on",
       "pitchIndex": 0,
       "time": 0
     },
     {
-      "noteEvent": "note_off",
+      "note_event": "note_off",
       "pitchIndex": 3,
-      "time": 240
+      "time": 1
     },
     {
-      "noteEvent": "note_on",
+      "note_event": "note_on",
       "pitchIndex": 2,
       "time": 0
     },
     {
-      "noteEvent": "note_off",
+      "note_event": "note_off",
       "pitchIndex": 0,
-      "time": 240
+      "time": 1
     },
     {
-      "noteEvent": "note_on",
+      "note_event": "note_on",
       "pitchIndex": 1,
       "time": 0
     },
     {
-      "noteEvent": "note_off",
+      "note_event": "note_off",
       "pitchIndex": 2,
-      "time": 240
+      "time": 1
     },
     {
-      "noteEvent": "note_on",
+      "note_event": "note_on",
       "pitchIndex": 3,
       "time": 0
     },
     {
-      "noteEvent": "note_off",
+      "note_event": "note_off",
       "pitchIndex": 1,
-      "time": 240
+      "time": 1
     },
     {
-      "noteEvent": "note_off",
+      "note_event": "note_off",
       "pitchIndex": 3,
       "time": 0
     }

@@ -1,6 +1,5 @@
 import glob
-from src.drum_gen import read_patterns, filter_patterns, get_drum_types, create_drum_track
-from src.drum_gen import get_patterns
+from src.drum_gen import read_patterns, filter_patterns, get_drum_types, create_track, get_patterns
 from src.main import create_simple_meta_track
 from mido import MidiFile
 from filecmp import cmp
@@ -17,7 +16,7 @@ def test_drums():
         filter_patterns([i])
         pattern = get_patterns()[0]
         drum_patterns_types(pattern)
-        mid.tracks.append(create_drum_track(1))
+        mid.tracks.append(create_track(1))
         try:
             mkdir("tests/output")
             print("Created tests/output directory.")

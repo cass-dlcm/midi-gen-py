@@ -13,16 +13,18 @@ file_list = glob("data/guitar_patterns/*.json")
 #     "name": a unique name,
 #     "pattern": [
 #         {
-#             "noteEvent": either "note_on" or "note_off",
+#             "note_event": either "note_on" or "note_off",
 #             "pitchIndex": which pitch in the given chord,
+#             "pitch": an absolute pitch, with the root added on,
 #             "time": measured in 1/480 of a quarter note
 #         },
 #         {
 #             "repeat_count": a number of times to repeat the subpattern,
 #             "subpattern": {
 #                 {
-#                     "noteEvent": either "note_on" or "note_off",
+#                     "note_event": either "note_on" or "note_off",
 #                     "pitchIndex": which pitch in the given chord,
+#                     "pitch": an absolute pitch, with the root added on,
 #                     "time": measured in 1/480 of a quarter note
 #                 },
 #                 {
@@ -66,7 +68,7 @@ def filter_patterns(chosen: List[int]):
     patterns = temp
 
 
-def guitar_pattern_repeat_recursion(level: Dict[str, Union[str, int, Dict[str, Union[str, list]]]], track: MidiTrack, sequences: List[List[List[int]]], a: int, b: int):
+def guitar_pattern_repeat_recursion(level: Dict[str, Union[str, int, Dict[str, Union[str, list]]]], track: MidiTrack, sequences: List[List[List[int]]], a: int, b: int, ticksPerMeasure: int):
     """Parses, recurisvely, a guitar pattern and adds note_events
 
     :param level: The current level of the nested pattern
@@ -83,9 +85,12 @@ def guitar_pattern_repeat_recursion(level: Dict[str, Union[str, int, Dict[str, U
     if "repeat_count" in level:
         for _ in range(0, cast(int, level["repeat_count"])):
             for c in cast(List[Dict[str, Union[str, int, Dict[str, Union[str, list]]]]], level["subpattern"]):
-                guitar_pattern_repeat_recursion(c, track, sequences, a, b)
+                guitar_pattern_repeat_recursion(c, track, sequences, a, b, ticksPerMeasure)
     else:
-        track.append(Message(cast(str, level['noteEvent']), note=sequences[a][b][cast(int, level["pitchIndex"])] + C_VAL, channel=1, time=cast(int, level["time"])))
+        if "pitchIndex" in level:
+            track.append(Message(cast(str, level['note_event']), note=sequences[a][b][cast(int, level["pitchIndex"])] + C_VAL, channel=1, time=int(cast(int, level["time"]) * 1920 / ticksPerMeasure)))
+        else:
+            track.append(Message(cast(str, level['note_event']), note=sequences[a][b][0] + cast(int, level["pitch"]), channel=1, time=int(cast(int, level["time"]) * 1920 / ticksPerMeasure)))
 
 
 def guitar(track: MidiTrack, progression_length: int, sequences: List[List[List[int]]], segments: int):
@@ -105,7 +110,7 @@ def guitar(track: MidiTrack, progression_length: int, sequences: List[List[List[
             pickPattern: Dict[str, Union[str, int, List[Dict[str, Union[str, int, Dict[str, Union[str, list]]]]]]] = choice(patterns)
             track.append(MetaMessage('text', text=cast(str, pickPattern['name'])))
             for c in cast(List[Dict[str, Union[str, int, Dict[str, Union[str, list]]]]], pickPattern['pattern']):
-                guitar_pattern_repeat_recursion(c, track, sequences, a, b)
+                guitar_pattern_repeat_recursion(c, track, sequences, a, b, cast(int, pickPattern['ticksPerMeasure']))
 
 
 def create_track(progression_length: int, sequences: List[List[List[int]]], segments: int) -> MidiTrack:
