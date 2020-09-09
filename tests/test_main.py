@@ -21,15 +21,19 @@ def type_sequences(sequences: Dict[str, Union[List[List[List[int]]], List[str]]]
     assert isinstance(sequences, dict)
     assert 'values' in sequences
     assert isinstance(sequences['values'], list)
+    assert len(sequences['values']) > 0
     for a in sequences['values']:
         assert isinstance(a, list)
+        assert len(a) > 0
         for b in a:
             assert isinstance(b, list)
+            assert len(b) > 0
             for c in b:
                 assert isinstance(c, int)
                 assert c >= 0
     assert 'strings' in sequences
     assert isinstance(sequences['strings'], list)
+    assert len(sequences['strings']) > 0
     for a in sequences['strings']:
         assert isinstance(a, str)
         assert len(a) > 0
@@ -37,5 +41,5 @@ def type_sequences(sequences: Dict[str, Union[List[List[List[int]]], List[str]]]
 
 def test_type_random_sequences():
     for _ in range(0, 100):
-        sequences: Dict[str, Union[List[List[List[int]]], List[str]]] = randomize_chord_order(pick_chords(4))
+        sequences: Dict[str, Union[List[List[List[int]]], List[str]]] = randomize_chord_order(pick_chords(4), 8)
         type_sequences(sequences)

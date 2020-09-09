@@ -61,6 +61,8 @@ def filter_patterns(chosen: List[int]) -> int:
 
     :param chosen: A list of numbers of the chosen guitar patterns
     :type chosen: List[int]
+    :return: the lowest common multiple of ticks per measure from the files
+    :rtype: int
     """
     global patterns
     ticks_per_measure: int = 4
@@ -85,6 +87,10 @@ def guitar_pattern_repeat_recursion(level: Dict[str, Union[str, int, Dict[str, U
     :type a: int
     :param b: The current chord in the sequence
     :type b: int
+    :param ticks_per_measure: how many ticks in a measure of this pattern
+    :type ticks_per_measure: int
+    :param ticks_per_beat: how many ticks per beat of this file
+    :type ticks_per_beat: int
     """
     if "repeat_count" in level:
         for _ in range(0, cast(int, level["repeat_count"])):
@@ -108,13 +114,15 @@ def guitar(track: MidiTrack, progression_length: int, sequences: List[List[List[
     :type sequences: List[List[List[int]]]
     :param segments: The number of sequences
     :type segments: int
+    :param ticks_per_beat: how many ticks per beat of this file
+    :type ticks_per_beat: int
     """
     for a in range(0, segments):
         for b in range(0, progression_length):
-            pickPattern: Dict[str, Union[str, int, List[Dict[str, Union[str, int, Dict[str, Union[str, list]]]]]]] = choice(patterns)
-            track.append(MetaMessage('text', text=cast(str, pickPattern['name'])))
-            for c in cast(List[Dict[str, Union[str, int, Dict[str, Union[str, list]]]]], pickPattern['pattern']):
-                guitar_pattern_repeat_recursion(c, track, sequences, a, b, cast(int, pickPattern['ticks_per_measure']), ticks_per_beat)
+            pattern: Dict[str, Union[str, int, List[Dict[str, Union[str, int, Dict[str, Union[str, list]]]]]]] = choice(patterns)
+            track.append(MetaMessage('text', text=cast(str, pattern['name'])))
+            for c in cast(List[Dict[str, Union[str, int, Dict[str, Union[str, list]]]]], pattern['pattern']):
+                guitar_pattern_repeat_recursion(c, track, sequences, a, b, cast(int, pattern['ticks_per_measure']), ticks_per_beat)
 
 
 def create_track(progression_length: int, sequences: List[List[List[int]]], segments: int, ticks_per_beat: int) -> MidiTrack:
@@ -127,6 +135,8 @@ def create_track(progression_length: int, sequences: List[List[List[int]]], segm
     :return: The generated guitar track
     :param segments: The number of sequences
     :type segments: int
+    :param ticks_per_beat: how many ticks per beat of this file
+    :type ticks_per_beat: int
     :return: The created guitar track
     :rtype: mido.MidiTrack
     """
@@ -141,7 +151,10 @@ def create_track(progression_length: int, sequences: List[List[List[int]]], segm
 def setup_patterns() -> int:
     """Initializes the entire set of guitar patterns
 
-    Todo: ask user for specific patterns
+    Todo - ask user for specific patterns
+
+    :return: the lowest common multiple of ticks per measure from the files
+    :rtype: int
     """
     read_patterns()
     total_patterns: int = len(get_patterns())

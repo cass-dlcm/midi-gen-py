@@ -9,12 +9,10 @@ from numpy import lcm
 if __name__ == "__main__":
     import drum_gen
     import guitar_gen
-    from piano_gen import create_piano_track
-    from lights import writeToFile
+    import piano_gen
+    import lights
 else:
-    from src import guitar_gen, drum_gen
-    from src.piano_gen import create_piano_track
-    from src.lights import writeToFile
+    from src import guitar_gen, drum_gen, lights, piano_gen
 
 root: Tuple[str, str, str, str, str, str, str, str, str, str, str, str] = (
     'C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B')
@@ -34,7 +32,7 @@ def simple_pick_chords(progression_length: int) -> List[Dict[str, Dict[str, Unio
     :returns: A dictionary of chords, consisting of pitches and offsets, with names
     :rtype: List[Dict[str, Dict[str, Union[str, int, List[int]]]]]
     """
-    assembledChords: List[Dict[str, Dict[str, Union[str, int, List[int]]]]] = []
+    assembled_chords: List[Dict[str, Dict[str, Union[str, int, List[int]]]]] = []
     for a in range(0, progression_length):
         b: Dict[str, Dict[str, Union[str, int, List[int]]]] = {
             'root': {
@@ -43,8 +41,8 @@ def simple_pick_chords(progression_length: int) -> List[Dict[str, Dict[str, Unio
             },
             'chord': cast(Dict[str, Union[str, int, List[int]]], chordDict[a].copy())
         }
-        assembledChords.append(b)
-    return assembledChords
+        assembled_chords.append(b)
+    return assembled_chords
 
 
 def pick_chords(progression_length: int) -> List[Dict[str, Dict[str, Union[str, int, List[int]]]]]:
@@ -55,7 +53,7 @@ def pick_chords(progression_length: int) -> List[Dict[str, Dict[str, Union[str, 
     :returns: A dictionary of chords, consisting of pitches and offsets, with names
     :rtype: List[Dict[str, Dict[str, Union[str, int, List[int]]]]]
     """
-    assembledChords: List[Dict[str, Dict[str, Union[str, int, List[int]]]]] = []
+    assembled_chords: List[Dict[str, Dict[str, Union[str, int, List[int]]]]] = []
     for _ in range(0, progression_length):
         a: Dict[str, Union[str, int]] = {
             'name': choice(root),
@@ -66,8 +64,8 @@ def pick_chords(progression_length: int) -> List[Dict[str, Dict[str, Union[str, 
             'root': cast(Dict[str, Union[str, int, List[int]]], a),
             'chord': cast(Dict[str, Union[str, int, List[int]]], choice(chordDict)).copy()
         }
-        assembledChords.append(b)
-    return assembledChords
+        assembled_chords.append(b)
+    return assembled_chords
 
 
 def simple_chord_order(assembled_chords: List[Dict[str, Dict[str, Union[str, int, List[int]]]]]) -> Dict[str, Union[List[str], List[List[List[int]]]]]:
@@ -87,6 +85,7 @@ def simple_chord_order(assembled_chords: List[Dict[str, Dict[str, Union[str, int
     temp: List[List[int]] = []
     for a in assembled_chords:
         temp.append(cast(List[int], a['chord']['values']).copy())
+        sequencesStr.append(cast(str, a['root']['name']) + cast(str, a['chord']['name']) + ' ')
     for b in range(0, len(temp)):
         for c in range(0, len(temp[b])):
             temp[b][c] += cast(int, assembled_chords[b]['root']['value'])
@@ -94,7 +93,7 @@ def simple_chord_order(assembled_chords: List[Dict[str, Dict[str, Union[str, int
     return sequences
 
 
-def randomize_chord_order(assembledChords: List[Dict[str, Dict[str, Union[str, int, List[int]]]]]) -> Dict[str, Union[List[str], List[List[List[int]]]]]:
+def randomize_chord_order(assembled_chords: List[Dict[str, Dict[str, Union[str, int, List[int]]]]], segments: int) -> Dict[str, Union[List[str], List[List[List[int]]]]]:
     """Creates a random order for the chords to be played in
 
     :param assembled_chords: The dictionary of chords, consisting of pitches and offsets, with names
@@ -108,17 +107,17 @@ def randomize_chord_order(assembledChords: List[Dict[str, Dict[str, Union[str, i
         'values': sequencesVals,
         'strings': sequencesStr
     }
-    for _ in range(0, 8):
+    for _ in range(0, segments):
         temp: List[List[int]] = []
         tempStrs: List[str] = []
-        for j in range(0, len(assembledChords)):
-            temp.append(cast(List[int], assembledChords[j]['chord']['values']).copy())
-            tempStrs.append(cast(str, assembledChords[j]['root']['name']) + cast(str, assembledChords[j]['chord']['name']))
+        for j in range(0, len(assembled_chords)):
+            temp.append(cast(List[int], assembled_chords[j]['chord']['values']).copy())
+            tempStrs.append(cast(str, assembled_chords[j]['root']['name']) + cast(str, assembled_chords[j]['chord']['name']))
             for b in range(0, len(temp[j])):
-                temp[j][b] += cast(int, assembledChords[j]['root']['value'])
+                temp[j][b] += cast(int, assembled_chords[j]['root']['value'])
         segment: List[List[int]] = []
-        for j in range(0, len(assembledChords)):
-            k: int = randint(0, len(assembledChords) - j - 1)
+        for j in range(0, len(assembled_chords)):
+            k: int = randint(0, len(assembled_chords) - j - 1)
             segment.append(temp.pop(k))
             sequencesStr.append(tempStrs.pop(k))
         sequencesVals.append(segment)
@@ -174,18 +173,19 @@ def write_file(mid: MidiFile) -> str:
 def main():
     progression_length: int = 4
     segments: int = 8
-    sequences: Dict[str, Union[List[str], List[List[List[int]]]]] = randomize_chord_order(pick_chords(progression_length))
+    sequences: Dict[str, Union[List[str], List[List[List[int]]]]] = randomize_chord_order(pick_chords(progression_length), segments)
     mid: MidiFile = MidiFile()
     mid.ticks_per_beat = int(lcm(guitar_gen.setup_patterns(), drum_gen.setup_patterns()) / 4)
     meta: Tuple(MidiTrack, int) = create_meta_track()
     mid.tracks.append(meta[0])
     bpm = meta[1]
-    create_piano_track(mid, progression_length, sequences, mid.ticks_per_beat)
+    mid.tracks.append(piano_gen.create_track(progression_length, sequences, mid.ticks_per_beat))
     mid.tracks.append(guitar_gen.create_track(progression_length, sequences['values'], segments, mid.ticks_per_beat))
     mid.tracks.append(drum_gen.create_track(progression_length * segments, mid.ticks_per_beat))
     timestamp: str = write_file(mid)
     if config['lights_enabled']:
-        writeToFile(timestamp, bpm, progression_length, segments)
+        lights.load_config(config['arduino_config_loc'])
+        lights.write_file(timestamp, bpm, progression_length, segments)
     if config['sound_enabled'] and __name__ == "__main__":
         FluidSynth().play_midi("output/" + timestamp + '.mid')
 

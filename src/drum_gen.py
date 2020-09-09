@@ -48,7 +48,7 @@ file_list: List[str] = glob("data/drum_patterns/*.json")
 #         }
 #     ]
 # }
-drumPatterns: List[Dict[str, Union[str, int, List[Dict[str, Union[str, int, Dict[str, Union[str, list]]]]]]]] = []
+drum_patterns: List[Dict[str, Union[str, int, List[Dict[str, Union[str, int, Dict[str, Union[str, list]]]]]]]] = []
 
 
 def get_drum_types() -> Dict[str, int]:
@@ -62,11 +62,11 @@ def get_drum_types() -> Dict[str, int]:
 
 def read_patterns():
     """Reads the drum patterns in from a folder"""
-    global drumPatterns
-    drumPatterns = []
+    global drum_patterns
+    drum_patterns = []
     for file_path in file_list:
         with open(file_path) as json_file:
-            drumPatterns.append(json.load(json_file))
+            drum_patterns.append(json.load(json_file))
 
 
 def get_patterns() -> List[Dict[str, Union[str, int, List[Dict[str, Union[str, int, Dict[str, Union[str, list]]]]]]]]:
@@ -75,7 +75,7 @@ def get_patterns() -> List[Dict[str, Union[str, int, List[Dict[str, Union[str, i
     :return: The list of drum patterns
     :rtype: List[Dict[str, Union[str, int, List[Dict[str, Union[str, int, Dict[str, Union[str, list]]]]]]]]
     """
-    return drumPatterns.copy()
+    return drum_patterns.copy()
 
 
 def filter_patterns(chosen: List[int]) -> int:
@@ -83,14 +83,16 @@ def filter_patterns(chosen: List[int]) -> int:
 
     :param chosen: A list of numbers of the chosen drum patterns
     :type chosen: List[int]
+    :return: the lowest common multiple of ticks per measure from the files
+    :rtype: int
     """
-    global drumPatterns
+    global drum_patterns
     ticks_per_measure: int = 4
     temp: List[Dict[str, Union[str, int, List[Dict[str, Union[str, int, Dict[str, Union[str, list]]]]]]]] = []
     for i in chosen:
-        temp.append(drumPatterns[i])
-        ticks_per_measure = lcm(ticks_per_measure, drumPatterns[i]['ticks_per_measure'])
-    drumPatterns = temp
+        temp.append(drum_patterns[i])
+        ticks_per_measure = lcm(ticks_per_measure, drum_patterns[i]['ticks_per_measure'])
+    drum_patterns = temp
     return ticks_per_measure
 
 
@@ -101,9 +103,13 @@ def drum_pattern_repeat_recursion(level: Dict[str, Union[str, Dict[str, Union[st
     :type level: Dict[str, Union[str, Dict[str, Union[str, list]], int]]
     :param drum_track: The drum track to add note events to
     :type drum_track: mido.MidiTrack
+    :param ticks_per_measure: how many ticks in a measure of this pattern
+    :type ticks_per_measure: int
+    :param ticks_per_beat: how many ticks per beat of this file
+    :type ticks_per_beat: int
     """
     if "repeat_count" in level:
-        for a in range(0, cast(int, level["repeat_count"])):
+        for _ in range(0, cast(int, level["repeat_count"])):
             for b in cast(List[Dict[str, Union[str, Dict[str, Union[str, list]], int]]], level["subpattern"]):
                 drum_pattern_repeat_recursion(cast(Dict[str, Union[str, Dict[str, Union[str, list]], int]], b), drum_track, ticks_per_measure, ticks_per_beat)
     else:
@@ -115,8 +121,10 @@ def drum(track: MidiTrack, ticks_per_beat: int):
 
     :param track: The drum track to add patterns to
     :type track: mido.MidiTrack
+    :param ticks_per_beat: how many ticks per beat of this file
+    :type ticks_per_beat: int
     """
-    pattern: Dict[str, Union[str, int, List[Dict[str, Union[str, int, Dict[str, Union[str, list]]]]]]] = choice(drumPatterns)
+    pattern: Dict[str, Union[str, int, List[Dict[str, Union[str, int, Dict[str, Union[str, list]]]]]]] = choice(drum_patterns)
     track.append(MetaMessage('text', text=cast(str, pattern['name'])))
     for i in cast(List[Dict[str, Union[str, Dict[str, Union[str, list]], int]]], pattern['pattern']):
         drum_pattern_repeat_recursion(i, track, cast(int, pattern['ticks_per_measure']), ticks_per_beat)
@@ -127,6 +135,8 @@ def create_track(measures: int, ticks_per_beat: int) -> MidiTrack:
 
     :param measures: The total number of measures for the track
     :type meaures: int
+    :param ticks_per_beat: how many ticks per beat of this file
+    :type ticks_per_beat: int
     :return: The generated drum track
     :rtype: mido.MidiTrack
     """
@@ -141,11 +151,14 @@ def create_track(measures: int, ticks_per_beat: int) -> MidiTrack:
 def setup_patterns() -> int:
     """Initializes the entire set of drum patterns
 
-    Todo: ask user for specific patterns
+    Todo - ask user for specific patterns
+
+    :return: the lowest common multiple of ticks per measure from the files
+    :rtype: int
     """
     read_patterns()
-    totalPatterns: int = len(get_patterns())
+    total_patterns: int = len(get_patterns())
     a: List[int] = []
-    for i in range(0, totalPatterns):
+    for i in range(0, total_patterns):
         a.append(i)
     return filter_patterns(a)
