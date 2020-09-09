@@ -13,10 +13,10 @@ def test_drums():
         mid: MidiFile = MidiFile()
         mid.tracks.append(create_simple_meta_track()[0])
         read_patterns()
-        filter_patterns([i])
+        mid.ticks_per_beat = int(filter_patterns([i]) / 4)
         pattern = get_patterns()[0]
         drum_patterns_types(pattern)
-        mid.tracks.append(create_track(1))
+        mid.tracks.append(create_track(1, mid.ticks_per_beat))
         try:
             mkdir("tests/output")
             print("Created tests/output directory.")
@@ -45,13 +45,13 @@ def recursive_parse_patterns(pattern: Dict[str, Union[str, Dict[str, Union[str, 
                 assert isinstance(b, dict)
                 recursive_parse_patterns(cast(Dict[str, Union[str, Dict[str, Union[str, list]], int]], b))
     else:
-        assert 'noteEvent' in pattern
-        assert isinstance(pattern['noteEvent'], str)
-        assert pattern['noteEvent'] == 'on' or pattern['noteEvent'] == 'off'
-        assert 'drumType' in pattern
-        assert isinstance(pattern['drumType'], str)
-        assert isinstance(get_drum_types()[pattern['drumType']], int)
-        assert get_drum_types()[pattern['drumType']] != 0
+        assert 'note_event' in pattern
+        assert isinstance(pattern['note_event'], str)
+        assert pattern['note_event'] == 'note_on' or pattern['note_event'] == 'note_off'
+        assert 'drum_type' in pattern
+        assert isinstance(pattern['drum_type'], str)
+        assert isinstance(get_drum_types()[pattern['drum_type']], int)
+        assert get_drum_types()[pattern['drum_type']] != 0
         assert 'time' in pattern
         assert isinstance(pattern['time'], int)
         assert pattern['time'] >= 0
@@ -62,9 +62,9 @@ def drum_patterns_types(pattern: Dict[str, Union[str, List[Dict[str, Union[str, 
     assert 'name' in pattern
     assert isinstance(pattern['name'], str)
     assert len(pattern['name']) > 0
-    assert 'ticksPerMeasure' in pattern
-    assert isinstance(pattern['ticksPerMeasure'], int)
-    assert pattern['ticksPerMeasure'] > 0
+    assert 'ticks_per_measure' in pattern
+    assert isinstance(pattern['ticks_per_measure'], int)
+    assert pattern['ticks_per_measure'] > 0
     assert 'measures' in pattern
     assert isinstance(pattern['measures'], int)
     assert pattern['measures'] > 0

@@ -8,8 +8,7 @@ else:
 C_VAL: int = 48
 
 
-def create_piano_track(mid: MidiFile, progressionLength: int,
-                       sequences: Dict[str, list]):
+def create_piano_track(mid: MidiFile, progressionLength: int, sequences: Dict[str, list], ticks_per_beat: int):
     chordTrack: MidiTrack = MidiTrack()
     mid.tracks.append(chordTrack)
     chordTrack.append(MetaMessage('instrument_name', name='Piano'))
@@ -32,7 +31,7 @@ def create_piano_track(mid: MidiFile, progressionLength: int,
                 velocity=0,
                 note=0,
                 channel=0,
-                time=1920))
+                time=int(ticks_per_beat * 4)))
             for c in range(0, 4):
                 chordTrack.append(Message(
                     'note_off',

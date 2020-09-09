@@ -15,12 +15,12 @@ def test_guitar():
         mid: MidiFile = MidiFile()
         mid.tracks.append(create_simple_meta_track()[0])
         read_patterns()
-        filter_patterns([i])
+        mid.ticks_per_beat = int(filter_patterns([i]) / 4)
         sequences: Dict[str, Union[List[List[List[int]]], List[str]]] = simple_chord_order(simple_pick_chords(progression_length))
-        pattern = get_patterns()[0]
+        pattern: dict = get_patterns()[0]
         guitar_patterns_types(pattern)
         type_sequences(sequences)
-        mid.tracks.append(create_track(progression_length, sequences['values'], 1))
+        mid.tracks.append(create_track(progression_length, sequences['values'], 1, mid.ticks_per_beat))
         try:
             mkdir("tests/output")
             print("Created tests/output directory.")
@@ -61,9 +61,9 @@ def guitar_patterns_types(pattern: Dict[str, Union[str, List[Dict[str, Union[str
     assert 'name' in pattern
     assert isinstance(pattern['name'], str)
     assert len(pattern['name']) > 0
-    assert 'ticksPerMeasure' in pattern
-    assert isinstance(pattern['ticksPerMeasure'], int)
-    assert pattern['ticksPerMeasure'] > 0
+    assert 'ticks_per_measure' in pattern
+    assert isinstance(pattern['ticks_per_measure'], int)
+    assert pattern['ticks_per_measure'] > 0
     assert 'measures' in pattern
     assert isinstance(pattern['measures'], int)
     assert pattern['measures'] > 0

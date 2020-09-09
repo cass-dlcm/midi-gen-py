@@ -1,61 +1,61 @@
 {
   "name": "3-2 rumba clave",
-  "ticksPerMeasure": 1920,
+  "ticks_per_measure": 1920,
   "measures": 1,
   "pattern": [
     {
-      "noteEvent": "on",
-      "drumType": "Claves",
+      "note_event": "note_on",
+      "drum_type": "Claves",
       "time": 0
     },
     {
-      "noteEvent": "off",
-      "drumType": "Claves",
+      "note_event": "note_off",
+      "drum_type": "Claves",
       "time": 240
     },
     {
-      "noteEvent": "on",
-      "drumType": "Claves",
+      "note_event": "note_on",
+      "drum_type": "Claves",
       "time": 120
     },
     {
-      "noteEvent": "off",
-      "drumType": "Claves",
+      "note_event": "note_off",
+      "drum_type": "Claves",
       "time": 120
     },
     {
-      "noteEvent": "on",
-      "drumType": "Claves",
+      "note_event": "note_on",
+      "drum_type": "Claves",
       "time": 360
     },
     {
-      "noteEvent": "off",
-      "drumType": "Claves",
+      "note_event": "note_off",
+      "drum_type": "Claves",
       "time": 120
     },
     {
-      "noteEvent": "on",
-      "drumType": "Claves",
+      "note_event": "note_on",
+      "drum_type": "Claves",
       "time": 240
     },
     {
-      "noteEvent": "off",
-      "drumType": "Claves",
+      "note_event": "note_off",
+      "drum_type": "Claves",
       "time": 240
     },
     {
-      "noteEvent": "on",
-      "drumType": "Claves",
+      "note_event": "note_on",
+      "drum_type": "Claves",
       "time": 0
     },
     {
-      "noteEvent": "off",
-      "drumType": "Claves",
+      "note_event": "note_off",
+      "drum_type": "Claves",
       "time": 240
     },
     {
-      "noteEvent": "off",
-      "drumType": "Claves",
+      "note_event": "note_off",
+      "drum_type": "Claves",
       "time": 240
     }
   ]

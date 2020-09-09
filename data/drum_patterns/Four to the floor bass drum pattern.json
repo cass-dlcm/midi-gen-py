@@ -1,19 +1,19 @@
 {
   "name": "Four to the floor bass drum pattern",
-  "ticksPerMeasure": 1920,
+  "ticks_per_measure": 1920,
   "measures": 1,
   "pattern": [
     {
       "repeat_count": 4,
       "subpattern": [
         {
-          "noteEvent": "on",
-          "drumType": "Bass Drum 1",
+          "note_event": "note_on",
+          "drum_type": "Bass Drum 1",
           "time": 0
         },
         {
-          "noteEvent": "off",
-          "drumType": "Bass Drum 1",
+          "note_event": "note_off",
+          "drum_type": "Bass Drum 1",
           "time": 480
         }
       ]

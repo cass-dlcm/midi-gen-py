@@ -1,19 +1,19 @@
 {
   "name": "Characteristic rock hi-hat pattern",
-  "ticksPerMeasure": 1920,
+  "ticks_per_measure": 1920,
   "measures": 1,
   "pattern": [
     {
       "repeat_count": 8,
       "subpattern": [
         {
-          "noteEvent": "on",
-          "drumType": "Pedal Hi Hat",
+          "note_event": "note_on",
+          "drum_type": "Pedal Hi Hat",
           "time": 0
         },
         {
-          "noteEvent": "off",
-          "drumType": "Pedal Hi Hat",
+          "note_event": "note_off",
+          "drum_type": "Pedal Hi Hat",
           "time": 240
         }
       ]

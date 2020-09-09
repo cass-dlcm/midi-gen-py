@@ -5,6 +5,7 @@ from mido import MidiFile, MidiTrack, MetaMessage, bpm2tempo
 from midi2audio import FluidSynth
 from json import load
 from typing import Tuple, List, Dict, Union, cast
+from numpy import lcm
 if __name__ == "__main__":
     import drum_gen
     import guitar_gen
@@ -175,15 +176,13 @@ def main():
     segments: int = 8
     sequences: Dict[str, Union[List[str], List[List[List[int]]]]] = randomize_chord_order(pick_chords(progression_length))
     mid: MidiFile = MidiFile()
-    mid.ticksPerBeat = 480
+    mid.ticks_per_beat = int(lcm(guitar_gen.setup_patterns(), drum_gen.setup_patterns()) / 4)
     meta: Tuple(MidiTrack, int) = create_meta_track()
     mid.tracks.append(meta[0])
     bpm = meta[1]
-    create_piano_track(mid, progression_length, sequences)
-    guitar_gen.setup_patterns()
-    mid.tracks.append(guitar_gen.create_track(progression_length, sequences['values'], segments))
-    drum_gen.setup_patterns()
-    mid.tracks.append(drum_gen.create_track(progression_length * segments))
+    create_piano_track(mid, progression_length, sequences, mid.ticks_per_beat)
+    mid.tracks.append(guitar_gen.create_track(progression_length, sequences['values'], segments, mid.ticks_per_beat))
+    mid.tracks.append(drum_gen.create_track(progression_length * segments, mid.ticks_per_beat))
     timestamp: str = write_file(mid)
     if config['lights_enabled']:
         writeToFile(timestamp, bpm, progression_length, segments)

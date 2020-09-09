@@ -13,8 +13,8 @@ def createPatternFile():
         for note in pattern:
             print(note)
             d = {
-                'noteEvent': note[0],
-                'drumType': note[1],
+                'note_event': note[0],
+                'drum_type': note[1],
                 'time': note[2]
             }
             c.append(d)
