@@ -175,13 +175,17 @@ def main():
     segments: int = 8
     sequences: Dict[str, Union[List[str], List[List[List[int]]]]] = randomize_chord_order(pick_chords(progression_length), segments)
     mid: MidiFile = MidiFile()
-    mid.ticks_per_beat = int(lcm(guitar_gen.setup_patterns(), drum_gen.setup_patterns()) / 4)
+    drum_gen.setup_patterns()
+    guitar_gen.setup_patterns()
+    drum_chosen_patterns = drum_gen.choose_patterns(progression_length * segments)
+    guitar_chosen_patterns = guitar_gen.choose_patterns(progression_length * segments)
+    mid.ticks_per_beat = int(lcm(guitar_chosen_patterns[1], drum_chosen_patterns[1]) / 4)
     meta: Tuple(MidiTrack, int) = create_meta_track()
     mid.tracks.append(meta[0])
     bpm = meta[1]
     mid.tracks.append(piano_gen.create_track(progression_length, sequences, mid.ticks_per_beat))
-    mid.tracks.append(guitar_gen.create_track(progression_length, sequences['values'], segments, mid.ticks_per_beat))
-    mid.tracks.append(drum_gen.create_track(progression_length * segments, mid.ticks_per_beat))
+    mid.tracks.append(guitar_gen.create_track(progression_length, sequences['values'], segments, guitar_chosen_patterns[0], mid.ticks_per_beat))
+    mid.tracks.append(drum_gen.create_track(drum_chosen_patterns[0], progression_length * segments, mid.ticks_per_beat))
     timestamp: str = write_file(mid)
     if config['lights_enabled']:
         lights.load_config(config['arduino_config_loc'])

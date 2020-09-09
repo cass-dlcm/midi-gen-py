@@ -1,8 +1,8 @@
 from json import load
 from mido import MetaMessage, MidiTrack, Message
 from glob import glob
-from random import choice
-from typing import List, Dict, Union, cast
+from random import randint
+from typing import List, Dict, Union, cast, Tuple
 from numpy import lcm
 
 C_VAL: int = 48
@@ -103,7 +103,7 @@ def guitar_pattern_repeat_recursion(level: Dict[str, Union[str, int, Dict[str, U
             track.append(Message(cast(str, level['note_event']), note=sequences[a][b][0] + cast(int, level["pitch"]), channel=1, time=int(cast(int, level["time"]) * ticks_per_beat * 4 / ticks_per_measure)))
 
 
-def guitar(track: MidiTrack, progression_length: int, sequences: List[List[List[int]]], segments: int, ticks_per_beat: int):
+def guitar(track: MidiTrack, pattern: Dict[str, Union[str, int, List[Dict[str, Union[str, int, Dict[str, Union[str, list]]]]]]], a: int, b: int, sequences: List[List[List[int]]], ticks_per_beat: int):
     """Picks guitar patterns and adds them to the track
 
     :param track: The guitar track to add patterns to
@@ -117,15 +117,12 @@ def guitar(track: MidiTrack, progression_length: int, sequences: List[List[List[
     :param ticks_per_beat: how many ticks per beat of this file
     :type ticks_per_beat: int
     """
-    for a in range(0, segments):
-        for b in range(0, progression_length):
-            pattern: Dict[str, Union[str, int, List[Dict[str, Union[str, int, Dict[str, Union[str, list]]]]]]] = choice(patterns)
-            track.append(MetaMessage('text', text=cast(str, pattern['name'])))
-            for c in cast(List[Dict[str, Union[str, int, Dict[str, Union[str, list]]]]], pattern['pattern']):
-                guitar_pattern_repeat_recursion(c, track, sequences, a, b, cast(int, pattern['ticks_per_measure']), ticks_per_beat)
+    track.append(MetaMessage('text', text=cast(str, pattern['name'])))
+    for c in cast(List[Dict[str, Union[str, int, Dict[str, Union[str, list]]]]], pattern['pattern']):
+        guitar_pattern_repeat_recursion(c, track, sequences, a, b, cast(int, pattern['ticks_per_measure']), ticks_per_beat)
 
 
-def create_track(progression_length: int, sequences: List[List[List[int]]], segments: int, ticks_per_beat: int) -> MidiTrack:
+def create_track(progression_length: int, sequences: List[List[List[int]]], segments: int, chosen_patterns: List[Dict[str, Union[str, int, List[Dict[str, Union[str, int, Dict[str, Union[str, list]]]]]]]], ticks_per_beat: int) -> MidiTrack:
     """Creates a guitar track given a specific length
 
     :param progression_length: The number of chords in a single sequence
@@ -143,9 +140,22 @@ def create_track(progression_length: int, sequences: List[List[List[int]]], segm
     track: MidiTrack = MidiTrack()
     track.append(MetaMessage('instrument_name', name='Guitar'))
     track.append(Message('program_change', program=25, channel=1, time=0))
-    guitar(track, progression_length, sequences, segments, ticks_per_beat)
+    for a in range(0, segments):
+        for b in range(0, progression_length):
+            guitar(track, chosen_patterns[a * progression_length + b], a, b, sequences, ticks_per_beat)
     track.append(MetaMessage('end_of_track'))
     return track
+
+
+def choose_patterns(measures: int) -> Tuple[List[Dict[str, Union[str, int, List[Dict[str, Union[str, int, Dict[str, Union[str, list]]]]]]]], int]:
+    chosen_patterns: List[Dict[str, Union[str, int, List[Dict[str, Union[str, int, Dict[str, Union[str, list]]]]]]]] = []
+    ticks_per_measure: int = 4
+    for _ in range(0, measures):
+        i = randint(0, len(patterns) - 1)
+        chosen_patterns.append(patterns[i])
+        ticks_per_measure = lcm(ticks_per_measure, patterns[i]['ticks_per_measure'])
+        print(ticks_per_measure)
+    return chosen_patterns, ticks_per_measure
 
 
 def setup_patterns() -> int:

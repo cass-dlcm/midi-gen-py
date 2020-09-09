@@ -1,5 +1,5 @@
 import glob
-from src.guitar_gen import read_patterns, filter_patterns, create_track, get_patterns
+from src.guitar_gen import read_patterns, filter_patterns, create_track, get_patterns, choose_patterns
 from tests.test_main import type_sequences
 from mido import MidiFile
 from filecmp import cmp
@@ -15,12 +15,14 @@ def test_guitar():
         mid: MidiFile = MidiFile()
         mid.tracks.append(create_simple_meta_track()[0])
         read_patterns()
-        mid.ticks_per_beat = int(filter_patterns([i]) / 4)
+        filter_patterns([i])
+        chosen_patterns = choose_patterns(progression_length)
+        mid.ticks_per_beat = int(chosen_patterns[1] / 4)
         sequences: Dict[str, Union[List[List[List[int]]], List[str]]] = simple_chord_order(simple_pick_chords(progression_length))
         pattern: dict = get_patterns()[0]
         guitar_patterns_types(pattern)
         type_sequences(sequences)
-        mid.tracks.append(create_track(progression_length, sequences['values'], 1, mid.ticks_per_beat))
+        mid.tracks.append(create_track(progression_length, sequences['values'], 1, chosen_patterns[0], mid.ticks_per_beat))
         try:
             mkdir("tests/output")
             print("Created tests/output directory.")

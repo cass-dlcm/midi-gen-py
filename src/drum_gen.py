@@ -1,8 +1,8 @@
 import json
 from mido import MetaMessage, MidiTrack, Message
 from glob import glob
-from random import choice
-from typing import List, Dict, Union, cast
+from random import randint
+from typing import List, Dict, Union, cast, Tuple
 from numpy import lcm
 
 # "Crash Cymbal 1" is Crash Cymbal 1
@@ -78,7 +78,7 @@ def get_patterns() -> List[Dict[str, Union[str, int, List[Dict[str, Union[str, i
     return drum_patterns.copy()
 
 
-def filter_patterns(chosen: List[int]) -> int:
+def filter_patterns(chosen: List[int]):
     """Filters the drum patterns only to the ones chosen
 
     :param chosen: A list of numbers of the chosen drum patterns
@@ -87,17 +87,14 @@ def filter_patterns(chosen: List[int]) -> int:
     :rtype: int
     """
     global drum_patterns
-    ticks_per_measure: int = 4
     temp: List[Dict[str, Union[str, int, List[Dict[str, Union[str, int, Dict[str, Union[str, list]]]]]]]] = []
     for i in chosen:
         temp.append(drum_patterns[i])
-        ticks_per_measure = lcm(ticks_per_measure, drum_patterns[i]['ticks_per_measure'])
     drum_patterns = temp
-    return ticks_per_measure
 
 
 def drum_pattern_repeat_recursion(level: Dict[str, Union[str, Dict[str, Union[str, list]], int]], drum_track: MidiTrack, ticks_per_measure: int, ticks_per_beat: int):
-    """Parses, recurisvely, a drum pattern and adds note_events
+    """Parses, recurisvely, a drum pattern and adds note events
 
     :param level: The current level of the nested pattern
     :type level: Dict[str, Union[str, Dict[str, Union[str, list]], int]]
@@ -116,7 +113,7 @@ def drum_pattern_repeat_recursion(level: Dict[str, Union[str, Dict[str, Union[st
         drum_track.append(Message(level['note_event'], note=drum_types[level["drum_type"]], channel=9, time=int(cast(int, level["time"]) * ticks_per_beat * 4 / ticks_per_measure)))
 
 
-def drum(track: MidiTrack, ticks_per_beat: int):
+def drum(pattern: Dict[str, Union[str, int, List[Dict[str, Union[str, int, Dict[str, Union[str, list]]]]]]], track: MidiTrack, ticks_per_beat: int):
     """Picks a drum pattern and adds it to the track
 
     :param track: The drum track to add patterns to
@@ -124,13 +121,24 @@ def drum(track: MidiTrack, ticks_per_beat: int):
     :param ticks_per_beat: how many ticks per beat of this file
     :type ticks_per_beat: int
     """
-    pattern: Dict[str, Union[str, int, List[Dict[str, Union[str, int, Dict[str, Union[str, list]]]]]]] = choice(drum_patterns)
+    print(pattern)
     track.append(MetaMessage('text', text=cast(str, pattern['name'])))
     for i in cast(List[Dict[str, Union[str, Dict[str, Union[str, list]], int]]], pattern['pattern']):
         drum_pattern_repeat_recursion(i, track, cast(int, pattern['ticks_per_measure']), ticks_per_beat)
 
 
-def create_track(measures: int, ticks_per_beat: int) -> MidiTrack:
+def choose_patterns(measures: int) -> Tuple[List[Dict[str, Union[str, int, List[Dict[str, Union[str, int, Dict[str, Union[str, list]]]]]]]], int]:
+    chosen_patterns: List[Dict[str, Union[str, int, List[Dict[str, Union[str, int, Dict[str, Union[str, list]]]]]]]] = []
+    ticks_per_measure: int = 4
+    for _ in range(0, measures):
+        i = randint(0, len(drum_patterns) - 1)
+        chosen_patterns.append(drum_patterns[i])
+        ticks_per_measure = lcm(ticks_per_measure, drum_patterns[i]['ticks_per_measure'])
+        print(ticks_per_measure)
+    return chosen_patterns, ticks_per_measure
+
+
+def create_track(chosen_patterns: List[Dict[str, Union[str, int, List[Dict[str, Union[str, int, Dict[str, Union[str, list]]]]]]]], measures: int, ticks_per_beat: int) -> MidiTrack:
     """Creates a drum track given a specific length
 
     :param measures: The total number of measures for the track
@@ -142,8 +150,8 @@ def create_track(measures: int, ticks_per_beat: int) -> MidiTrack:
     """
     drum_track: MidiTrack = MidiTrack()
     drum_track.append(MetaMessage('instrument_name', name='Drum set'))
-    for _ in range(0, measures):
-        drum(drum_track, ticks_per_beat)
+    for i in range(0, measures):
+        drum(chosen_patterns[i], drum_track, ticks_per_beat)
     drum_track.append(MetaMessage('end_of_track'))
     return drum_track
 

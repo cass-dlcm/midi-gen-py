@@ -6,6 +6,7 @@ from time import sleep
 from typing import List, Dict, Union
 
 
+# Sometimes fails; don't take it personally
 def test_individuality():
     main()
     list_of_files: List[str] = glob('output/*.mid')
