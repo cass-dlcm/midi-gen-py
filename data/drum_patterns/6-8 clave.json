@@ -1,6 +1,6 @@
 {
   "name": "6-8 clave",
-  "ticks_per_measure": 1920,
+  "ticks_per_measure": 12,
   "measures": 1,
   "pattern": [
     {
@@ -11,7 +11,7 @@
     {
       "note_event": "note_off",
       "drum_type": "Claves",
-      "time": 320
+      "time": 2
     },
     {
       "note_event": "note_on",
@@ -21,27 +21,27 @@
     {
       "note_event": "note_off",
       "drum_type": "Claves",
-      "time": 160
+      "time": 1
     },
     {
       "note_event": "note_on",
       "drum_type": "Claves",
-      "time": 320
+      "time": 2
     },
     {
       "note_event": "note_off",
       "drum_type": "Claves",
-      "time": 160
+      "time": 1
     },
     {
       "note_event": "note_on",
       "drum_type": "Claves",
-      "time": 160
+      "time": 1
     },
     {
       "note_event": "note_off",
       "drum_type": "Claves",
-      "time": 320
+      "time": 2
     },
     {
       "note_event": "note_on",
@@ -51,7 +51,7 @@
     {
       "note_event": "note_off",
       "drum_type": "Claves",
-      "time": 480
+      "time": 3
     }
   ]
 }

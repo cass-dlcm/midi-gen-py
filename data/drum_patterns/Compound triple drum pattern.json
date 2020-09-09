@@ -1,6 +1,6 @@
 {
   "name": "Compound triple drum pattern",
-  "ticks_per_measure": 1920,
+  "ticks_per_measure": 9,
   "measures": 1,
   "pattern": [
     {
@@ -9,17 +9,7 @@
       "time": 0
     },
     {
-      "note_event": "note_on",
-      "drum_type": "Closed Hi Hat",
-      "time": 0
-    },
-    {
-      "note_event": "note_off",
-      "drum_type": "Closed Hi Hat",
-      "time": 214
-    },
-    {
-      "repeat_count": 2,
+      "repeat_count": 3,
       "subpattern": [
         {
           "note_event": "note_on",
@@ -29,7 +19,7 @@
         {
           "note_event": "note_off",
           "drum_type": "Closed Hi Hat",
-          "time": 213
+          "time": 1
         }
       ]
     },
@@ -47,17 +37,7 @@
           "time": 0
         },
         {
-          "note_event": "note_on",
-          "drum_type": "Closed Hi Hat",
-          "time": 0
-        },
-        {
-          "note_event": "note_off",
-          "drum_type": "Closed Hi Hat",
-          "time": 214
-        },
-        {
-          "repeat_count": 2,
+          "repeat_count": 3,
           "subpattern": [
             {
               "note_event": "note_on",
@@ -67,7 +47,7 @@
             {
               "note_event": "note_off",
               "drum_type": "Closed Hi Hat",
-              "time": 213
+              "time": 1
             }
           ]
         },

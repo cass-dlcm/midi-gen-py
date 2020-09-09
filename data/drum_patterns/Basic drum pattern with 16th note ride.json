@@ -1,107 +1,62 @@
 {
   "name": "Basic drum pattern with 16th note ride",
-  "ticks_per_measure": 1920,
+  "ticks_per_measure": 16,
   "measures": 1,
   "pattern": [
     {
-      "note_event": "note_on",
-      "drum_type": "Bass Drum 1",
-      "time": 0
-    },
-    {
-      "repeat_count": 4,
+      "repeat_count": 2,
       "subpattern": [
         {
           "note_event": "note_on",
-          "drum_type": "Ride Cymbal 1",
+          "drum_type": "Bass Drum 1",
           "time": 0
         },
         {
+          "repeat_count": 4,
+          "subpattern": [
+            {
+              "note_event": "note_on",
+              "drum_type": "Ride Cymbal 1",
+              "time": 0
+            },
+            {
+              "note_event": "note_off",
+              "drum_type": "Ride Cymbal 1",
+              "time": 1
+            }
+          ]
+        },
+        {
           "note_event": "note_off",
-          "drum_type": "Ride Cymbal 1",
-          "time": 120
-        }
-      ]
-    },
-    {
-      "note_event": "note_off",
-      "drum_type": "Bass Drum 1",
-      "time": 0
-    },
-    {
-      "note_event": "note_on",
-      "drum_type": "Acoustic Snare",
-      "time": 0
-    },
-    {
-      "repeat_count": 4,
-      "subpattern": [
+          "drum_type": "Bass Drum 1",
+          "time": 0
+        },
         {
           "note_event": "note_on",
-          "drum_type": "Ride Cymbal 1",
+          "drum_type": "Acoustic Snare",
           "time": 0
         },
         {
-          "note_event": "note_off",
-          "drum_type": "Ride Cymbal 1",
-          "time": 120
-        }
-      ]
-    },
-    {
-      "note_event": "note_off",
-      "drum_type": "Acoustic Snare",
-      "time": 0
-    },
-    {
-      "note_event": "note_on",
-      "drum_type": "Bass Drum 1",
-      "time": 0
-    },
-    {
-      "repeat_count": 4,
-      "subpattern": [
-        {
-          "note_event": "note_on",
-          "drum_type": "Ride Cymbal 1",
-          "time": 0
+          "repeat_count": 4,
+          "subpattern": [
+            {
+              "note_event": "note_on",
+              "drum_type": "Ride Cymbal 1",
+              "time": 0
+            },
+            {
+              "note_event": "note_off",
+              "drum_type": "Ride Cymbal 1",
+              "time": 1
+            }
+          ]
         },
         {
           "note_event": "note_off",
-          "drum_type": "Ride Cymbal 1",
-          "time": 120
-        }
-      ]
-    },
-    {
-      "note_event": "note_off",
-      "drum_type": "Bass Drum 1",
-      "time": 0
-    },
-    {
-      "note_event": "note_on",
-      "drum_type": "Acoustic Snare",
-      "time": 0
-    },
-    {
-      "repeat_count": 4,
-      "subpattern": [
-        {
-          "note_event": "note_on",
-          "drum_type": "Ride Cymbal 1",
+          "drum_type": "Acoustic Snare",
           "time": 0
-        },
-        {
-          "note_event": "note_off",
-          "drum_type": "Ride Cymbal 1",
-          "time": 120
         }
       ]
-    },
-    {
-      "note_event": "note_off",
-      "drum_type": "Acoustic Snare",
-      "time": 0
     }
   ]
 }

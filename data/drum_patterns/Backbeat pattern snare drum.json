@@ -1,17 +1,17 @@
 {
   "name": "Backbeat pattern snare drum",
-  "ticks_per_measure": 1920,
+  "ticks_per_measure": 8,
   "measures": 1,
   "pattern": [
     {
       "note_event": "note_on",
       "drum_type": "Acoustic Snare",
-      "time": 480
+      "time": 2
     },
     {
       "note_event": "note_off",
       "drum_type": "Acoustic Snare",
-      "time": 240
+      "time": 1
     },
     {
       "note_event": "note_on",
@@ -21,17 +21,17 @@
     {
       "note_event": "note_off",
       "drum_type": "Acoustic Snare",
-      "time": 240
+      "time": 1
     },
     {
       "note_event": "note_on",
       "drum_type": "Acoustic Snare",
-      "time": 480
+      "time": 2
     },
     {
       "note_event": "note_off",
       "drum_type": "Acoustic Snare",
-      "time": 480
+      "time": 2
     }
   ]
 }

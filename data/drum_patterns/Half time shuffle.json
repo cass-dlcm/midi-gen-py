@@ -1,6 +1,6 @@
 {
   "name": "Half time shuffle",
-  "ticks_per_measure": 1920,
+  "ticks_per_measure": 12,
   "measures": 1,
   "pattern": [
     {
@@ -16,17 +16,17 @@
     {
       "note_event": "note_off",
       "drum_type": "Closed Hi Hat",
-      "time": 160
+      "time": 1
     },
     {
       "note_event": "note_on",
       "drum_type": "Closed Hi Hat",
-      "time": 160
+      "time": 1
     },
     {
       "note_event": "note_off",
       "drum_type": "Bass Drum 1",
-      "time": 160
+      "time": 1
     },
     {
       "note_event": "note_off",
@@ -41,17 +41,17 @@
     {
       "note_event": "note_off",
       "drum_type": "Closed Hi Hat",
-      "time": 160
+      "time": 1
     },
     {
       "note_event": "note_on",
       "drum_type": "Closed Hi Hat",
-      "time": 160
+      "time": 1
     },
     {
       "note_event": "note_off",
       "drum_type": "Closed Hi Hat",
-      "time": 160
+      "time": 1
     },
     {
       "note_event": "note_on",
@@ -66,17 +66,17 @@
     {
       "note_event": "note_off",
       "drum_type": "Closed Hi Hat",
-      "time": 160
+      "time": 1
     },
     {
       "note_event": "note_on",
       "drum_type": "Closed Hi Hat",
-      "time": 160
+      "time": 1
     },
     {
       "note_event": "note_off",
       "drum_type": "Acoustic Snare",
-      "time": 160
+      "time": 1
     },
     {
       "note_event": "note_off",
@@ -91,17 +91,17 @@
     {
       "note_event": "note_off",
       "drum_type": "Closed Hi Hat",
-      "time": 160
+      "time": 1
     },
     {
       "note_event": "note_on",
       "drum_type": "Closed Hi Hat",
-      "time": 160
+      "time": 1
     },
     {
       "note_event": "note_off",
       "drum_type": "Closed Hi Hat",
-      "time": 160
+      "time": 1
     }
   ]
 }

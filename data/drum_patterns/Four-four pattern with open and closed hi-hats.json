@@ -1,6 +1,6 @@
 {
   "name": "Four-four pattern with open and closed hi-hats",
-  "ticks_per_measure": 1920,
+  "ticks_per_measure": 16,
   "measures": 1,
   "pattern": [
     {
@@ -22,7 +22,7 @@
             {
               "note_event": "note_off",
               "drum_type": "Closed Hi Hat",
-              "time": 120
+              "time": 1
             }
           ]
         },
@@ -34,7 +34,7 @@
         {
           "note_event": "note_off",
           "drum_type": "Open Hi Hat",
-          "time": 240
+          "time": 2
         },
         {
           "note_event": "note_off",
@@ -57,7 +57,7 @@
             {
               "note_event": "note_off",
               "drum_type": "Closed Hi Hat",
-              "time": 120
+              "time": 1
             }
           ]
         },
@@ -69,7 +69,7 @@
         {
           "note_event": "note_off",
           "drum_type": "Open Hi Hat",
-          "time": 240
+          "time": 2
         },
         {
           "note_event": "note_off",

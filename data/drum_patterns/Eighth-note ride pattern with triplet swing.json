@@ -1,6 +1,6 @@
 {
   "name": "Eighth-note ride pattern with triplet swing",
-  "ticks_per_measure": 1920,
+  "ticks_per_measure": 12,
   "measures": 1,
   "pattern": [
     {
@@ -14,7 +14,7 @@
         {
           "note_event": "note_off",
           "drum_type": "Ride Cymbal 1",
-          "time": 320
+          "time": 2
         },
         {
           "note_event": "note_on",
@@ -24,7 +24,7 @@
         {
           "note_event": "note_off",
           "drum_type": "Ride Cymbal 1",
-          "time": 160
+          "time": 1
         }
       ]
     }

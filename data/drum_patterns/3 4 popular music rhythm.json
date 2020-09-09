@@ -1,6 +1,6 @@
 {
   "name": "3 4 popular music rhythm",
-  "ticks_per_measure": 1920,
+  "ticks_per_measure": 6,
   "measures": 1,
   "pattern": [
     {
@@ -19,7 +19,7 @@
         {
           "note_event": "note_off",
           "drum_type": "Closed Hi Hat",
-          "time": 320
+          "time": 1
         }
       ]
     },
@@ -44,7 +44,7 @@
         {
           "note_event": "note_off",
           "drum_type": "Acoustic Snare",
-          "time": 320
+          "time": 1
         },
         {
           "note_event": "note_off",
@@ -59,7 +59,7 @@
         {
           "note_event": "note_off",
           "drum_type": "Closed Hi Hat",
-          "time": 320
+          "time": 1
         }
       ]
     }

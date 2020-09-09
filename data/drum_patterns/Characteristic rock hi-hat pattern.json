@@ -1,6 +1,6 @@
 {
   "name": "Characteristic rock hi-hat pattern",
-  "ticks_per_measure": 1920,
+  "ticks_per_measure": 8,
   "measures": 1,
   "pattern": [
     {
@@ -14,7 +14,7 @@
         {
           "note_event": "note_off",
           "drum_type": "Pedal Hi Hat",
-          "time": 240
+          "time": 1
         }
       ]
     }

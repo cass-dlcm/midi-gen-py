@@ -1,6 +1,6 @@
 {
   "name": "Double bass drum beat",
-  "ticks_per_measure": 1920,
+  "ticks_per_measure": 16,
   "measures": 1,
   "pattern": [
     {
@@ -22,7 +22,7 @@
             {
               "note_event": "note_off",
               "drum_type": "Bass Drum 1",
-              "time": 120
+              "time": 1
             },
             {
               "note_event": "note_on",
@@ -32,7 +32,7 @@
             {
               "note_event": "note_off",
               "drum_type": "Closed Hi Hat",
-              "time": 120
+              "time": 1
             },
             {
               "note_event": "note_off",
@@ -59,7 +59,7 @@
         {
           "note_event": "note_off",
           "drum_type": "Bass Drum 1",
-          "time": 120
+          "time": 1
         },
         {
           "note_event": "note_on",
@@ -69,7 +69,7 @@
         {
           "note_event": "note_off",
           "drum_type": "Acoustic Snare",
-          "time": 120
+          "time": 1
         },
         {
           "note_event": "note_off",
@@ -94,7 +94,7 @@
         {
           "note_event": "note_off",
           "drum_type": "Bass Drum 1",
-          "time": 120
+          "time": 1
         },
         {
           "note_event": "note_on",
@@ -104,7 +104,7 @@
         {
           "note_event": "note_off",
           "drum_type": "Closed Hi Hat",
-          "time": 120
+          "time": 1
         },
         {
           "note_event": "note_off",

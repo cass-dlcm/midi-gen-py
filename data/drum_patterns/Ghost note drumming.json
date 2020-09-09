@@ -1,6 +1,6 @@
 {
   "name": "Ghost note drumming",
-  "ticks_per_measure": 1920,
+  "ticks_per_measure": 512,
   "measures": 1,
   "pattern": [
     {
@@ -19,7 +19,42 @@
         {
           "note_event": "note_on",
           "drum_type": "Acoustic Snare",
-          "time": 116
+          "time": 31
+        },
+        {
+          "note_event": "note_off",
+          "drum_type": "Closed Hi Hat",
+          "time": 1
+        },
+        {
+          "note_event": "note_on",
+          "drum_type": "Closed Hi Hat",
+          "time": 30
+        },
+        {
+          "note_event": "note_on",
+          "drum_type": "Bass Drum 1",
+          "time": 0
+        },
+        {
+          "note_event": "note_off",
+          "drum_type": "Bass Drum 1",
+          "time": 2
+        },
+        {
+          "note_event": "note_off",
+          "drum_type": "Acoustic Snare",
+          "time": 0
+        },
+        {
+          "note_event": "note_on",
+          "drum_type": "Acoustic Snare",
+          "time": 60
+        },
+        {
+          "note_event": "note_on",
+          "drum_type": "Closed Hi Hat",
+          "time": 0
         },
         {
           "note_event": "note_off",
@@ -27,41 +62,6 @@
           "time": 4
         },
         {
-          "note_event": "note_on",
-          "drum_type": "Closed Hi Hat",
-          "time": 112
-        },
-        {
-          "note_event": "note_on",
-          "drum_type": "Bass Drum 1",
-          "time": 0
-        },
-        {
-          "note_event": "note_off",
-          "drum_type": "Bass Drum 1",
-          "time": 8
-        },
-        {
-          "note_event": "note_off",
-          "drum_type": "Acoustic Snare",
-          "time": 0
-        },
-        {
-          "note_event": "note_on",
-          "drum_type": "Acoustic Snare",
-          "time": 225
-        },
-        {
-          "note_event": "note_on",
-          "drum_type": "Closed Hi Hat",
-          "time": 0
-        },
-        {
-          "note_event": "note_off",
-          "drum_type": "Closed Hi Hat",
-          "time": 15
-        },
-        {
           "note_event": "note_off",
           "drum_type": "Bass Drum 1",
           "time": 0
@@ -69,7 +69,7 @@
         {
           "note_event": "note_off",
           "drum_type": "Acoustic Snare",
-          "time": 240
+          "time": 64
         },
         {
           "note_event": "note_off",
@@ -89,7 +89,7 @@
         {
           "note_event": "note_off",
           "drum_type": "Closed Hi Hat",
-          "time": 120
+          "time": 32
         },
         {
           "note_event": "note_on",
@@ -99,7 +99,7 @@
         {
           "note_event": "note_off",
           "drum_type": "Bass Drum 1",
-          "time": 120
+          "time": 32
         },
         {
           "note_event": "note_off",
