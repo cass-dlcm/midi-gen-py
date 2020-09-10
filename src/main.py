@@ -179,7 +179,9 @@ def main():
     guitar_gen.setup_patterns()
     drum_chosen_patterns = drum_gen.choose_patterns(progression_length * segments)
     guitar_chosen_patterns = guitar_gen.choose_patterns(progression_length * segments)
-    mid.ticks_per_beat = int(lcm(guitar_chosen_patterns[1], drum_chosen_patterns[1]) / 4)
+    ticks_per_beat: int = int(lcm(guitar_chosen_patterns[1], drum_chosen_patterns[1]) / 4)
+    if ticks_per_beat > 32767:
+        ticks_per_beat = 32767
     meta: Tuple(MidiTrack, int) = create_meta_track()
     mid.tracks.append(meta[0])
     bpm = meta[1]

@@ -154,7 +154,6 @@ def choose_patterns(measures: int) -> Tuple[List[Dict[str, Union[str, int, List[
         i = randint(0, len(patterns) - 1)
         chosen_patterns.append(patterns[i])
         ticks_per_measure = lcm(ticks_per_measure, patterns[i]['ticks_per_measure'])
-        print(ticks_per_measure)
     return chosen_patterns, ticks_per_measure
 
 

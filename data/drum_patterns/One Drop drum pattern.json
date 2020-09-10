@@ -1,0 +1,72 @@
+{
+  "name": "One Drop drum pattern",
+  "ticks_per_measure": 1024,
+  "measures": 1,
+  "pattern": [
+    {
+      "repeat_count": 2,
+      "subpattern": [
+        {
+          "note_event": "note_on",
+          "drum_type": "Closed Hi Hat",
+          "time": 0
+        },
+        {
+          "note_event": "note_on",
+          "drum_type": "Closed Hi Hat",
+          "time": 121
+        },
+        {
+          "note_event": "note_off",
+          "drum_type": "Closed Hi Hat",
+          "time": 7
+        },
+        {
+          "note_event": "note_off",
+          "drum_type": "Closed Hi Hat",
+          "time": 128
+        },
+        {
+          "note_event": "note_on",
+          "drum_type": "Closed Hi Hat",
+          "time": 0
+        },
+        {
+          "note_event": "note_on",
+          "drum_type": "Bass Drum 1",
+          "time": 0
+        },
+        {
+          "note_event": "note_on",
+          "drum_type": "Side Stick",
+          "time": 0
+        },
+        {
+          "note_event": "note_on",
+          "drum_type": "Closed Hi Hat",
+          "time": 121
+        },
+        {
+          "note_event": "note_off",
+          "drum_type": "Closed Hi Hat",
+          "time": 7
+        },
+        {
+          "note_event": "note_off",
+          "drum_type": "Closed Hi Hat",
+          "time": 128
+        },
+        {
+          "note_event": "note_off",
+          "drum_type": "Bass Drum 1",
+          "time": 0
+        },
+        {
+          "note_event": "note_off",
+          "drum_type": "Side Stick",
+          "time": 0
+        }
+      ]
+    }
+  ]
+}

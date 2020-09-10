@@ -1,0 +1,62 @@
+{
+  "name": "One drop sixteenth-note pattern",
+  "ticks_per_measure": 16,
+  "measures": 1,
+  "pattern": [
+    {
+      "repeat_count": 2,
+      "subpattern": [
+        {
+          "repeat_count": 4,
+          "subpattern": [
+            {
+              "note_event": "note_on",
+              "drum_type": "Closed Hi Hat",
+              "time": 0
+            },
+            {
+              "note_event": "note_off",
+              "drum_type": "Closed Hi Hat",
+              "time": 1
+            }
+          ]
+        },
+        {
+          "note_event": "note_on",
+          "drum_type": "Bass Drum 1",
+          "time": 0
+        },
+        {
+          "note_event": "note_on",
+          "drum_type": "Side Stick",
+          "time": 0
+        },
+        {
+          "repeat_count": 4,
+          "subpattern": [
+            {
+              "note_event": "note_on",
+              "drum_type": "Closed Hi Hat",
+              "time": 0
+            },
+            {
+              "note_event": "note_off",
+              "drum_type": "Closed Hi Hat",
+              "time": 1
+            }
+          ]
+        },
+        {
+          "note_event": "note_off",
+          "drum_type": "Bass Drum 1",
+          "time": 0
+        },
+        {
+          "note_event": "note_off",
+          "drum_type": "Side Stick",
+          "time": 0
+        }
+      ]
+    }
+  ]
+}

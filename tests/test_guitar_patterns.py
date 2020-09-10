@@ -35,7 +35,6 @@ def test_guitar():
             pass
         file_name: str = pattern['name'] + '.mid'
         mid.save('tests/output/guitar/' + file_name)
-        print(pattern['name'])
         assert abs(mid.length - 8) < .001
         assert cmp('tests/output/guitar/' + file_name, 'tests/data/guitar/' + file_name, shallow=False)
 

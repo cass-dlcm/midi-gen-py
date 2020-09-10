@@ -5,10 +5,6 @@ from random import randint
 from typing import List, Dict, Union, cast, Tuple
 from numpy import lcm
 
-# "Crash Cymbal 1" is Crash Cymbal 1
-# "Ride Cymbal 1" is Ride Cymbal 1
-# "Claves" is Claves
-
 drum_types: dict = {
     "Acoustic Bass Drum": 0x23,
     "Bass Drum 1": 0x24,
@@ -121,7 +117,6 @@ def drum(pattern: Dict[str, Union[str, int, List[Dict[str, Union[str, int, Dict[
     :param ticks_per_beat: how many ticks per beat of this file
     :type ticks_per_beat: int
     """
-    print(pattern)
     track.append(MetaMessage('text', text=cast(str, pattern['name'])))
     for i in cast(List[Dict[str, Union[str, Dict[str, Union[str, list]], int]]], pattern['pattern']):
         drum_pattern_repeat_recursion(i, track, cast(int, pattern['ticks_per_measure']), ticks_per_beat)

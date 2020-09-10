@@ -11,7 +11,6 @@ def createPatternFile():
         b = {}
         c = []
         for note in pattern:
-            print(note)
             d = {
                 'note_event': note[0],
                 'drum_type': note[1],
