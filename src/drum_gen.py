@@ -10,6 +10,7 @@ drum_types: dict = {
     "Bass Drum 1": 0x24,
     "Side Stick": 0x25,
     "Acoustic Snare": 0x26,
+    "Electric Snare": 0x28,
     "Closed Hi Hat": 0x2a,
     "Pedal Hi Hat": 0x2c,
     "Open Hi Hat": 0x2e,

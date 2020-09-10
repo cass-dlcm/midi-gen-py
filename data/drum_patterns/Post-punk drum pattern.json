@@ -1,0 +1,162 @@
+{
+  "name": "Post-punk drum pattern",
+  "ticks_per_measure": 16,
+  "measures": 1,
+  "pattern": [
+    {
+      "note_event": "note_on",
+      "drum_type": "Bass Drum 1",
+      "time": 0
+    },
+    {
+      "repeat_count": 2,
+      "subpattern": [
+        {
+          "note_event": "note_on",
+          "drum_type": "Closed Hi Hat",
+          "time": 0
+        },
+        {
+          "note_event": "note_off",
+          "drum_type": "Closed Hi Hat",
+          "time": 1
+        }
+      ]
+    },
+    {
+      "note_event": "note_off",
+      "drum_type": "Bass Drum 1",
+      "time": 0
+    },
+    {
+      "repeat_count": 2,
+      "subpattern": [
+        {
+          "note_event": "note_on",
+          "drum_type": "Closed Hi Hat",
+          "time": 0
+        },
+        {
+          "note_event": "note_off",
+          "drum_type": "Closed Hi Hat",
+          "time": 1
+        }
+      ]
+    },
+    {
+      "note_event": "note_on",
+      "drum_type": "Closed Hi Hat",
+      "time": 0
+    },
+    {
+      "note_event": "note_on",
+      "drum_type": "Electric Snare",
+      "time": 0
+    },
+    {
+      "note_event": "note_off",
+      "drum_type": "Closed Hi Hat",
+      "time": 1
+    },
+    {
+      "note_event": "note_off",
+      "drum_type": "Electric Snare",
+      "time": 1
+    },
+    {
+      "repeat_count": 2,
+      "subpattern": [
+        {
+          "note_event": "note_on",
+          "drum_type": "Closed Hi Hat",
+          "time": 0
+        },
+        {
+          "note_event": "note_off",
+          "drum_type": "Closed Hi Hat",
+          "time": 1
+        }
+      ]
+    },
+    {
+      "note_event": "note_on",
+      "drum_type": "Bass Drum 1",
+      "time": 0
+    },
+    {
+      "repeat_count": 2,
+      "subpattern": [
+        {
+          "note_event": "note_on",
+          "drum_type": "Closed Hi Hat",
+          "time": 0
+        },
+        {
+          "note_event": "note_off",
+          "drum_type": "Closed Hi Hat",
+          "time": 1
+        }
+      ]
+    },
+    {
+      "note_event": "note_off",
+      "drum_type": "Bass Drum 1",
+      "time": 0
+    },
+    {
+      "note_event": "note_on",
+      "drum_type": "Open Hi Hat",
+      "time": 0
+    },
+    {
+      "note_event": "note_on",
+      "drum_type": "Bass Drum 1",
+      "time": 0
+    },
+    {
+      "note_event": "note_off",
+      "drum_type": "Open Hi Hat",
+      "time": 2
+    },
+    {
+      "note_event": "note_off",
+      "drum_type": "Bass Drum 1",
+      "time": 0
+    },
+    {
+      "note_event": "note_on",
+      "drum_type": "Electric Snare",
+      "time": 0
+    },
+    {
+      "note_event": "note_on",
+      "drum_type": "Closed Hi Hat",
+      "time": 1
+    },
+    {
+      "note_event": "note_off",
+      "drum_type": "Closed Hi Hat",
+      "time": 1
+    },
+    {
+      "note_event": "note_off",
+      "drum_type": "Electric Snare",
+      "time": 0
+    },
+    {
+      "repeat_count": 2,
+      "subpattern": [
+        {
+          "note_event": "note_on",
+          "drum_type": "Closed Hi Hat",
+          "time": 0
+        },
+        {
+          "note_event": "note_off",
+          "drum_type": "Closed Hi Hat",
+          "time": 1
+        }
+      ]
+    }
+  ]
+}
