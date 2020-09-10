@@ -6,8 +6,6 @@ repos:
 -   repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v2.4.0
     hooks:
-    -   id: trailing-whitespace
-        stages: [commit, merge-commit]
     -   id: end-of-file-fixer
         stages: [commit, merge-commit]
     -   id: check-yaml
