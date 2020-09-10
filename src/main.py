@@ -132,9 +132,7 @@ def create_simple_meta_track() -> Tuple[MidiTrack, int]:
     """
     bpm: int = 120
     meta_track: MidiTrack = MidiTrack()
-    meta_track.append(MetaMessage(
-        'set_tempo',
-        tempo=bpm2tempo(bpm)))
+    meta_track.append(MetaMessage('set_tempo', tempo=bpm2tempo(bpm)))
     return meta_track, bpm
 
 
@@ -146,9 +144,7 @@ def create_meta_track() -> Tuple[MidiTrack, int]:
     """
     bpm = randint(90, 180)
     meta_track: MidiTrack = MidiTrack()
-    meta_track.append(MetaMessage(
-        'set_tempo',
-        tempo=bpm2tempo(bpm)))
+    meta_track.append(MetaMessage('set_tempo', tempo=bpm2tempo(bpm)))
     return meta_track, bpm
 
 
@@ -180,8 +176,8 @@ def main():
     drum_chosen_patterns = drum_gen.choose_patterns(progression_length * segments)
     guitar_chosen_patterns = guitar_gen.choose_patterns(progression_length * segments)
     ticks_per_beat: int = int(lcm(guitar_chosen_patterns[1], drum_chosen_patterns[1]) / 4)
-    if ticks_per_beat > 32767:
-        ticks_per_beat = 32767
+    while ticks_per_beat > 32767:
+        ticks_per_beat /= 2
     meta: Tuple(MidiTrack, int) = create_meta_track()
     mid.tracks.append(meta[0])
     bpm = meta[1]
