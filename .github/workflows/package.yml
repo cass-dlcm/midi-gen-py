@@ -26,7 +26,7 @@ jobs:
 
     - name: Test build
       run: |
-        dist\main\main.exe <build_test.txt
+        Get-Content build_test.txt | dist\main\main.exe
 
     - uses: actions/upload-artifact@v2
       with:
