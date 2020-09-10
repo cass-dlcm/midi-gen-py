@@ -88,9 +88,13 @@ def filter_patterns(chosen: List[int] = None):
         for i in range(0, len(drum_patterns)):
             print(str(i) + ": " + str(drum_patterns[i]['name']))
         n = input("Enter the pattern numbers, all seperated by spaces: ").split()
-        for a in n:
-            print(a)
-            temp.append(drum_patterns[int(a)])
+        if len(n) == 0:
+            for b in range(0, len(drum_patterns)):
+                temp.append(drum_patterns[b])
+        else:
+            for a in n:
+                print(a)
+                temp.append(drum_patterns[int(a)])
     else:
         for i in chosen:
             temp.append(drum_patterns[i])
@@ -114,7 +118,7 @@ def drum_pattern_repeat_recursion(level: Dict[str, Union[str, Dict[str, Union[st
             for b in cast(List[Dict[str, Union[str, Dict[str, Union[str, list]], int]]], level["subpattern"]):
                 drum_pattern_repeat_recursion(cast(Dict[str, Union[str, Dict[str, Union[str, list]], int]], b), drum_track, ticks_per_measure, ticks_per_beat)
     else:
-        drum_track.append(Message(level['note_event'], note=drum_types[level["drum_type"]], channel=9, time=int(cast(int, level["time"]) * ticks_per_beat * 4 / ticks_per_measure)))
+        drum_track.append(Message(level['note_event'], note=drum_types[level["drum_type"]], channel=9, time=int(round(cast(int, level["time"]) * ticks_per_beat * 4 / ticks_per_measure))))
 
 
 def drum(pattern: Dict[str, Union[str, int, List[Dict[str, Union[str, int, Dict[str, Union[str, list]]]]]]], track: MidiTrack, ticks_per_beat: int):

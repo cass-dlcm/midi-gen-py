@@ -71,9 +71,14 @@ def filter_patterns(chosen: List[int] = None) -> int:
         for i in range(0, len(patterns)):
             print(str(i) + ": " + str(patterns[i]['name']))
         n = input("Enter the pattern numbers, all seperated by spaces: ").split()
-        for a in n:
-            temp.append(patterns[int(a)])
-            ticks_per_measure = lcm(ticks_per_measure, patterns[int(a)]['ticks_per_measure'])
+        if len(n) == 0:
+            for b in range(0, len(patterns)):
+                temp.append(patterns[b])
+                ticks_per_measure = lcm(ticks_per_measure, patterns[b]['ticks_per_measure'])
+        else:
+            for a in n:
+                temp.append(patterns[int(a)])
+                ticks_per_measure = lcm(ticks_per_measure, patterns[int(a)]['ticks_per_measure'])
     else:
         for i in chosen:
             temp.append(patterns[i])
@@ -106,9 +111,9 @@ def guitar_pattern_repeat_recursion(level: Dict[str, Union[str, int, Dict[str, U
                 guitar_pattern_repeat_recursion(c, track, sequences, a, b, ticks_per_measure, ticks_per_beat)
     else:
         if "pitchIndex" in level:
-            track.append(Message(cast(str, level['note_event']), note=sequences[a][b][cast(int, level["pitchIndex"])] + C_VAL, channel=1, time=int(cast(int, level["time"]) * ticks_per_beat * 4 / ticks_per_measure)))
+            track.append(Message(cast(str, level['note_event']), note=sequences[a][b][cast(int, level["pitchIndex"])] + C_VAL, channel=1, time=int(round(cast(int, level["time"]) * ticks_per_beat * 4 / ticks_per_measure))))
         else:
-            track.append(Message(cast(str, level['note_event']), note=sequences[a][b][0] + cast(int, level["pitch"]), channel=1, time=int(cast(int, level["time"]) * ticks_per_beat * 4 / ticks_per_measure)))
+            track.append(Message(cast(str, level['note_event']), note=sequences[a][b][0] + cast(int, level["pitch"]), channel=1, time=int(round(cast(int, level["time"]) * ticks_per_beat * 4 / ticks_per_measure))))
 
 
 def guitar(track: MidiTrack, pattern: Dict[str, Union[str, int, List[Dict[str, Union[str, int, Dict[str, Union[str, list]]]]]]], a: int, b: int, sequences: List[List[List[int]]], ticks_per_beat: int):

@@ -146,7 +146,8 @@ def create_meta_track() -> Tuple[MidiTrack, int]:
     :return: The track
     :rtype: mido.MidiTrack
     """
-    bpm = randint(90, 180)
+    in_str: List[str] = input("Enter the lower and higher bounds for the tempo: ").split()
+    bpm = randint(int(in_str[0]), int(in_str[1]))
     meta_track: MidiTrack = MidiTrack()
     meta_track.append(MetaMessage('set_tempo', tempo=bpm2tempo(bpm)))
     return meta_track, bpm

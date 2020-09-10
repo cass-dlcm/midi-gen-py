@@ -54,7 +54,7 @@ def type_sequences(sequences: Dict[str, Union[List[List[List[int]]], List[str]]]
 
 
 def test_type_random_sequences():
-    for _ in range(0, 100):
+    for _ in range(0, 1000):
         sequences: Dict[str, Union[List[List[List[int]]], List[str]]] = randomize_chord_order(pick_chords(4), 8)
         type_sequences(sequences)
 
@@ -67,4 +67,5 @@ def main_with_input(monkeypatch, drum_pattern_str: str, guitar_pattern_str: str)
     drum_gen.setup_patterns()
     monkeypatch.setattr('builtins.input', lambda _: guitar_pattern_str)
     guitar_gen.setup_patterns()
+    monkeypatch.setattr('builtins.input', lambda _: '90 180')
     create(progression_length, segments, mid)
