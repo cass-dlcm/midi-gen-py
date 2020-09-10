@@ -56,7 +56,7 @@ def get_patterns() -> List[Dict[str, Union[str, int, List[Dict[str, Union[str, i
     return patterns.copy()
 
 
-def filter_patterns(chosen: List[int]) -> int:
+def filter_patterns(chosen: List[int] = None) -> int:
     """Filters the guitar patterns only to the ones chosen
 
     :param chosen: A list of numbers of the chosen guitar patterns
@@ -67,9 +67,17 @@ def filter_patterns(chosen: List[int]) -> int:
     global patterns
     ticks_per_measure: int = 4
     temp: List[Dict[str, Union[str, int, List[Dict[str, Union[str, int, Dict[str, Union[str, list]]]]]]]] = []
-    for i in chosen:
-        temp.append(patterns[i])
-        ticks_per_measure = lcm(ticks_per_measure, patterns[i]['ticks_per_measure'])
+    if chosen is None:
+        for i in range(0, len(patterns)):
+            print(str(i) + ": " + str(patterns[i]['name']))
+        n = input("Enter the pattern numbers, all seperated by spaces: ").split()
+        for a in n:
+            temp.append(patterns[int(a)])
+            ticks_per_measure = lcm(ticks_per_measure, patterns[int(a)]['ticks_per_measure'])
+    else:
+        for i in chosen:
+            temp.append(patterns[i])
+            ticks_per_measure = lcm(ticks_per_measure, patterns[i]['ticks_per_measure'])
     patterns = temp
     return ticks_per_measure
 
@@ -166,8 +174,4 @@ def setup_patterns() -> int:
     :rtype: int
     """
     read_patterns()
-    total_patterns: int = len(get_patterns())
-    a: List[int] = []
-    for i in range(0, total_patterns):
-        a.append(i)
-    return filter_patterns(a)
+    return filter_patterns()

@@ -74,7 +74,7 @@ def get_patterns() -> List[Dict[str, Union[str, int, List[Dict[str, Union[str, i
     return drum_patterns.copy()
 
 
-def filter_patterns(chosen: List[int]):
+def filter_patterns(chosen: List[int] = None):
     """Filters the drum patterns only to the ones chosen
 
     :param chosen: A list of numbers of the chosen drum patterns
@@ -84,8 +84,16 @@ def filter_patterns(chosen: List[int]):
     """
     global drum_patterns
     temp: List[Dict[str, Union[str, int, List[Dict[str, Union[str, int, Dict[str, Union[str, list]]]]]]]] = []
-    for i in chosen:
-        temp.append(drum_patterns[i])
+    if chosen is None:
+        for i in range(0, len(drum_patterns)):
+            print(str(i) + ": " + str(drum_patterns[i]['name']))
+        n = input("Enter the pattern numbers, all seperated by spaces: ").split()
+        for a in n:
+            print(a)
+            temp.append(drum_patterns[int(a)])
+    else:
+        for i in chosen:
+            temp.append(drum_patterns[i])
     drum_patterns = temp
 
 
@@ -160,8 +168,4 @@ def setup_patterns() -> int:
     :rtype: int
     """
     read_patterns()
-    total_patterns: int = len(get_patterns())
-    a: List[int] = []
-    for i in range(0, total_patterns):
-        a.append(i)
-    return filter_patterns(a)
+    return filter_patterns()

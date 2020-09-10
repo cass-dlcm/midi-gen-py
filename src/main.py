@@ -24,6 +24,10 @@ with open('config.json') as json_file:
     config: dict = load(json_file)
 
 
+def get_config() -> dict:
+    return config.copy()
+
+
 def simple_pick_chords(progression_length: int) -> List[Dict[str, Dict[str, Union[str, int, List[int]]]]]:
     """Creates a specific set of chords
 
@@ -166,13 +170,8 @@ def write_file(mid: MidiFile) -> str:
     return timestamp
 
 
-def main():
-    progression_length: int = 4
-    segments: int = 8
+def create(progression_length, segments, mid):
     sequences: Dict[str, Union[List[str], List[List[List[int]]]]] = randomize_chord_order(pick_chords(progression_length), segments)
-    mid: MidiFile = MidiFile()
-    drum_gen.setup_patterns()
-    guitar_gen.setup_patterns()
     drum_chosen_patterns = drum_gen.choose_patterns(progression_length * segments)
     guitar_chosen_patterns = guitar_gen.choose_patterns(progression_length * segments)
     ticks_per_beat: int = int(lcm(guitar_chosen_patterns[1], drum_chosen_patterns[1]) / 4)
@@ -190,6 +189,15 @@ def main():
         lights.write_file(timestamp, bpm, progression_length, segments)
     if config['sound_enabled'] and __name__ == "__main__":
         FluidSynth().play_midi("output/" + timestamp + '.mid')
+
+
+def main():
+    progression_length: int = 4
+    segments: int = 8
+    mid: MidiFile = MidiFile()
+    drum_gen.setup_patterns()
+    guitar_gen.setup_patterns()
+    create(progression_length, segments, mid)
 
 
 if __name__ == '__main__':
