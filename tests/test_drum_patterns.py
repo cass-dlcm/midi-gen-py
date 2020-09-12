@@ -31,7 +31,7 @@ def test_drums():
             pass
         file_name: str = pattern['name'] + '.mid'
         mid.save('tests/output/drums/' + file_name)
-        assert abs(mid.length - 2) < .001
+        assert abs(mid.length - 2 * pattern['measures']) < .001
         assert cmp('tests/output/drums/' + file_name, 'tests/data/drums/' + file_name, shallow=False)
 
 
