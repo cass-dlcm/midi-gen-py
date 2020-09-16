@@ -1,0 +1,62 @@
+{
+  "name": "Simple triple drum pattern",
+  "ticks_per_measure": 6,
+  "measures": 1,
+  "pattern": [
+    {
+      "note_event": "note_on",
+      "drum_type": "Bass Drum 1",
+      "time": 0
+    },
+    {
+      "repeat_count": 2,
+      "subpattern": [
+        {
+          "note_event": "note_on",
+          "drum_type": "Closed Hi Hat",
+          "time": 0
+        },
+        {
+          "note_event": "note_off",
+          "drum_type": "Closed Hi Hat",
+          "time": 1
+        }
+      ]
+    },
+    {
+      "note_event": "note_off",
+      "drum_type": "Bass Drum 1",
+      "time": 0
+    },
+    {
+      "repeat_count": 2,
+      "subpattern": [
+        {
+          "note_event": "note_on",
+          "drum_type": "Acoustic Snare",
+          "time": 0
+        },
+        {
+          "repeat_count": 2,
+          "subpattern": [
+            {
+              "note_event": "note_on",
+              "drum_type": "Closed Hi Hat",
+              "time": 0
+            },
+            {
+              "note_event": "note_off",
+              "drum_type": "Closed Hi Hat",
+              "time": 1
+            }
+          ]
+        },
+        {
+          "note_event": "note_off",
+          "drum_type": "Acoustic Snare",
+          "time": 0
+        }
+      ]
+    }
+  ]
+}

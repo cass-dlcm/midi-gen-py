@@ -1,0 +1,242 @@
+{
+  "name": "Steppers drum pattern",
+  "ticks_per_measure": 96,
+  "measures": 2,
+  "pattern": [
+    {
+      "repeat_count": 2,
+      "subpattern": [
+        {
+          "note_event": "note_on",
+          "drum_type": "Bass Drum 1",
+          "time": 0
+        },
+        {
+          "note_event": "note_on",
+          "drum_type": "Closed Hi Hat",
+          "time": 0
+        },
+        {
+          "note_event": "note_off",
+          "drum_type": "Bass Drum 1",
+          "time": 12
+        },
+        {
+          "note_event": "note_off",
+          "drum_type": "Closed Hi Hat",
+          "time": 0
+        },
+        {
+          "note_event": "note_on",
+          "drum_type": "Closed Hi Hat",
+          "time": 0
+        },
+        {
+          "note_event": "note_off",
+          "drum_type": "Closed Hi Hat",
+          "time": 12
+        }
+      ]
+    },
+    {
+      "note_event": "note_on",
+      "drum_type": "Bass Drum 1",
+      "time": 0
+    },
+    {
+      "note_event": "note_on",
+      "drum_type": "Side Stick",
+      "time": 0
+    },
+    {
+      "note_event": "note_on",
+      "drum_type": "Closed Hi Hat",
+      "time": 0
+    },
+    {
+      "note_event": "note_off",
+      "drum_type": "Bass Drum 1",
+      "time": 12
+    },
+    {
+      "note_event": "note_off",
+      "drum_type": "Closed Hi Hat",
+      "time": 0
+    },
+    {
+      "note_event": "note_off",
+      "drum_type": "Side Stick",
+      "time": 0
+    },
+    {
+      "note_event": "note_on",
+      "drum_type": "Closed Hi Hat",
+      "time": 0
+    },
+    {
+      "note_event": "note_off",
+      "drum_type": "Closed Hi Hat",
+      "time": 12
+    },
+    {
+      "note_event": "note_on",
+      "drum_type": "Bass Drum 1",
+      "time": 0
+    },
+    {
+      "note_event": "note_on",
+      "drum_type": "Closed Hi Hat",
+      "time": 0
+    },
+    {
+      "note_event": "note_off",
+      "drum_type": "Bass Drum 1",
+      "time": 12
+    },
+    {
+      "note_event": "note_off",
+      "drum_type": "Closed Hi Hat",
+      "time": 0
+    },
+    {
+      "note_event": "note_on",
+      "drum_type": "Closed Hi Hat",
+      "time": 0
+    },
+    {
+      "note_event": "note_off",
+      "drum_type": "Closed Hi Hat",
+      "time": 12
+    },
+    {
+      "note_event": "note_on",
+      "drum_type": "Bass Drum 1",
+      "time": 0
+    },
+    {
+      "note_event": "note_off",
+      "drum_type": "Bass Drum 1",
+      "time": 6
+    },
+    {
+      "note_event": "note_on",
+      "drum_type": "Closed Hi Hat",
+      "time": 1
+    },
+    {
+      "note_event": "note_off",
+      "drum_type": "Closed Hi Hat",
+      "time": 11
+    },
+    {
+      "note_event": "note_on",
+      "drum_type": "Closed Hi Hat",
+      "time": 1
+    },
+    {
+      "note_event": "note_off",
+      "drum_type": "Closed Hi Hat",
+      "time": 5
+    },
+    {
+      "note_event": "note_on",
+      "drum_type": "Closed Hi Hat",
+      "time": 0
+    },
+    {
+      "note_event": "note_on",
+      "drum_type": "Bass Drum 1",
+      "time": 0
+    },
+    {
+      "note_event": "note_off",
+      "drum_type": "Closed Hi Hat",
+      "time": 12
+    },
+    {
+      "note_event": "note_off",
+      "drum_type": "Bass Drum 1",
+      "time": 0
+    },
+    {
+      "note_event": "note_on",
+      "drum_type": "Closed Hi Hat",
+      "time": 0
+    },
+    {
+      "note_event": "note_off",
+      "drum_type": "Closed Hi Hat",
+      "time": 12
+    },
+    {
+      "note_event": "note_on",
+      "drum_type": "Bass Drum 1",
+      "time": 0
+    },
+    {
+      "note_event": "note_on",
+      "drum_type": "Side Stick",
+      "time": 0
+    },
+    {
+      "note_event": "note_on",
+      "drum_type": "Closed Hi Hat",
+      "time": 0
+    },
+    {
+      "note_event": "note_off",
+      "drum_type": "Bass Drum 1",
+      "time": 12
+    },
+    {
+      "note_event": "note_off",
+      "drum_type": "Closed Hi Hat",
+      "time": 0
+    },
+    {
+      "note_event": "note_off",
+      "drum_type": "Side Stick",
+      "time": 0
+    },
+    {
+      "note_event": "note_on",
+      "drum_type": "Closed Hi Hat",
+      "time": 0
+    },
+    {
+      "note_event": "note_off",
+      "drum_type": "Closed Hi Hat",
+      "time": 12
+    },
+    {
+      "note_event": "note_on",
+      "drum_type": "Bass Drum 1",
+      "time": 0
+    },
+    {
+      "note_event": "note_on",
+      "drum_type": "Closed Hi Hat",
+      "time": 0
+    },
+    {
+      "note_event": "note_off",
+      "drum_type": "Bass Drum 1",
+      "time": 12
+    },
+    {
+      "note_event": "note_off",
+      "drum_type": "Closed Hi Hat",
+      "time": 0
+    },
+    {
+      "note_event": "note_on",
+      "drum_type": "Open Hi Hat",
+      "time": 0
+    },
+    {
+      "note_event": "note_off",
+      "drum_type": "Open Hi Hat",
+      "time": 12
+    }
+  ]
+}
