@@ -37,12 +37,11 @@ def create_track(progression_length: int, sequences: Dict[str, Union[List[str], 
                     note=cast(int, sequences['values'][a][b][c]) + C_VAL,
                     channel=0))
             track.append(Message(
-                'note_on',
-                velocity=0,
-                note=0,
+                'note_off',
+                note=cast(int, sequences['values'][a][b][c]) + C_VAL,
                 channel=0,
                 time=int(ticks_per_beat * 4)))
-            for c in range(0, 4):
+            for c in range(1, 4):
                 track.append(Message(
                     'note_off',
                     note=cast(int, sequences['values'][a][b][c]) + C_VAL,
