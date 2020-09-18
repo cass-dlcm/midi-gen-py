@@ -5,16 +5,13 @@
 ![Package Application with Pyinstaller](https://github.com/cassdelacruzmunoz/midi-gen-py/workflows/Package%20Application%20with%20Pyinstaller/badge.svg)
 [![codecov](https://codecov.io/gh/cassdelacruzmunoz/midi-gen-py/branch/master/graph/badge.svg)](https://codecov.io/gh/cassdelacruzmunoz/midi-gen-py)
 
-
-One to two paragraph statement about your product and what it does.
+![License](https://www.gnu.org/graphics/gplv3-or-later.png)
 
 ## Installation
 
 Just download a compatible build from the [GitHub actions](https://github.com/cassdelacruzmunoz/midi-gen-py/actions?query=workflow%3A%22Package+Application+with+Pyinstaller%22), or clone the source.
 
 ## Usage example
-
-A few motivating and useful examples of how your product can be used. Spice this up with code blocks and potentially more screenshots.
 
 _For more examples and usage, please refer to the [Wiki][wiki]._
 
