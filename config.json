@@ -1,5 +1,9 @@
 {
   "lights_enabled": true,
   "sound_enabled": false,
-  "arduino_config_loc": "arduino_config.json"
+  "arduino_config_loc": "arduino_config.json",
+  "progression_length": 4,
+  "segments": 8,
+  "drum_path": "data/drum_patterns/*",
+  "guitar_path": "data/guitar_patterns/*"
 }

@@ -3,7 +3,7 @@ from src.guitar_gen import read_patterns, filter_patterns, create_track, get_pat
 from tests.test_main import type_sequences
 from mido import MidiFile
 from filecmp import cmp
-from src.main import simple_pick_chords, simple_chord_order, create_simple_meta_track
+from src.main import simple_pick_chords, simple_chord_order, create_simple_meta_track, get_config
 from os import mkdir
 from typing import List, Dict, Union, cast
 
@@ -14,7 +14,7 @@ def test_guitar():
         progression_length: int = 4
         mid: MidiFile = MidiFile()
         mid.tracks.append(create_simple_meta_track()[0])
-        read_patterns()
+        read_patterns(get_config()['guitar_path'])
         filter_patterns([i])
         chosen_patterns = choose_patterns(progression_length)
         mid.ticks_per_beat = int(chosen_patterns[1] / 4)

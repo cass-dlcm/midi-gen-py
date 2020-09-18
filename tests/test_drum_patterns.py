@@ -1,6 +1,6 @@
 import glob
 from src.drum_gen import read_patterns, filter_patterns, get_drum_types, create_track, get_patterns, choose_patterns
-from src.main import create_simple_meta_track
+from src.main import create_simple_meta_track, get_config
 from mido import MidiFile
 from filecmp import cmp
 from os import mkdir
@@ -8,11 +8,11 @@ from typing import List, Union, Dict, cast
 
 
 def test_drums():
-    file_list: List[str] = glob.glob("data/drum_patterns/*.json")
+    file_list: List[str] = glob.glob(get_config()['drum_path'])
     for i in range(0, len(file_list)):
         mid: MidiFile = MidiFile()
         mid.tracks.append(create_simple_meta_track()[0])
-        read_patterns()
+        read_patterns(get_config()['drum_path'])
         filter_patterns([i])
         chosen_patterns = choose_patterns(1)
         mid.ticks_per_beat = int(chosen_patterns[1] / 4)

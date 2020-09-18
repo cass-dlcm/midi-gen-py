@@ -24,7 +24,12 @@ with open('config.json') as json_file:
     config: dict = load(json_file)
 
 
-def get_config() -> dict:
+def get_config() -> Dict[str, Union[str, bool, int]]:
+    """Returns the config file as a dictionary
+
+    :returns: The dictionary of configuration settings
+    :rtype: Dict[str, Union[str, bool]]
+    """
     return config.copy()
 
 
@@ -154,7 +159,7 @@ def create_meta_track() -> Tuple[MidiTrack, int]:
 
 
 def write_file(mid: MidiFile) -> str:
-    """ Writes the MIDI information to a file and gives a timestamp
+    """Writes the MIDI information to a file and gives a timestamp
 
     :param mid: The MIDI file to write
     :type mid: mido.MidiFile
@@ -172,6 +177,15 @@ def write_file(mid: MidiFile) -> str:
 
 
 def create(progression_length, segments, mid):
+    """Creates a new composition
+
+    :param progression_length: The number of chords in each segment
+    :type progression_length: int
+    :param segments: The number of segments
+    :type segments: int
+    :param mid: The MidiFile to store everything in
+    :type mid: mido.MidiFile
+    """
     sequences: Dict[str, Union[List[str], List[List[List[int]]]]] = randomize_chord_order(pick_chords(progression_length), segments)
     drum_chosen_patterns = drum_gen.choose_patterns(progression_length * segments)
     guitar_chosen_patterns = guitar_gen.choose_patterns(progression_length * segments)
@@ -180,7 +194,7 @@ def create(progression_length, segments, mid):
         ticks_per_beat /= 2
     meta: Tuple(MidiTrack, int) = create_meta_track()
     mid.tracks.append(meta[0])
-    bpm = meta[1]
+    bpm: int = meta[1]
     mid.tracks.append(piano_gen.create_track(progression_length, sequences, mid.ticks_per_beat))
     mid.tracks.append(guitar_gen.create_track(progression_length, sequences['values'], segments, guitar_chosen_patterns[0], mid.ticks_per_beat))
     mid.tracks.append(drum_gen.create_track(drum_chosen_patterns[0], progression_length * segments, mid.ticks_per_beat))
@@ -193,11 +207,12 @@ def create(progression_length, segments, mid):
 
 
 def main():
-    progression_length: int = 4
-    segments: int = 8
+    """Generates a composition when ran directly"""
+    progression_length: int = config['progression_length']
+    segments: int = config['segments']
     mid: MidiFile = MidiFile()
-    drum_gen.setup_patterns()
-    guitar_gen.setup_patterns()
+    drum_gen.setup_patterns(config['drum_path'])
+    guitar_gen.setup_patterns(config['guitar_path'])
     create(progression_length, segments, mid)
 
 

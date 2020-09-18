@@ -7,7 +7,6 @@ from numpy import lcm
 
 C_VAL: int = 48
 patterns: List[Dict[str, Union[str, int, List[Dict[str, Union[str, int, Dict[str, Union[str, list]]]]]]]] = []
-file_list = glob("data/guitar_patterns/*.json")
 
 # Format as json:
 # {
@@ -38,9 +37,14 @@ file_list = glob("data/guitar_patterns/*.json")
 # }
 
 
-def read_patterns():
-    """Reads the guitar patterns in from a folder"""
+def read_patterns(path: str):
+    """Reads the guitar patterns in from a folder
+
+    :param path: The path to the pattern json files
+    :type path: str
+    """
     global patterns
+    file_list = glob(path)
     patterns = []
     for file in file_list:
         with open(file) as json_file:
@@ -161,6 +165,13 @@ def create_track(progression_length: int, sequences: List[List[List[int]]], segm
 
 
 def choose_patterns(measures: int) -> Tuple[List[Dict[str, Union[str, int, List[Dict[str, Union[str, int, Dict[str, Union[str, list]]]]]]]], int]:
+    """Returns a set of patterns for the given number of measures
+
+    :param measures: The number of measures to generate
+    :type measures: int
+    :return: The chosen set of patterns and the ticks per measures
+    :rtype: Tuple[List[Dict[str, Union[str, int, List[Dict[str, Union[str, int, Dict[str, Union[str, list]]]]]]]], int]
+    """
     chosen_patterns: List[Dict[str, Union[str, int, List[Dict[str, Union[str, int, Dict[str, Union[str, list]]]]]]]] = []
     ticks_per_measure: int = 4
     for _ in range(0, measures):
@@ -170,13 +181,13 @@ def choose_patterns(measures: int) -> Tuple[List[Dict[str, Union[str, int, List[
     return chosen_patterns, ticks_per_measure
 
 
-def setup_patterns() -> int:
+def setup_patterns(path: str) -> int:
     """Initializes the entire set of guitar patterns
 
-    Todo - ask user for specific patterns
-
+    :param path: The path to the pattern json files
+    :type path: str
     :return: the lowest common multiple of ticks per measure from the files
     :rtype: int
     """
-    read_patterns()
+    read_patterns(path)
     return filter_patterns()

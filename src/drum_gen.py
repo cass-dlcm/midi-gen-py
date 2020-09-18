@@ -19,8 +19,6 @@ drum_types: dict = {
     "Claves": 0x4b
 }
 
-file_list: List[str] = glob("data/drum_patterns/*.json")
-
 # Format as json:
 # {
 #     "name": a unique name,
@@ -57,8 +55,13 @@ def get_drum_types() -> Dict[str, int]:
     return drum_types.copy()
 
 
-def read_patterns():
-    """Reads the drum patterns in from a folder"""
+def read_patterns(path: str):
+    """Reads the drum patterns in from a folder
+
+    :param path: The path to the pattern json files
+    :type path: str
+    """
+    file_list: List[str] = glob(path)
     global drum_patterns
     drum_patterns = []
     for file_path in file_list:
@@ -94,7 +97,6 @@ def filter_patterns(chosen: List[int] = None):
                 temp.append(drum_patterns[b])
         else:
             for a in n:
-                print(a)
                 temp.append(drum_patterns[int(a)])
     else:
         for i in chosen:
@@ -136,13 +138,19 @@ def drum(pattern: Dict[str, Union[str, int, List[Dict[str, Union[str, int, Dict[
 
 
 def choose_patterns(measures: int) -> Tuple[List[Dict[str, Union[str, int, List[Dict[str, Union[str, int, Dict[str, Union[str, list]]]]]]]], int]:
+    """Returns a set of patterns for the given number of measures
+
+    :param measures: The number of measures to generate
+    :type measures: int
+    :return: The chosen set of patterns and the ticks per measures
+    :rtype: Tuple[List[Dict[str, Union[str, int, List[Dict[str, Union[str, int, Dict[str, Union[str, list]]]]]]]], int]
+    """
     chosen_patterns: List[Dict[str, Union[str, int, List[Dict[str, Union[str, int, Dict[str, Union[str, list]]]]]]]] = []
     ticks_per_measure: int = 4
     for _ in range(0, measures):
         i = randint(0, len(drum_patterns) - 1)
         chosen_patterns.append(drum_patterns[i])
         ticks_per_measure = lcm(ticks_per_measure, drum_patterns[i]['ticks_per_measure'])
-        print(ticks_per_measure)
     return chosen_patterns, ticks_per_measure
 
 
@@ -164,13 +172,13 @@ def create_track(chosen_patterns: List[Dict[str, Union[str, int, List[Dict[str, 
     return drum_track
 
 
-def setup_patterns() -> int:
+def setup_patterns(path: str) -> int:
     """Initializes the entire set of drum patterns
 
-    Todo - ask user for specific patterns
-
+    :param path: The path to the pattern json files
+    :type path: str
     :return: the lowest common multiple of ticks per measure from the files
     :rtype: int
     """
-    read_patterns()
+    read_patterns(path)
     return filter_patterns()

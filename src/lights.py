@@ -7,6 +7,11 @@ config: Dict[str, Union[str, int]] = {}
 
 
 def load_config(file_loc: str):
+    """Loads the config file from the filesystem
+
+    :param file_loc: The location of the configuration file
+    :type file_loc: str
+    """
     global config
     with open(file_loc) as json_file:
         config = load(json_file)
