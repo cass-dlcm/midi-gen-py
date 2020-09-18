@@ -1,3 +1,15 @@
+# This file is part of midi-gen-py.
+# midi-gen-py is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+# midi-gen-py is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# You should have received a copy of the GNU General Public License
+# along with midi-gen-py.  If not, see <https://www.gnu.org/licenses/>.
+
 import glob
 from src.drum_gen import read_patterns, filter_patterns, get_drum_types, create_track, get_patterns, choose_patterns
 from src.main import create_simple_meta_track, get_config
@@ -8,6 +20,7 @@ from typing import List, Union, Dict, cast
 
 
 def test_drums():
+    """Generates each drum pattern and compares it to a 'known good' file of each pattern"""
     file_list: List[str] = glob.glob(get_config()['drum_path'])
     for i in range(0, len(file_list)):
         mid: MidiFile = MidiFile()
@@ -35,7 +48,12 @@ def test_drums():
         assert cmp('tests/output/drums/' + file_name, 'tests/data/drums/' + file_name, shallow=False)
 
 
-def recursive_parse_patterns(pattern: Dict[str, Union[str, Dict[str, Union[str, list]], int]]):
+def recursive_parse_patterns(pattern: Dict[str, Union[str, int, Dict[str, Union[str, list]]]]):
+    """Recurisvely tests the patterns for validity
+
+    :param pattern: The drum pattern to test
+    :type pattern: Dict[str, Union[str, int, Dict[str, Union[str, list]]]]
+    """
     if "repeat_count" in pattern:
         assert isinstance(pattern['repeat_count'], int)
         assert pattern['repeat_count'] > 1
@@ -59,7 +77,12 @@ def recursive_parse_patterns(pattern: Dict[str, Union[str, Dict[str, Union[str, 
         assert pattern['time'] >= 0
 
 
-def drum_patterns_types(pattern: Dict[str, Union[str, List[Dict[str, Union[str, Dict[str, Union[str, list]], int]]]]]):
+def drum_patterns_types(pattern: Dict[str, Union[str, List[Dict[str, Union[str, int, Dict[str, Union[str, list]]]]]]]):
+    """Tests a pattern for validity
+
+    :param pattern: The drum pattern to test
+    :type pattern: Dict[str, Union[str, List[Dict[str, Union[str, int, Dict[str, Union[str, list]]]]]]]
+    """
     assert isinstance(pattern, dict)
     assert 'name' in pattern
     assert isinstance(pattern['name'], str)

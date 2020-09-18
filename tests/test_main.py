@@ -1,3 +1,15 @@
+# This file is part of midi-gen-py.
+# midi-gen-py is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+# midi-gen-py is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# You should have received a copy of the GNU General Public License
+# along with midi-gen-py.  If not, see <https://www.gnu.org/licenses/>.
+
 from src.main import randomize_chord_order, pick_chords, create, get_config
 from src import drum_gen, guitar_gen
 from mido import MidiFile
@@ -11,6 +23,11 @@ from random import randint
 
 # Fails on extremely rare occasions; if it fails at the assertion, try it again
 def test_individuality(monkeypatch):
+    """Test that two runs of the program generate different results
+
+    :param monkeypatch: The Monkeypatch object
+    :type monkeypatch: pytest.MonkeyPatch
+    """
     drum_gen.read_patterns(get_config()['drum_path'])
     drum_pattern_count = randint(1, len(drum_gen.get_patterns()))
     drum_pattern_str: str = ''
@@ -32,6 +49,11 @@ def test_individuality(monkeypatch):
 
 
 def type_sequences(sequences: Dict[str, Union[List[List[List[int]]], List[str]]]):
+    """Checks the structure of the sequences dictionary to make sure it's well formed
+
+    :param sequences: The dictionary of sequence information to test
+    :type sequences: Dict[str, Union[List[List[List[int]]], List[str]]]
+    """
     assert isinstance(sequences, dict)
     assert 'values' in sequences
     assert isinstance(sequences['values'], list)
@@ -54,12 +76,22 @@ def type_sequences(sequences: Dict[str, Union[List[List[List[int]]], List[str]]]
 
 
 def test_type_random_sequences():
+    """Checks that the sequences dictionary is built properly"""
     for _ in range(0, 1000):
         sequences: Dict[str, Union[List[List[List[int]]], List[str]]] = randomize_chord_order(pick_chords(4), 8)
         type_sequences(sequences)
 
 
 def main_with_input(monkeypatch, drum_pattern_str: str, guitar_pattern_str: str):
+    """A modified main function to accommodate the monkeypatch
+
+    :param monkeypatch: The Monkeypatch object
+    :type monkeypatch: pytest.MonkeyPatch
+    :param drum_patterns_str: A string containing the list of drum patterns to use
+    :type drum_patterns_str: str
+    :param guitar_patterns_str: A string containing the list of guitar patterns to use
+    :type guitar_patterns_str: str
+    """
     progression_length: int = cast(int, get_config()['progression_length'])
     segments: int = cast(int, get_config()['segments'])
     mid: MidiFile = MidiFile()
