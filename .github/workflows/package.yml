@@ -72,10 +72,6 @@ jobs:
         pip install -r src/requirements.txt
         pyinstaller --onefile main.spec
 
-    - name: Test build
-      run: |
-        dist/main/main build_test.txt
-
     - uses: actions/upload-artifact@v2
       with:
         name: Mac Build
