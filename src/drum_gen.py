@@ -18,7 +18,7 @@ from random import randint
 from typing import List, Dict, Union, cast, Tuple
 from numpy import lcm
 
-drum_types: dict = {
+drum_types: Dict[str, int] = {
     "Acoustic Bass Drum": 0x23,
     "Bass Drum 1": 0x24,
     "Side Stick": 0x25,
@@ -27,6 +27,7 @@ drum_types: dict = {
     "Closed Hi Hat": 0x2a,
     "Pedal Hi Hat": 0x2c,
     "Open Hi Hat": 0x2e,
+    "High Mid Tom": 0x30,
     "Crash Cymbal 1": 0x31,
     "Ride Cymbal 1": 0x33,
     "Claves": 0x4b
@@ -134,7 +135,7 @@ def drum_pattern_repeat_recursion(level: Dict[str, Union[str, Dict[str, Union[st
             for b in cast(List[Dict[str, Union[str, Dict[str, Union[str, list]], int]]], level["subpattern"]):
                 drum_pattern_repeat_recursion(cast(Dict[str, Union[str, Dict[str, Union[str, list]], int]], b), drum_track, ticks_per_measure, ticks_per_beat)
     else:
-        drum_track.append(Message(level['note_event'], note=drum_types[level["drum_type"]], channel=9, time=int(round(cast(int, level["time"]) * ticks_per_beat * 4 / ticks_per_measure))))
+        drum_track.append(Message(cast(str, level['note_event']), note=drum_types[cast(str, level["drum_type"])], channel=9, time=int(round(cast(int, level["time"]) * ticks_per_beat * 4 / ticks_per_measure))))
 
 
 def drum(pattern: Dict[str, Union[str, int, List[Dict[str, Union[str, int, Dict[str, Union[str, list]]]]]]], track: MidiTrack, ticks_per_beat: int):

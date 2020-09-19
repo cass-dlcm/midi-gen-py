@@ -29,11 +29,11 @@ else:
 root: Tuple[str, str, str, str, str, str, str, str, str, str, str, str] = (
     'C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B')
 
-with open('data/chords.json') as json_file:
-    chordDict: List[Dict[str, Union[str, List[int]]]] = load(json_file)
-
 with open('config.json') as json_file:
     config: dict = load(json_file)
+
+with open(config['chords_path']) as json_file:
+    chordDict: List[Dict[str, Union[str, List[int]]]] = load(json_file)
 
 
 def get_config() -> Dict[str, Union[str, bool, int]]:
