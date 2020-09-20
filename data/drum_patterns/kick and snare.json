@@ -1,0 +1,31 @@
+{
+  "name": "kick and snare",
+  "ticks_per_measure": 8,
+  "measures": 1,
+  "pattern": [ {
+      "repeat_count": 4,
+      "subpattern": [
+        {
+          "note_event": "note_on",
+          "drum_type": "Acoustic Bass Drum",
+          "time": 0
+        },
+        {
+          "note_event": "note_off",
+          "drum_type": "Acoustic Bass Drum",
+          "time": 1
+        },
+        {
+          "note_event": "note_on",
+          "drum_type": "Acoustic Snare",
+          "time": 0
+        },
+        {
+          "note_event": "note_off",
+          "drum_type": "Acoustic Snare",
+          "time": 1
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "name": "2 hand swing",
+  "ticks_per_measure": 24,
+  "measures": 1,
+  "pattern": [ {
+      "repeat_count": 4,
+      "subpattern": [
+        {
+          "note_event": "note_on",
+          "drum_type": "Low Tom",
+          "time": 0
+        },
+        {
+          "note_event": "note_off",
+          "drum_type": "Low Tom",
+          "time": 2
+        },
+        {
+          "note_event": "note_on",
+          "drum_type": "Low Tom",
+          "time": 0
+        },
+        {
+          "note_event": "note_off",
+          "drum_type": "Low Tom",
+          "time": 1
+        },
+        {
+          "note_event": "note_on",
+          "drum_type": "Low Tom",
+          "time": 0
+        },
+        {
+          "note_event": "note_on",
+          "drum_type": "Acoustic Snare",
+          "time": 0
+        },
+        {
+          "note_event": "note_off",
+          "drum_type": "Low Tom",
+          "time": 2
+        },
+        {
+          "note_event": "note_off",
+          "drum_type": "Acoustic Snare",
+          "time": 0
+        },
+        {
+          "note_event": "note_on",
+          "drum_type": "Low Tom",
+          "time": 0
+        },
+        {
+          "note_event": "note_off",
+          "drum_type": "Low Tom",
+          "time": 1
+        }
+      ]
+    }
+  ]
+}

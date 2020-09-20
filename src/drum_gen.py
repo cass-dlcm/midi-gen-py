@@ -26,6 +26,7 @@ drum_types: Dict[str, int] = {
     "Electric Snare": 0x28,
     "Closed Hi Hat": 0x2a,
     "Pedal Hi Hat": 0x2c,
+    "Low Tom": 0x2d,
     "Open Hi Hat": 0x2e,
     "High Mid Tom": 0x30,
     "Crash Cymbal 1": 0x31,
@@ -172,7 +173,7 @@ def create_track(chosen_patterns: List[Dict[str, Union[str, int, List[Dict[str, 
     """Creates a drum track given a specific length
 
     :param measures: The total number of measures for the track
-    :type meaures: int
+    :type measures: int
     :param ticks_per_beat: how many ticks per beat of this file
     :type ticks_per_beat: int
     :return: The generated drum track

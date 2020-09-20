@@ -1,0 +1,81 @@
+{
+  "name": "quarter note surfin",
+  "ticks_per_measure": 16,
+  "measures": 1,
+  "pattern": [ {
+      "repeat_count": 2,
+      "subpattern": [
+        {
+          "note_event": "note_on",
+          "drum_type": "High Mid Tom",
+          "time": 0
+        },
+        {
+          "note_event": "note_off",
+          "drum_type": "High Mid Tom",
+          "time": 2
+        },
+        {
+          "note_event": "note_on",
+          "drum_type": "High Mid Tom",
+          "time": 0
+        },
+        {
+          "note_event": "note_on",
+          "drum_type": "Acoustic Snare",
+          "time": 0
+        },
+        {
+          "note_event": "note_off",
+          "drum_type": "High Mid Tom",
+          "time": 1
+        },
+        {
+          "note_event": "note_off",
+          "drum_type": "Acoustic Snare",
+          "time": 0
+        },
+        {
+          "note_event": "note_on",
+          "drum_type": "Acoustic Snare",
+          "time": 0
+        },
+        {
+          "note_event": "note_off",
+          "drum_type": "Acoustic Snare",
+          "time": 1
+        },
+        {
+          "note_event": "note_on",
+          "drum_type": "High Mid Tom",
+          "time": 0
+        },
+        {
+          "note_event": "note_off",
+          "drum_type": "High Mid Tom",
+          "time": 2
+        },
+        {
+          "note_event": "note_on",
+          "drum_type": "High Mid Tom",
+          "time": 0
+        },
+        {
+          "note_event": "note_on",
+          "drum_type": "Acoustic Snare",
+          "time": 0
+        },
+        {
+          "note_event": "note_off",
+          "drum_type": "High Mid Tom",
+          "time": 2
+        },
+        {
+          "note_event": "note_off",
+          "drum_type": "Acoustic Snare",
+          "time": 0
+        }
+      ]
+    }
+  ]
+}
