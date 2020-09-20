@@ -69,7 +69,7 @@ def get_drum_types() -> Dict[str, int]:
     return drum_types.copy()
 
 
-def read_patterns(path: str):
+def read_patterns(path: str) -> None:
     """Reads the drum patterns in from a folder
 
     :param path: The path to the pattern json files
@@ -92,7 +92,7 @@ def get_patterns() -> List[Dict[str, Union[str, int, List[Dict[str, Union[str, i
     return drum_patterns.copy()
 
 
-def filter_patterns(chosen: List[int] = None):
+def filter_patterns(chosen: List[int] = cast(List[int], None)) -> None:
     """Filters the drum patterns only to the ones chosen
 
     :param chosen: A list of numbers of the chosen drum patterns
@@ -118,7 +118,7 @@ def filter_patterns(chosen: List[int] = None):
     drum_patterns = temp
 
 
-def drum_pattern_repeat_recursion(level: Dict[str, Union[str, Dict[str, Union[str, list]], int]], drum_track: MidiTrack, ticks_per_measure: int, ticks_per_beat: int):
+def drum_pattern_repeat_recursion(level: Dict[str, Union[str, Dict[str, Union[str, list]], int]], drum_track: MidiTrack, ticks_per_measure: int, ticks_per_beat: int) -> None:
     """Parses, recurisvely, a drum pattern and adds note events
 
     :param level: The current level of the nested pattern
@@ -133,12 +133,12 @@ def drum_pattern_repeat_recursion(level: Dict[str, Union[str, Dict[str, Union[st
     if "repeat_count" in level:
         for _ in range(0, cast(int, level["repeat_count"])):
             for b in cast(List[Dict[str, Union[str, Dict[str, Union[str, list]], int]]], level["subpattern"]):
-                drum_pattern_repeat_recursion(cast(Dict[str, Union[str, Dict[str, Union[str, list]], int]], b), drum_track, ticks_per_measure, ticks_per_beat)
+                drum_pattern_repeat_recursion(b, drum_track, ticks_per_measure, ticks_per_beat)
     else:
         drum_track.append(Message(cast(str, level['note_event']), note=drum_types[cast(str, level["drum_type"])], channel=9, time=int(round(cast(int, level["time"]) * ticks_per_beat * 4 / ticks_per_measure))))
 
 
-def drum(pattern: Dict[str, Union[str, int, List[Dict[str, Union[str, int, Dict[str, Union[str, list]]]]]]], track: MidiTrack, ticks_per_beat: int):
+def drum(pattern: Dict[str, Union[str, int, List[Dict[str, Union[str, int, Dict[str, Union[str, list]]]]]]], track: MidiTrack, ticks_per_beat: int) -> None:
     """Picks a drum pattern and adds it to the track
 
     :param track: The drum track to add patterns to
@@ -195,4 +195,4 @@ def setup_patterns(path: str) -> int:
     :rtype: int
     """
     read_patterns(path)
-    return filter_patterns()
+    return cast(int, filter_patterns())

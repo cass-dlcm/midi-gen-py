@@ -20,22 +20,22 @@ from os import mkdir
 from typing import List, Dict, Union, cast
 
 
-def test_guitar():
+def test_guitar() -> None:
     """Generates each guitar pattern and compares it to a 'known good' file of each pattern"""
     file_list: List[str] = glob.glob("data/guitar_patterns/*.json")
     for i in range(0, len(file_list)):
         progression_length: int = 4
         mid: MidiFile = MidiFile()
         mid.tracks.append(create_simple_meta_track()[0])
-        read_patterns(get_config()['guitar_path'])
+        read_patterns(cast(str, get_config()['guitar_path']))
         filter_patterns([i])
         chosen_patterns = choose_patterns(progression_length)
         mid.ticks_per_beat = int(chosen_patterns[1] / 4)
         sequences: Dict[str, Union[List[List[List[int]]], List[str]]] = simple_chord_order(simple_pick_chords(progression_length))
-        pattern: dict = get_patterns()[0]
+        pattern: Dict[str, Union[str, int, List[Dict[str, Union[str, int, Dict[str, Union[str, list]]]]]]] = get_patterns()[0]
         guitar_patterns_types(pattern)
         type_sequences(sequences)
-        mid.tracks.append(create_track(progression_length, sequences['values'], 1, chosen_patterns[0], mid.ticks_per_beat))
+        mid.tracks.append(create_track(progression_length, cast(List[List[List[int]]], sequences['values']), 1, chosen_patterns[0], mid.ticks_per_beat))
         try:
             mkdir("tests/output")
             print("Created tests/output directory.")
@@ -46,13 +46,13 @@ def test_guitar():
             print("Created tests/output/guitar directory.")
         except FileExistsError:
             pass
-        file_name: str = pattern['name'] + '.mid'
+        file_name: str = cast(str, pattern['name']) + '.mid'
         mid.save('tests/output/guitar/' + file_name)
         assert abs(mid.length - 8) < .001
         assert cmp('tests/output/guitar/' + file_name, 'tests/data/guitar/' + file_name, shallow=False)
 
 
-def recursive_parse_patterns(pattern: Dict[str, Union[str, Dict[str, Union[str, list]], int]]):
+def recursive_parse_patterns(pattern: Dict[str, Union[str, Dict[str, Union[str, list]], int]]) -> None:
     """Recurisvely tests the patterns for validity
 
     :param pattern: The guitar pattern to test
@@ -75,7 +75,7 @@ def recursive_parse_patterns(pattern: Dict[str, Union[str, Dict[str, Union[str, 
         assert pattern['time'] >= 0
 
 
-def guitar_patterns_types(pattern: Dict[str, Union[str, List[Dict[str, Union[str, int, Dict[str, Union[str, list]]]]]]]):
+def guitar_patterns_types(pattern: Dict[str, Union[str, int, List[Dict[str, Union[str, int, Dict[str, Union[str, list]]]]]]]) -> None:
     """Tests a pattern for validity
 
     :param pattern: The guitar pattern to test

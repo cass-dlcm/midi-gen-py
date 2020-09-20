@@ -188,7 +188,7 @@ def write_file(mid: MidiFile) -> str:
     return timestamp
 
 
-def create(progression_length, segments, mid):
+def create(progression_length: int, segments: int, mid: MidiFile) -> None:
     """Creates a new composition
 
     :param progression_length: The number of chords in each segment
@@ -203,8 +203,8 @@ def create(progression_length, segments, mid):
     guitar_chosen_patterns = guitar_gen.choose_patterns(progression_length * segments)
     ticks_per_beat: int = int(lcm(guitar_chosen_patterns[1], drum_chosen_patterns[1]) / 4)
     while ticks_per_beat > 32767:
-        ticks_per_beat /= 2
-    meta: Tuple(MidiTrack, int) = create_meta_track()
+        ticks_per_beat = int(ticks_per_beat / 2)
+    meta: Tuple[MidiTrack, int] = create_meta_track()
     mid.tracks.append(meta[0])
     bpm: int = meta[1]
     mid.tracks.append(piano_gen.create_track(progression_length, sequences, mid.ticks_per_beat))
@@ -218,7 +218,7 @@ def create(progression_length, segments, mid):
         FluidSynth().play_midi("output/" + timestamp + '.mid')
 
 
-def main():
+def main() -> None:
     """Generates a composition when ran directly"""
     progression_length: int = config['progression_length']
     segments: int = config['segments']

@@ -18,7 +18,7 @@ from typing import TextIO, List, Dict, Union, cast
 config: Dict[str, Union[str, int]] = {}
 
 
-def load_config(file_loc: str):
+def load_config(file_loc: str) -> None:
     """Loads the config file from the filesystem
 
     :param file_loc: The location of the configuration file
@@ -32,7 +32,7 @@ def load_config(file_loc: str):
 hues: List[int] = []
 
 
-def add_value_to_hues(value: int):
+def add_value_to_hues(value: int) -> None:
     """Adds values passed in to the array of hues emitted
 
     :param value: The hue value to add
@@ -41,7 +41,7 @@ def add_value_to_hues(value: int):
     hues.append(value)
 
 
-def write_file(timestamp: str, bpm: int, progressionLength: int, segments: int):
+def write_file(timestamp: str, bpm: int, progressionLength: int, segments: int) -> None:
     """Writes Ardiuno program to file and optionally executes it
 
     :param timestamp: A timestamp, formatted as '%Y-%m-%d_%H_%M_%S'

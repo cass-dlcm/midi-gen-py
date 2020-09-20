@@ -49,7 +49,7 @@ patterns: List[Dict[str, Union[str, int, List[Dict[str, Union[str, int, Dict[str
 # }
 
 
-def read_patterns(path: str):
+def read_patterns(path: str) -> None:
     """Reads the guitar patterns in from a folder
 
     :param path: The path to the pattern json files
@@ -72,7 +72,7 @@ def get_patterns() -> List[Dict[str, Union[str, int, List[Dict[str, Union[str, i
     return patterns.copy()
 
 
-def filter_patterns(chosen: List[int] = None) -> int:
+def filter_patterns(chosen: List[int] = cast(List[int], None)) -> int:
     """Filters the guitar patterns only to the ones chosen
 
     :param chosen: A list of numbers of the chosen guitar patterns
@@ -103,7 +103,7 @@ def filter_patterns(chosen: List[int] = None) -> int:
     return ticks_per_measure
 
 
-def guitar_pattern_repeat_recursion(level: Dict[str, Union[str, int, Dict[str, Union[str, list]]]], track: MidiTrack, sequences: List[List[List[int]]], a: int, b: int, ticks_per_measure: int, ticks_per_beat: int):
+def guitar_pattern_repeat_recursion(level: Dict[str, Union[str, int, Dict[str, Union[str, list]]]], track: MidiTrack, sequences: List[List[List[int]]], a: int, b: int, ticks_per_measure: int, ticks_per_beat: int) -> None:
     """Parses, recurisvely, a guitar pattern and adds note_events
 
     :param level: The current level of the nested pattern
@@ -132,7 +132,7 @@ def guitar_pattern_repeat_recursion(level: Dict[str, Union[str, int, Dict[str, U
             track.append(Message(cast(str, level['note_event']), note=sequences[a][b][0] + cast(int, level["pitch"]), channel=1, time=int(round(cast(int, level["time"]) * ticks_per_beat * 4 / ticks_per_measure))))
 
 
-def guitar(track: MidiTrack, pattern: Dict[str, Union[str, int, List[Dict[str, Union[str, int, Dict[str, Union[str, list]]]]]]], a: int, b: int, sequences: List[List[List[int]]], ticks_per_beat: int):
+def guitar(track: MidiTrack, pattern: Dict[str, Union[str, int, List[Dict[str, Union[str, int, Dict[str, Union[str, list]]]]]]], a: int, b: int, sequences: List[List[List[int]]], ticks_per_beat: int) -> None:
     """Picks guitar patterns and adds them to the track
 
     :param track: The guitar track to add patterns to

@@ -19,17 +19,17 @@ from os import mkdir
 from typing import List, Union, Dict, cast
 
 
-def test_drums():
+def test_drums() -> None:
     """Generates each drum pattern and compares it to a 'known good' file of each pattern"""
-    file_list: List[str] = glob.glob(get_config()['drum_path'])
+    file_list: List[str] = glob.glob(cast(str, get_config()['drum_path']))
     for i in range(0, len(file_list)):
         mid: MidiFile = MidiFile()
         mid.tracks.append(create_simple_meta_track()[0])
-        read_patterns(get_config()['drum_path'])
+        read_patterns(cast(str, get_config()['drum_path']))
         filter_patterns([i])
         chosen_patterns = choose_patterns(1)
         mid.ticks_per_beat = int(chosen_patterns[1] / 4)
-        pattern = get_patterns()[0]
+        pattern: Dict[str, Union[str, int, List[Dict[str, Union[str, int, Dict[str, Union[str, list]]]]]]] = get_patterns()[0]
         drum_patterns_types(pattern)
         mid.tracks.append(create_track(chosen_patterns[0], 1, mid.ticks_per_beat))
         try:
@@ -42,13 +42,13 @@ def test_drums():
             print("Created tests/output/drums directory.")
         except FileExistsError:
             pass
-        file_name: str = pattern['name'] + '.mid'
+        file_name: str = cast(str, pattern['name']) + '.mid'
         mid.save('tests/output/drums/' + file_name)
         assert abs(mid.length - 2 * pattern['measures']) < .001
         assert cmp('tests/output/drums/' + file_name, 'tests/data/drums/' + file_name, shallow=False)
 
 
-def recursive_parse_patterns(pattern: Dict[str, Union[str, int, Dict[str, Union[str, list]]]]):
+def recursive_parse_patterns(pattern: Dict[str, Union[str, int, Dict[str, Union[str, list]]]]) -> None:
     """Recurisvely tests the patterns for validity
 
     :param pattern: The drum pattern to test
@@ -77,7 +77,7 @@ def recursive_parse_patterns(pattern: Dict[str, Union[str, int, Dict[str, Union[
         assert pattern['time'] >= 0
 
 
-def drum_patterns_types(pattern: Dict[str, Union[str, List[Dict[str, Union[str, int, Dict[str, Union[str, list]]]]]]]):
+def drum_patterns_types(pattern: Dict[str, Union[str, int, List[Dict[str, Union[str, int, Dict[str, Union[str, list]]]]]]]) -> None:
     """Tests a pattern for validity
 
     :param pattern: The drum pattern to test
