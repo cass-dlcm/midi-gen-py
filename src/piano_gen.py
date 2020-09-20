@@ -20,7 +20,7 @@ else:
 C_VAL: int = 48
 
 
-def create_track(progression_length: int, sequences: Dict[str, Union[List[str], List[List[List[int]]]]], ticks_per_beat: int):
+def create_track(progression_length: int, sequences: Dict[str, Union[List[str], List[List[List[int]]]]], ticks_per_beat: int) -> MidiTrack:
     """Generates a track of piano chords
 
     :param progression_length: How long an individual chord progression is
